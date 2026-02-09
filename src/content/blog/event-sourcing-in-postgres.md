@@ -1,0 +1,24 @@
+---
+title: "Event Sourcing in Postgres"
+description: "How to build an Event Sourcing system using one of the best data-store tools available to humankind: Postgres!"
+pubDate: "2020-12-13T23:00:00.000Z"
+updatedDate: "2021-11-06T12:02:53.000Z"
+heroImage: "https://images.unsplash.com/photo-1452421822248-d4c2b47f0c81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDExfHxqb3VybmFsfGVufDB8fHx8MTYzNTkzNDQzMg&ixlib=rb-1.2.1&q=80&w=2000"
+---
+
+Big companies benefit from products like [RabbitMQ](https://www.rabbitmq.com/), [Kafka](https://kafka.apache.org/), or [Elastic Search](https://www.elastic.co/elastic-stack), **and have the matching economy** to pay for the required resources, mostly clusters of virtual machines.
+
+All the other companies would benefit from the same patterns, **but don’t have enough scale to make it efficient**.
+
+👉 _Money is always a scarce resource_ 👈
+
+> Running a cluster of 3 servers just to store a few million messages in a RabbitMQ queue or Kafka topic is simply too expensive.
+
+A [relational database](https://en.wikipedia.org/wiki/Relational_database) such as [PostgreSQL](https://www.postgresql.org/) is still among **the cheapest options to store a large amount of data** in a persistent and reliable way.
+
+In this series of articles, we’re going to **discover a data model** that lets us store and consume events in a reliable way, offering the possibility for **concurrent producers/consumers** to work together without race-condition each other.
+
+👉 The entire source code, complete with tests and performance analysis is available at: [https://github.com/marcopeg/postgres-event-sourcing](https://github.com/marcopeg/postgres-event-sourcing).
+
+*   [How to store Events in PostgreSQL](/event-sourcing-in-postgres-the-events/)
+*   [How to retain the cursor memory by Client ID](/event-sourcing-in-postgres-the-client/)

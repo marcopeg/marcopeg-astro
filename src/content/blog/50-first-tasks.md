@@ -1,0 +1,472 @@
+---
+title: "50 FIRST TASKS"
+description: "Code assistants forget stuff. Here’s how to teach it not to. Boost Copilot, Cursor, and other assistants with a structured Memory Bank to make every task smarter, faster, and even more human."
+pubDate: "2025-07-13T06:52:52.000Z"
+updatedDate: "2026-02-05T05:55:16.000Z"
+heroImage: "/content/images/2026/02/50-first-ai-tasks.jpg"
+---
+
+Today's AI bots don't remember s\*\*t, and _that's a feature_.  
+Sometimes, a pain to bear.
+
+The pain is quite obvious: raise your hand if you have ever felt the need to yell _"Whaat? YOU did that yesterday!"_ to your favorite code assistant.
+
+> _It's not a bug,  
+> It's a feature_
+
+The _"it's not a bug, it's a feature"_ part of my comment might feel less obvious to most.
+
+So let's dive in.
+
+* * *
+
+🚧 This article is structured with:
+
+1.  an hopefully _entertaining introdution_ that leads to
+2.  a _step-by-step tutorial_ where you take the lead and **enhance GitHub Copilot's capabilities**, then
+3.  a wrap up with _philosophical takeaways_ that will blow your mind insights and questions that you can take out to the world at large
+
+Jump to the section you may enjoy the most, and be the tokens blow your sails!
+
+👉
+
+If you are looking for the final ****Copilot-Instructions.md****, or the tutorial codebase, just click here:  
+  
+[https://github.com/marcopeg/50-first-tasks](https://github.com/marcopeg/50-first-tasks)
+
+* * *
+
+## Entertaining Introduction
+
+In the famous movie [50 FIRST DATES](https://www.imdb.com/title/tt0343660/), Adam Sandler falls in love with a girl who can't remember anything from the day before. She had an accident that killed her short-term memory.
+
+Adam has to **start over every day** and find the quickest and most effective way to win her heart. Every day. Every - single - day.
+
+I can tell you without spoiling the fun of watching it that it's a real struggle to run a relationship with such a person. In the movie, our hero resolves to **condense the increasingly conspicuous couple's history into a short video clip** that is watched first thing in the morning by Drew Barrymore so that she can catch up with today's reality.
+
+It's not ideal, but it works.
+
+> And it's a **perfect metaphor** for how AI-assisted coding works today.
+
+* * *
+
+Switching back to our engineering world, today's LLMs and Code Assistants work in the same way. Every time you hit the _"+ new chat"_ button, **their memory gets reset**.
+
+If you work_(ed)_ as a _Prompt Engineer_, it's no surprise to you that **prompts have no memory** of what happened before.
+
+> Assistants are  
+> STATELESS
+
+So, what can we do about it?
+
+* * *
+
+Well, using code assistants like Cursor, Copilot, and Claude already offers a partial solution.
+
+Those tools **index your codebase** to understand what it is supposed to do, and thus, to better comprehend the requests you send in.
+
+Once they understand a codebase's leading technology, such as NodeJS, they look for specific files _(package.json, requirements.txt)_ and patterns, and make educated guesses about what's going on.
+
+> But "EDUCATED INDEXING"  
+> has its limits
+
+It feels like hiring a top senior engineer only to leave her alone with the codebase, reading file after file, trying to make sense of the mess.
+
+We don't work like that!  
+_Well, we surely SHOULD NOT!_ 😳
+
+The first thing we do with new hires, regardless of their skill level, is give 'em a good ol' onboarding session!
+
+* * *
+
+> First day:  
+> ONBOARDING!
+
+For an LLM, each task is the first task, so the first thing to do when you start something new is to learn about it.
+
+The [**Memory Bank concept**](https://docs.cline.bot/prompting/cline-memory-bank) is a simple approach that utilizes Markdown files to store condensed information about the ongoing project, much like the videotape used in the movie.
+
+I linked the original proposal by Cline, but **the Memory Bank is just a piece of English** that briefs AI into your project.
+
+> It's Plain English!
+
+My current approach focuses on these files that I **keep within the codebase** in `docs/` folder:
+
+*   `ARCHITECTURE.md` - stores high-level info about tech, frameworks, coding practices, stuff to avoid at all costs
+*   `FEATURES.md` - stores high-level info about the features of the project
+*   `DEPENDENCIES.md` - stores detailed information about dependencies used in the project, and links to their documentation, [focusing on Context7 links](https://context7.com/)
+*   `BACKLOG.md` - keeps detailed information about user stories and their implementation history
+
+These are the kind of basic information that **creates a relevant context for the LLM** when I start a new task in a new chat.
+
+* * *
+
+> Yeah, but How?
+
+When your newly hired 10x engineer comes to the office, _"Go and read the project's documentation"._
+
+With **Agentic Coding** (_Vibe Coding taken to the next level_), we have a similar mechanism, which starts to be a **standard pattern among most AI tools**:
+
+*   ChatGPT's project _instructions_
+*   Perplexity's spaces _instructions_
+*   Cursor's _rules_
+*   Copilot's _instructions_
+
+Many names, but the same simple concept: **Markdown**.
+
+> Onboarding with Markdown
+
+From now on, I'll focus on Copilot's `.github/copilot-instructions.md` file, just because that happens to be my company's agentic tool of choice (aka, I don't pay for it) - but the same concepts and contents apply to Cursor, Claude Code, and others.
+
+* * *
+
+## Hands-on Tutorial
+
+From now on, you will **put all this theory into practice** in a simple step-by-step fashion. Refer to the following repo as a reference.
+
+👉 At the end of each step, you find the link to the relative branch.
+
+[
+
+GitHub - marcopeg/50-first-tasks: Support codebase to: 50 FIRST TASK (article)
+
+Support codebase to: 50 FIRST TASK (article). Contribute to marcopeg/50-first-tasks development by creating an account on GitHub.
+
+![](/content/images/icon/pinned-octocat-093da3e6fa40-2.svg)GitHubmarcopeg
+
+![](/content/images/thumbnail/50-first-tasks-1)
+
+](https://github.com/marcopeg/50-first-tasks)
+
+* * *
+
+> A First Simple Test
+
+As a first simple test, try creating the `.github/copilot-instructions.md` file in your codebase and give the following as content:
+
+```Markdown
+Always greet the user as Yoda would greet young Skywalker.
+```
+
+.github/copilot-instructions.md
+
+And then try that in a new VSCode project:
+
+![](/content/images/2026/02/copilot-instructions_md_---_article.jpg)
+
+Copilot's first action is to read its instructions!
+
+If you observe the screenshot, the first action is to read the `copilot-instructions.md` so that **its content drives Copilot**'s response.
+
+> This very same principle applies to Cursor's rules, as well as ChatGPT's project. And almost all the others.
+
+👨‍💻
+
+Check out this step in the tutorial:  
+[https://github.com/marcopeg/50-first-tasks/tree/step01](https://github.com/marcopeg/50-first-tasks/tree/step01)
+
+* * *
+
+> The hottest new programming language is English  
+> \- Andrej Karpathy
+
+> The hottest new programming language is English
+> 
+> — Andrej Karpathy (@karpathy) [January 24, 2023](https://twitter.com/karpathy/status/1617979122625712128?ref_src=twsrc%5Etfw)
+
+This is a fascinating post from Andrej Karpathy that went viral.
+
+And that is the core of this whole idea:
+
+> _Provide structured prompts to  
+> **program our assistant's behavior**._
+
+Now you understand how to configure your Copilot.
+
+It's time to craft meaningful and helpful prompts, rules, and instructions **to help the AI help you**.
+
+* * *
+
+> Context is King
+
+Practicalities are over.
+
+Now, focus on **loading our _Memory Bank_ into the chat's context**, so that the AI gets an immediate grip on our project.
+
+Let's start by filling in a minimum set of information for the project. The kind of information that you would have provided to your engineer of choice to get the wheel spinning:
+
+![](/content/images/2026/02/ARCHITECTURE_md_---_article.jpg)
+
+docs/memory-bank/ARCHITECTURE.md
+
+👉
+
+It's up to you to set the bar here.  
+__The higher the level of details, the better Copilot will help you.__
+
+And now let's craft an improved version of the instructions that get this context loaded in memory:
+
+```Markdown
+Talk like Yoda from Star Wars.
+
+Always read the Memory Bank files:
+`docs/**/*.md`
+
+Provide a brief summary of the context at the beginning of the chat.
+```
+
+.github/copilot-instructions.md
+
+Start a _New Chat_, you should get this kind of experience:
+
+![](/content/images/2026/02/copilot-instructions-step02-3.gif)
+
+Load Memory Bank in memory
+
+Let's unpack it.
+
+1.  Yoda-style greeting
+2.  Search `*.md` files within the `docs/` directory
+3.  Read those files
+4.  Present the AI understanding (summary)
+
+👨‍💻
+
+Check out this step in the tutorial:  
+[https://github.com/marcopeg/50-first-tasks/tree/step02](https://github.com/marcopeg/50-first-tasks/tree/step02)
+
+* * *
+
+> Backlog Oriented Development
+
+The backlog section deserves a thorough examination.
+
+![](/content/images/2026/02/BACKLOG_md_---_article.jpg)
+
+docs/backlog/BACKLOG.md
+
+Cline or other AI providers do not cover this _yet_, and to the best of my knowledge, I'm running a fairly original experiment.
+
+💡
+
+If this proposal consolidates, I envision a future in which ****Jira MCPs will dominate our development landscape****.  
+  
+Sorry, we won't be able to kill Jira.  
+__The monster regenerates.__
+
+My idea is to break down the Memory Bank into **task-isolated sub-banks**.
+
+Each task has its dedicated file where **humans and AI collaborate** to build extensive documentation:
+
+*   **Goal:** what needs to be done
+*   **Plan:** what steps will be taken
+*   **Progress:** what has been done so far
+*   **Issues:** what went wrong along the way
+
+![](/content/images/2026/02/init-node-project_md_---_article.jpg)
+
+backlog & task definition
+
+This simple file-based backlog works exceptionally well for tracking the job that needs to be done in the codebase.
+
+👨‍💻 An Engineer can read it and update it.
+
+🤖 So can the AI.
+
+👨‍💻
+
+Check out this step in the tutorial:  
+[https://github.com/marcopeg/50-first-tasks/tree/step03](https://github.com/marcopeg/50-first-tasks/tree/step03)
+
+* * *
+
+> Use the Backlog, Luke
+
+The next evolution of the experiment is to get Copilot to do most of the work for us:
+
+*   Planning: `plan the task: Init node project`
+*   Execution: `execute the task: Init node project`
+*   Documentation: `update the memory bank`
+
+But before we let SkyNet go wild, let's tweak the instructions, adding some juice:
+
+```Markdown
+When the user refers to a task in the backlog, read the file `docs/backlog/BACKLOG.md` to identify the task, and read the linked file to understand the task details.
+
+If the user asks to **plan a task**, learn what you can about the task from the Memory Bank files, devise a plan, then write it in the task's file unde `# Plan`.
+
+If the user asks to **execute a task**, read the task's file to understand what needs to be done, then write the progress in the task's file under `# Progress`.
+```
+
+.github/copilot-instructions.md
+
+With the updated instructions, it's time to set the task I want the AI to perform:
+
+![](/content/images/2026/02/BACKLOG_md_---_article-1.jpg)
+
+set the current task
+
+* * *
+
+> \> plan task
+
+And then ask Copilot to do the heavy lifting for me: `plan task` . It's smart enough to identify the _current task_ from the backlog.
+
+![](/content/images/2026/02/copilot-instructions-step04-plan.gif)
+
+plan task
+
+> Review carefully
+
+Once the _Mechanical Turk_ is done, I **carefully review the proposed plan**. Most of the time, the result is surprisingly accurate. Sometimes, I ask Copilot to make changes; other times, I make the changes myself.
+
+👉
+
+Planning the task is a ****hybrid iteration**** that involves using both the Chat interface and the editor.  
+  
+And it's best done in pair programming.
+
+* * *
+
+> \> execute task
+
+Once I'm satisfied, it's time to move to the implementation phase: `execute task` . No need to specify the task, it will use the _Current Task_.
+
+![](/content/images/2026/02/copilot-instructions-step04-execute.gif)
+
+execute task
+
+In _Real Life_, the task execution phase can take from some minutes to _"feels like forever"_. And it's not a given that it will work.
+
+Some models can perform a lot of autonomous work _(Sonnet4)_, some others stop every few lines of code, and you have to keep prompting `go on` _(Gemini 2.5 & Gpt)._
+
+For this particular task, I got prompted multiple times to allow operations such as `npm install` or `npm run lint` . I thoroughly clicked "Accept".
+
+![](/content/images/2026/02/Screenshot_2025-07-11__12_40.jpg)
+
+✅ task successfully executed!
+
+> Review (double) carefully!!!
+
+Once the Agent was done, I found a lot of new files!
+
+I tried `npm run dev` from the `package.json` ´s scripts and it worked. I had a minor issue with the first commit due to a pre-commit misconfiguration, but reporting the error to the chat was enough to resolve it.
+
+All in all, it nailed it on the first run. However, it **is still your responsibility** to review and commit the changes.
+
+> **It's a proposal,**  
+> Not a commit!
+
+👉
+
+This was a trivial task. In __Real-Life__, the review part is where enginners are still running the show, taking the ****LLM's result as a proposed artifact**** that needs iteration, refactoring, critical thinking and evolution before reaching a committable status.
+
+* * *
+
+> \> Wrap it up
+
+It doesn't matter how trivial a task may be; if you are a serious engineer, you take every opportunity to **apply deliberate learning**. And running tasks never fails to be such an experience.
+
+Wrapping up an Agentic-coded task entails **extracting valuable content** from the Chat's execution context and **committing it to permanent memory**:
+
+*   Review and complete the task's documentation
+*   Update the _Memory Bank_'s files
+*   Mark the task as completed in the backlog
+
+I can feed this directly into the chat as my follow-up prompt:
+
+```Markdown
+- Review and complete the task's documentation
+- Update the Memory Bank's files
+- Mark the task as completed in the backlog
+```
+
+task review prompt
+
+![](/content/images/2026/02/copilot-instructions-step04-review.gif)
+
+review and document the task
+
+This kind of prompt is precisely where AI shines: **extraction & summarization**. Take a look at the screenshot and review the code. If only I had _Key Learnings_ summarized for every experience in my life so far!
+
+> Evolve your  
+> Memory Bank
+
+Once you start collecting these sections out of all your tasks, being those stored within the codebase as Markdown files, or in Jira through an MCP, you can **apply extraction & summarization from tasks to _Memory Bank_'s** `FEATURES.md` and `ARCHITECTURE.md` and carefully evolve the high-level project documentation.
+
+**Almost** automatically!  
+_(You still want to review, review, review!)_
+
+![](/content/images/2026/02/task-wrap-up.jpg)
+
+task wrap up output
+
+👨‍💻
+
+Check out this step in the tutorial:  
+[https://github.com/marcopeg/50-first-tasks/tree/step04](https://github.com/marcopeg/50-first-tasks/tree/step04)  
+  
+(More tasks in branches: `step05`, `step06`, and `step07`)
+
+* * *
+
+> Documentation  
+> Is the New Black
+
+We now have a highly detailed history of the task, along with an update for the _Memory Bank_ that includes architecture, dependencies, and features.
+
+Of course, this is raw documentation written by an AI.
+
+It's a good starting point, but I usually spend most of my time refining those documents in preparation for the next task. Usually, I do that in pair programming (or shall we call it _Pair Review_?)
+
+👉
+
+In the era of __Agentic Engineering__, ****my job is evolving from coding to managing the codebase****.
+
+> The last phase in the task's lifecycle is documentation.
+
+It is so important that I think it is worth expanding our Codepilot's instructions to keep it as a coherent behavior for future tasks:
+
+```Markdown
+If the user asks to **wrap up a task**, do:
+- Review and complete the task's documentation
+- Update the memory bank's files
+- Mark the task as completed in the backlog
+```
+
+.github/copilot-instructions.md
+
+* * *
+
+## Philosophical Takeaways
+
+When you implement the **Plan > Review > Execute > Consolidate** approach, your project's **_Memory Bank_ is constantly up to date** with the most relevant information needed to onboard a new colleague, or the next AI-automated task execution.
+
+In this scenario, every Chat session is dedicated to one single Task.
+
+💡
+
+Is the [_****Single Responsibility Principle****_](https://en.wikipedia.org/wiki/Single-responsibility_principle) all over again.  
+We just apply it to a new context.
+
+**New chats are stateless** towards other chats.
+
+And by now we understand that a chat can only grow so long before the breadth of its [_context begins working agains the accuracy_](https://www.reddit.com/r/LocalLLaMA/comments/1ii2kv8/can_larger_contexts_make_the_llms_job/) of the model's preditions.
+
+> New Task,  
+> New Chat
+
+Today more than ever, the responsibility for a speedy and high quality coding experience lies in devising **small, incremental, and well written tasks**.
+
+It strikes me as a wonderful opportunity to **focus our efforts on the project's Architecture**. Mind me, not the code architecture, the project's as a whole.
+
+That is about how features interoperate, how they bring value to the user. It's about _User Experience_, expecially in the age of AI-based task automation.
+
+AI will not do everything for us.
+
+Agents will do an increasingly amount of small tasks. They will even be able to devise and propose coordination and workflow planning, but the final word is ours. **The human in the loop**.
+
+We can foolishly accept any plan they come up to.  
+Or we can take the wheel and drive.
+
+What will you do?

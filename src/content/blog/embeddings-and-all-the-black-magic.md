@@ -1,0 +1,74 @@
+---
+title: "Embeddings and all the Black Magic"
+description: "First steps with Embeddings and OpenAI: from API setup to a working Jupiter Notebook."
+pubDate: "2024-04-14T08:05:35.000Z"
+updatedDate: "2024-04-14T08:10:47.000Z"
+heroImage: "https://images.unsplash.com/photo-1653013671318-a455b5071789?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDg4fHxtYWdpY2lhbnxlbnwwfHx8fDE3MTMwODA2OTJ8MA&ixlib=rb-4.0.3&q=80&w=2000"
+---
+
+The first AI concept that truly fascinates me is embeddings.
+
+There is so much literature about it that I won't try to explain it again. For that, open up Medium and search for an introduction to this subject. [I find a good starting point in this article](https://medium.com/@arcanumai/all-roads-lead-to-maths-a-high-level-introduction-to-embeddings-73541babefd2).
+
+Here comes the black magic:
+
+Embeddings catch the meaning of a text-based source. And that meaning is surprisingly language-unaware.
+
+> You can embed an English document  
+> and search it with an Italian query.
+
+In my first experiment, I indexed a markdown-based documentation project that I wrote in English. Then, I managed to find useful information out of a query that I wrote in my local Italian dialect.
+
+I was stunned.
+
+## Embeddings For Dummies
+
+Embeddings are not something you do; you would instead buy them in a marketplace such as OpenAI, which is possibly the most famous. There are also many [open-source alternatives](https://www.graft.com/blog/open-source-text-embedding-models), but hosting and running them requires a heck of a piece of hardware.
+
+I am an eager consumer of ChatGPT and so I've decided to start with OpenAI.
+
+## Setup your API Key
+
+Initially, I got confused because I couldn't find any "API Tokens" section in the ChatGPT interface, and I was puzzled about how to get to use it programmatically 🧐.
+
+It took some googling to figure out that ChatGPT and OpenAI are two different things. I hope you appreciate me sharing this with you, even if it casts silly spotlights on my weekend-induced naivety.
+
+So here is the receipt:
+
+*   Go to [OpenAI and Login](https://platform.openai.com)
+*   Navigate to Settings / Billing
+*   Add some funds: you need a minimum deposit of 5€ to be able to use the API!
+*   Move to "API Keys" and generate your key
+
+👉 I tried to generate the key before making the money transfer, but I got "insufficient funds" even though I could see some trial credits. This is not something you quite expect.
+
+Once you have your key, create a `.env` file in your JupiterLAB project (checkout the repo here) and store the key:
+
+```bash
+# .env
+OPENAI_API_KEY=xxx
+```
+
+And restart your project:
+
+```bash
+make restart
+```
+
+## Generate Embeddings
+
+As we said, generating embeddings is just a matter of turning text into an array of numbers.
+
+Checkout the step-by-step source code here:
+
+[
+
+learning-python/notebooks/openai-embeddings.ipynb at main · marcopeg/learning-python
+
+A containerized project to play around with Python and Jupiter Notebook - marcopeg/learning-python
+
+![](https://github.githubassets.com/assets/pinned-octocat-093da3e6fa40.svg)GitHubmarcopeg
+
+![](https://opengraph.githubassets.com/0323df2fdfd689efb0ad1cb6874dc9a5a091c02eecc346cc2e21357170ba6bef/marcopeg/learning-python)
+
+](https://github.com/marcopeg/learning-python/blob/main/notebooks/openai-embeddings.ipynb)

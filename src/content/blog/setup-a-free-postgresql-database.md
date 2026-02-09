@@ -1,0 +1,54 @@
+---
+title: "Setup a Free PostgreSQL Database"
+description: "Do you want to learn Postgres? Today you can spin up your database completely for FREE and start experimenting with one of the best database tools ever."
+pubDate: "2019-12-01T23:00:00.000Z"
+updatedDate: "2021-11-06T08:56:00.000Z"
+heroImage: "/content/images/2021/11/postgresql-as-a-service-elephantsql.png"
+---
+
+[PostgreSQL](https://www.postgresql.org/) is a great tool, it offers:
+
+*   relational database paradigm (SQL)
+*   document database paradigm
+*   stored procedures
+*   table inheritance and data partitioning
+*   a lot of extensions
+*   event emitter!!!
+
+In this tutorial, you will create an account in [ElephantSQL](https://www.elephantsql.com/) and set up a new database.
+
+## Go to the ElephantSQL Website
+
+Open your browser and go to [www.elephantsql.com](https://www.elephantsql.com/). Once there you can follow the steps in this video to login with _Google_ or _GitHub_ and create your first free _Postgres_ database:
+
+## Get your Connection String
+
+ElephantSQL provides this information for you as a **URL**:
+
+![](/content/images/2021/11/image-33.png)
+
+## Play with your Database
+
+Before you dig into back-end code I’d like you to play around with your database and spend some time to get familiar with simple operations such as creating tables, inserting, changing, and deleting data.
+
+This is often referred to as **CRUD Operations** and it is exactly what you will do in your backend. If you have direct experience with it is going to be easier.
+
+## Use Postico on MacOS
+
+I’m a macOS user and the client I suggest you use is [Postico](https://eggerapps.at/postico/) which works fine and it is free of charge for most of its functionalities.
+
+In the next screenshot you can see my connection setup screen:
+
+![](/content/images/2021/11/image-34.png)
+
+And once you establish a successful connection, you can use the app to perform all the operations that you may think about.
+
+![](/content/images/2021/11/image-35.png)
+
+## Or use the SQL Browser in ElephantDB
+
+In case you can’t use a Postgres client app, you can navigate to the **BROWSER** menu and use the console to **run SQL queries** against your database.
+
+![](/content/images/2021/11/image-36.png)
+
+If you are going the “browser” way you need to write plain _SQL queries_, here is a nice [introduction to the subject that will get you up to speed with _CRUD_ operations in _SQL_ for Postgres](https://www.datacamp.com/community/tutorials/beginners-introduction-postgresql).
