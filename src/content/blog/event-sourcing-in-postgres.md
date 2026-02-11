@@ -4,6 +4,7 @@ description: "How to build an Event Sourcing system using one of the best data-s
 pubDate: "2020-12-13T23:00:00.000Z"
 updatedDate: "2021-11-06T12:02:53.000Z"
 heroImage: "https://images.unsplash.com/photo-1452421822248-d4c2b47f0c81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDExfHxqb3VybmFsfGVufDB8fHx8MTYzNTkzNDQzMg&ixlib=rb-1.2.1&q=80&w=2000"
+tags: ["postgres", "event sourcing", "Tutorials", "Databases", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 Big companies benefit from products like [RabbitMQ](https://www.rabbitmq.com/), [Kafka](https://kafka.apache.org/), or [Elastic Search](https://www.elastic.co/elastic-stack), **and have the matching economy** to pay for the required resources, mostly clusters of virtual machines.

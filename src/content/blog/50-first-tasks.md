@@ -4,6 +4,7 @@ description: "Code assistants forget stuff. Here’s how to teach it not to. Boo
 pubDate: "2025-07-13T06:52:52.000Z"
 updatedDate: "2026-02-05T05:55:16.000Z"
 heroImage: "/content/images/2026/02/50-first-ai-tasks.jpg"
+tags: ["ai", "agents", "coding", "vibe coding", "code assistants", "cursor", "Tutorials"]
 ---
 
 Today's AI bots don't remember s\*\*t, and _that's a feature_.  

@@ -4,6 +4,7 @@ description: "The one secret is to step aside and ask your team the \"what quest
 pubDate: "2021-12-01T08:02:00.000Z"
 updatedDate: "2021-12-01T08:02:00.000Z"
 heroImage: "/content/images/2021/11/IMG_7615.JPG"
+tags: ["Leadership", "Communication", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 I've read many books on leadership, trying to grasp the one secret to becoming a good leader that many are happy to follow. I found it:

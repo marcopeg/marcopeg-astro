@@ -4,6 +4,7 @@ description: "Do you need a smart tool to clean up Docker images after a new dep
 pubDate: "2019-03-26T23:00:00.000Z"
 updatedDate: "2021-11-01T19:26:17.000Z"
 heroImage: "https://images.unsplash.com/photo-1600322305530-45714a0bc945?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDN8fHZhY3V1bSUyMGNsZWFuZXJ8ZW58MHx8fHwxNjM1Nzk0NjM3&ixlib=rb-1.2.1&q=80&w=2000"
+tags: ["Tips & Tricks", "Docker", "devops", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 [Docker Vacuum](https://hub.docker.com/r/marcopeg/docker-vacuum) is a small DevOps utility that runs on your production server as a container and **keeps disk usage under control**.

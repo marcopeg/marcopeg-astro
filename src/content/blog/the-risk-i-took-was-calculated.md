@@ -4,6 +4,7 @@ description: "But man, am I bad at math."
 pubDate: "2021-11-06T12:11:00.000Z"
 updatedDate: "2021-11-30T16:52:15.000Z"
 heroImage: "/content/images/2021/11/imbadatmath.png"
+tags: ["Quotes", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 _But man, am I bad at math._

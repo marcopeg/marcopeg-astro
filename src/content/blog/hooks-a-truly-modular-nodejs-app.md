@@ -4,6 +4,7 @@ description: "How to create a truly modular NodeJS App where your business value
 pubDate: "2019-05-24T22:00:00.000Z"
 updatedDate: "2021-11-06T08:52:47.000Z"
 heroImage: "/content/images/2021/11/architecture-1477041_1280.jpeg"
+tags: ["ForrestJS", "nodejs", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 Writing apps in NodeJS is fun and quite easy.

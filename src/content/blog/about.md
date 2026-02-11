@@ -3,6 +3,7 @@ title: "About Me"
 description: "I was born to fly planes, luckily I'm a darn good web engineer!"
 pubDate: "2021-11-03T14:22:26.000Z"
 updatedDate: "2025-07-13T14:03:14.000Z"
+tags: ["Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 I was born in Italy, in the hot summer of ‘81.  

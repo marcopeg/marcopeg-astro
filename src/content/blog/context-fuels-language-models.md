@@ -4,6 +4,7 @@ description: "Just as machine learning algorithms rely on quality training data,
 pubDate: "2025-01-31T13:32:23.000Z"
 updatedDate: "2025-01-31T13:32:23.000Z"
 heroImage: "https://images.unsplash.com/photo-1679679195912-29d0190805ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDE1fHxjb250ZXh0fGVufDB8fHx8MTczODMxNzU0M3ww&ixlib=rb-4.0.3&q=80&w=2000"
+tags: ["ai", "llm", "machine learning", "prompt-engineering", "artificial intelligence", "chatgpt", "#Import 2025-02-27 15:31"]
 ---
 
 Just as machine learning algorithms rely on quality training data, Large Language Models (LLM) thrive on their given context.

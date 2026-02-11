@@ -4,6 +4,7 @@ description: "How we learned to run Docker natively and save 55k a year!"
 pubDate: "2024-02-28T15:31:15.000Z"
 updatedDate: "2024-04-15T14:22:02.000Z"
 heroImage: "https://images.unsplash.com/photo-1646627927863-19874c27316b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDZ8fGRvY2tlcnxlbnwwfHx8fDE3MDkxMDg5MDh8MA&ixlib=rb-4.0.3&q=80&w=2000"
+tags: ["Docker", "containers", "#Import 2025-02-27 15:31"]
 ---
 
 Lately, I have been part of a weird discussion at the office:

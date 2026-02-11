@@ -4,6 +4,7 @@ description: "This is how I got my AFib diagnosis in Denmark thanks to my compan
 pubDate: "2021-11-18T09:50:00.000Z"
 updatedDate: "2021-11-18T09:50:00.000Z"
 heroImage: "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fGRlbm1hcmt8ZW58MHx8fHwxNjM3MTQxMDM5&ixlib=rb-1.2.1&q=80&w=2000"
+tags: ["my story", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 I’m the kind of guy who likes the spotlights. I love performing in public speaking events (mostly about communication and tech stuff) and have practically no shame in sharing my opinions and experiences with friends and co-workers. Sometimes it is good, sometimes it is terrible. This time it helped.

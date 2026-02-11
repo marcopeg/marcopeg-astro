@@ -4,6 +4,7 @@ description: "Explore how ChatGPT is transforming SQL learning. This AI doesn’
 pubDate: "2023-06-13T06:36:58.000Z"
 updatedDate: "2023-06-19T11:58:46.000Z"
 heroImage: "https://images.unsplash.com/photo-1652342531749-5088d600a2a1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDc4fHxFdm9sdXRpb258ZW58MHx8fHwxNjg2NTQ4NzYzfDA&ixlib=rb-4.0.3&q=80&w=2000"
+tags: ["learning", "ai", "chatgpt", "Databases", "war stories", "sql", "#Import 2025-02-27 15:31"]
 ---
 
 ### A New, Exciting Frontier in Database Learning

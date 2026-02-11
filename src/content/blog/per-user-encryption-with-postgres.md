@@ -4,6 +4,7 @@ description: "In this article you learn how to apply per-user encryption to the 
 pubDate: "2019-07-15T22:00:00.000Z"
 updatedDate: "2021-11-02T19:36:57.000Z"
 heroImage: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fGVuY3J5cHRpb258ZW58MHx8fHwxNjM1ODgxMzkw&ixlib=rb-1.2.1&q=80&w=2000"
+tags: ["postgres", "Tips & Tricks", "security", "encryption", "Tutorials", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 It’s a tough world that we are living in. Users want privacy. **Storing plain data in our DB is not enough anymore**.

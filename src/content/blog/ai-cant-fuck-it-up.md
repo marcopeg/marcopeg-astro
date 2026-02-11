@@ -4,6 +4,7 @@ description: "AI skills scale fast, but human error births innovations like peni
 pubDate: "2023-11-05T08:04:14.000Z"
 updatedDate: "2023-11-05T08:13:59.000Z"
 heroImage: "https://images.unsplash.com/photo-1698778755355-e269c65b5e16?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8YWxsfDR8fHx8fHwyfHwxNjk5MTY5NTE4fA&ixlib=rb-4.0.3&q=80&w=2000"
+tags: ["ai", "chatgpt", "#Import 2025-02-27 15:31"]
 ---
 
 ### The Unmatched Power of Human Error

@@ -4,6 +4,7 @@ description: "PGMate is a Docker-based Postgres client that focuses on Developer
 pubDate: "2024-12-12T06:52:01.000Z"
 updatedDate: "2024-12-12T07:23:09.000Z"
 heroImage: "https://images.unsplash.com/photo-1449104532935-d9209c70e2b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDJ8fGVsZXBoYW50fGVufDB8fHx8MTczMzk4NDUzMnww&ixlib=rb-4.0.3&q=80&w=2000"
+tags: ["postgres", "open source", "project", "tools", "#Import 2025-02-27 15:31"]
 ---
 
 I love Postgres.

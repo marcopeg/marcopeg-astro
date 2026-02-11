@@ -4,6 +4,7 @@ description: "How to structure your React PWA to achieve loose coupling of featu
 pubDate: "2022-01-31T07:16:05.000Z"
 updatedDate: "2022-02-10T11:31:17.000Z"
 heroImage: "/content/images/2022/01/highway-to-hell-banner.jpeg"
+tags: ["ForrestJS", "Tutorials", "React", "coding", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 In this article, I'm going to propose how to structure a _React PWA_ in a way that not only achieves a [loose coupling](https://en.wikipedia.org/wiki/Loose_coupling) of responsibilities and [_SRP_](https://en.wikipedia.org/wiki/Single-responsibility_principle)_;_ but also streamlines the [_Context Provider_](https://reactjs.org/docs/context.html) definitions making it easier to work with.

@@ -4,6 +4,7 @@ description: "Learn by examples how easy is to build a Fastify based Web Service
 pubDate: "2020-08-06T22:00:00.000Z"
 updatedDate: "2021-11-03T09:02:20.000Z"
 heroImage: "/content/images/2021/11/fastify-forrestjs.png"
+tags: ["Tutorials", "ForrestJS", "fastify", "nodejs", "coding", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 Lately, I fell in love with [Fastify](https://www.fastify.io/) because it offers a straightforward way to compose a web application through plugins encouraging _[functional composition](https://joecortopassi.com/articles/functional-composition-in-javascript/)_ at the feature level.

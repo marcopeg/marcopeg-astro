@@ -4,6 +4,7 @@ description: "How to delete S3 files that contains spaces or non ASCII character
 pubDate: "2019-02-20T23:00:00.000Z"
 updatedDate: "2021-11-01T18:33:47.000Z"
 heroImage: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDJ8fHRyYXNofGVufDB8fHx8MTYzNTc5MTU0MA&ixlib=rb-1.2.1&q=80&w=2000"
+tags: ["Tips & Tricks", "aws", "s3", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 Today it rains, and when water pours down the window, I shouldn’t be coding at all. Actually, that would be a problem because I live in Sweden and here it rains a lot, but that is definitely not the problem I had today.

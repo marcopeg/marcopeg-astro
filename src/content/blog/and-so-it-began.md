@@ -4,6 +4,7 @@ description: "Do you want to live happily ever after? You have to steer clear of
 pubDate: "2021-11-11T16:04:04.000Z"
 updatedDate: "2026-02-05T05:37:05.000Z"
 heroImage: "/content/images/2021/11/9F65CED2-08FF-4726-B5EB-F32B258F81ED.jpeg"
+tags: ["my story", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 I got diagnosed on a Saturday and the doctor was quite straight with me: _"Do you want to live happily ever after? You have to steer clear of sugar and start going to the gym"._

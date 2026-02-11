@@ -4,6 +4,7 @@ description: "This is the best possible time to become a developer. Follow me an
 pubDate: "2019-11-27T23:00:00.000Z"
 updatedDate: "2021-11-03T07:07:04.000Z"
 heroImage: "/content/images/2021/11/ide.png"
+tags: ["Tips & Tricks", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 I’ve started to code almost 25 years ago and back then you had to type stuff in a _vim_\-like editor on the black/green CRT screen. You also had to follow **instructions from a book** how to wire up things so that your _BASIC_ interpreter would be able to run your code.

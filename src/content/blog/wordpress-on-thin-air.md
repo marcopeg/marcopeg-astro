@@ -4,6 +4,7 @@ description: "How to squeeze WordPress/MySql to the bare minimum memory consumpt
 pubDate: "2017-03-29T22:00:00.000Z"
 updatedDate: "2021-11-06T08:46:03.000Z"
 heroImage: "https://images.unsplash.com/photo-1566207474742-de921626ad0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDN8fHdvcmRwcmVzc3xlbnwwfHx8fDE2MzU3ODExMDc&ixlib=rb-1.2.1&q=80&w=2000"
+tags: ["Tips & Tricks", "Docker", "devops", "optimization", "wordpress", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 This very website **WAS** hosted on a [512Mb Ram Digital Ocean droplet](https://m.do.co/c/0a72735ae62e) and is still able to serve a benchmark of **252 pages per second** with 50 concurrent requests being made.

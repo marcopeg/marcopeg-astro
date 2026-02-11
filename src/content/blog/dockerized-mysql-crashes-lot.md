@@ -4,6 +4,7 @@ description: "Have you ever experienced a dockerized MySQL to stuck in low memor
 pubDate: "2016-11-13T23:00:00.000Z"
 updatedDate: "2021-11-06T08:43:42.000Z"
 heroImage: "https://images.unsplash.com/photo-1605745341112-85968b19335b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fGRvY2tlcnxlbnwwfHx8fDE2MzU3Nzk2ODM&ixlib=rb-1.2.1&q=80&w=2000"
+tags: ["Tips & Tricks", "Docker", "Databases", "mysql", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 This blog is being hosted on a [5$/mo DigitalOcean droplet](https://m.do.co/c/0a72735ae62e) and it is served as [Docker Humble](https://github.com/marcopeg/humble-cli) project. **Docker gave me pure freedom in my technology stack** for a reasonable 60$/year price. I like it, a lot.

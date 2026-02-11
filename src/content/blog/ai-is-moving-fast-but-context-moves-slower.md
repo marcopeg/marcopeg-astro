@@ -4,6 +4,7 @@ description: "AI automates tasks, but the real challenge isn’t execution—it�
 pubDate: "2025-02-27T10:26:46.000Z"
 updatedDate: "2025-02-27T10:26:46.000Z"
 heroImage: "https://images.unsplash.com/photo-1613337505154-d00ef9b0a3ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDUwfHxzbG93fGVufDB8fHx8MTc0MDY1MDI2NHww&ixlib=rb-4.0.3&q=80&w=2000"
+tags: ["ai", "artificial intelligence", "Communication", "experience", "#Import 2025-02-27 15:31"]
 ---
 
 > “In the AI age, your value won’t be defined by how many tasks you can do but by the problems you solve”  

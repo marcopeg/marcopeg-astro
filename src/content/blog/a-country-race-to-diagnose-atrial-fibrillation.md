@@ -4,6 +4,7 @@ description: "In this story, I’m going to tell you my experience with the heal
 pubDate: "2021-11-29T07:47:33.000Z"
 updatedDate: "2021-11-29T07:47:33.000Z"
 heroImage: "https://images.unsplash.com/photo-1486425091969-f62210f08a26?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDUxfHxSYWNlfGVufDB8fHx8MTYzNjM3MDUyNA&ixlib=rb-1.2.1&q=80&w=2000"
+tags: ["my story", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 _“An Italian, a German, and a French guy meet in a pub…”_ is a classic Italian’s joke punch line. But in this story, I will not make jokes.

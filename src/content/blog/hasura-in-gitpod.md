@@ -4,6 +4,7 @@ description: "How to run Hasura.io in a GitPod.io workspace"
 pubDate: "2020-02-09T23:00:00.000Z"
 updatedDate: "2021-11-03T07:36:57.000Z"
 heroImage: "/content/images/2021/11/hasura-postgres-gitpod.png"
+tags: ["Tutorials", "hasura", "gitpod", "tools", "service", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 **SPOILER ALERT:** If you are in a hurry and just want to try it out, click on the following button:

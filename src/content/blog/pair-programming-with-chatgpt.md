@@ -4,6 +4,7 @@ description: "I had a natural and practical pair programming experience with Cha
 pubDate: "2022-12-25T09:21:32.000Z"
 updatedDate: "2022-12-25T09:21:32.000Z"
 heroImage: "https://images.unsplash.com/photo-1589254065878-42c9da997008?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDI0fHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlfGVufDB8fHx8MTY3MTk1NzcwNA&ixlib=rb-4.0.3&q=80&w=2000"
+tags: ["chatgpt", "ai", "machine learning", "pair programming", "#Import 2025-02-27 15:31"]
 ---
 
 A few days ago, [ChatGPT](https://openai.com/blog/chatgpt/) was released for the entire world to marvel and wonder whether our Adam-inherited struggles through life had come to an end, thanks to our eternal eagerness to fly higher than Icarus, past the sun, reaching for the stars.

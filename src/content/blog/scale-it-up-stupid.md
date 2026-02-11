@@ -4,6 +4,7 @@ description: "Knowledge plays a paramount role in performance management, scalab
 pubDate: "2023-02-02T07:30:06.000Z"
 updatedDate: "2023-02-02T07:30:06.000Z"
 heroImage: "https://images.unsplash.com/photo-1603815671596-31aa538d8809?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDI0fHxhbmdyeSUyMGN1c3RvbWVyfGVufDB8fHx8MTY3MDA3NzQ0Nw&ixlib=rb-4.0.3&q=80&w=2000"
+tags: ["war stories", "Databases", "experience", "learning", "performance", "optimization", "scalability", "#Import 2025-02-27 15:31"]
 ---
 
 Everything looked as normal as it should be on a slow-going Thursday afternoon, but the email read:

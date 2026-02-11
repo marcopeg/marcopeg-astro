@@ -4,6 +4,7 @@ description: "And so I tried out Gatsby and promptly decided to turn my WordPres
 pubDate: "2019-02-09T23:00:00.000Z"
 updatedDate: "2021-11-01T18:25:47.000Z"
 heroImage: "https://images.unsplash.com/photo-1615419235091-59bf9cbd530b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDV8fGdhdHNieXxlbnwwfHx8fDE2MzU3OTA5MzQ&ixlib=rb-1.2.1&q=80&w=2000"
+tags: ["Tips & Tricks", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 And so I tried out [Gatsby](http://gatsbyjs.org/) and promptly decided to turn my [WordPress](https://wordpress.org/) based blog into a **static generated website**. And to be honest, this is not the first time.

@@ -4,6 +4,7 @@ description: "Dive into Docker, JupyterLab, and machine learning with 'learning-
 pubDate: "2024-04-14T07:39:53.000Z"
 updatedDate: "2024-04-14T07:39:53.000Z"
 heroImage: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDE1fHxhaSUyMGxhYnxlbnwwfHx8fDE3MTMwODAzNjZ8MA&ixlib=rb-4.0.3&q=80&w=2000"
+tags: ["ai", "ml", "machine learning", "artificial intelligence", "python", "Docker", "#Import 2025-02-27 15:31"]
 ---
 
 Without further ado, here is the link to the GitHub project I've created to stretch my muscles into Machine Learning, Artificial Intelligence, and Python:

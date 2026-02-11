@@ -4,6 +4,7 @@ description: "Owning Leadership with SEAL Precision - Book review"
 pubDate: "2023-07-28T12:17:05.000Z"
 updatedDate: "2023-07-28T12:17:05.000Z"
 heroImage: "/content/images/2023/07/extreme-ownership.jpg"
+tags: ["book", "review", "#Import 2025-02-27 15:31"]
 ---
 
 **Owning Leadership with SEAL Precision**

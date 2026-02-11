@@ -4,6 +4,7 @@ description: "The first signs, my worries, and how I got to pay full attention t
 pubDate: "2021-11-18T14:43:49.000Z"
 updatedDate: "2021-11-20T07:35:14.000Z"
 heroImage: "https://images.unsplash.com/photo-1541199249251-f713e6145474?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDR8fGNoZXN0JTIwcGFpbnxlbnwwfHx8fDE2MzcyNDEyMDA&ixlib=rb-1.2.1&q=80&w=2000"
+tags: ["my story", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 My wife felt the first palpitations while we were lying on the couch watching Friends. She told me my heart was beating funny, but it wasn't because of Ross and Rachel.

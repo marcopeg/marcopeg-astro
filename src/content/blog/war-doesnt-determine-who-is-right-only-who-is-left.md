@@ -4,6 +4,7 @@ description: "Winning an argument or a debate is a matter of communication skill
 pubDate: "2022-02-28T08:15:00.000Z"
 updatedDate: "2022-02-28T08:15:00.000Z"
 heroImage: "https://images.unsplash.com/photo-1620662736427-b8a198f52a4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDEwfHxkZWJhdGV8ZW58MHx8fHwxNjQ1ODYxNjkz&ixlib=rb-1.2.1&q=80&w=2000"
+tags: ["Communication", "life", "Quotes", "active listening", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 My boss doesn't have much technical skill in Software Engineering, so he's often wrong about technical details, and I'm often right.

@@ -4,6 +4,7 @@ description: "Two years ago, I was working on a web-scraper with my startup Myso
 pubDate: "2020-01-20T23:00:00.000Z"
 updatedDate: "2021-11-06T08:59:50.000Z"
 heroImage: "/content/images/2021/11/penguins-line-small.jpeg"
+tags: ["FetchQ", "project", "tools", "open source", "queue", "postgres", "Databases", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 It was the spring of 2018 and my young soon-to-be co-founder asked me:

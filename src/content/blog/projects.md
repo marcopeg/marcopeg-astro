@@ -3,6 +3,7 @@ title: "Projects"
 description: "I like to start new project. No, I LOVE to start new projects. Starting new projects give me the opportunity to go deep into one single subject and le..."
 pubDate: "2021-11-03T14:28:05.000Z"
 updatedDate: "2021-11-06T09:16:09.000Z"
+tags: ["Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 I like to start new project. No, **I LOVE** to start new projects. Starting new projects give me the opportunity to **go deep into one single subject and learn**.

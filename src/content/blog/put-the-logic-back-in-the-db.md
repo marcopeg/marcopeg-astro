@@ -4,6 +4,7 @@ description: "How to choose between DB-centric or horizontally scalable applicat
 pubDate: "2022-12-29T08:08:11.000Z"
 updatedDate: "2022-12-29T08:08:11.000Z"
 heroImage: "https://images.unsplash.com/photo-1652519240461-cb31edcfbf5f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8YWxsfDI1fHx8fHx8Mnx8MTY3MTQ0Nzk1OQ&ixlib=rb-4.0.3&q=80&w=2000"
+tags: ["architecture", "scalability", "Databases", "business", "decision making", "#Import 2025-02-27 15:31"]
 ---
 
 I advocate putting business logic into the database _AS MUCH AS POSSIBLE_.

@@ -4,6 +4,7 @@ description: "Last weekend I've been working on some plugins for GitBook. Here i
 pubDate: "2019-09-10T22:00:00.000Z"
 updatedDate: "2021-11-03T07:10:15.000Z"
 heroImage: "https://images.unsplash.com/photo-1601046668433-65d0c898c8a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDIyfHxwbHVnaW58ZW58MHx8fHwxNjM1OTIzMzM5&ixlib=rb-1.2.1&q=80&w=2000"
+tags: ["tools", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 I recently starter working on an education project called [LearnJS](https://learnjs.today) and I decided to draft it with [GitBook](https://gitbook.io/) as it is quite simple to set up and run.

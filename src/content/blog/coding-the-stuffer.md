@@ -4,6 +4,7 @@ description: "How comes when I need a specific service, I never find one ready?"
 pubDate: "2019-02-22T23:00:00.000Z"
 updatedDate: "2021-11-01T18:48:43.000Z"
 heroImage: "https://images.unsplash.com/photo-1606874965793-84f43a3a662f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDE2NHx8Ym94JTIwY2F0fGVufDB8fHx8MTYzNTc5MTc4Ng&ixlib=rb-1.2.1&q=80&w=2000"
+tags: ["project", "nodejs", "s3", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 Like many teams before us ([mysocial.io](https://mysocial.io/)), we got to the point where we want our users to be able to upload files (mostly photos and videos) to our community.

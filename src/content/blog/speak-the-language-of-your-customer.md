@@ -4,6 +4,7 @@ description: "This is part of a series of good lessons that my dad tried to give
 pubDate: "2021-04-12T08:39:00.000Z"
 updatedDate: "2021-11-06T09:10:38.000Z"
 heroImage: "/content/images/2021/11/gasoline-burner.png"
+tags: ["Communication", "dad's wisdom", "life", "experience", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 In my teens, I used to work with my dad during the summer. He ran a plumber shop and there was always the need for some help. It was either installing A/C apparatus, or cleaning and fixing heating units in preparation for the next winter.

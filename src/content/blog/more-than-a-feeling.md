@@ -4,6 +4,7 @@ description: "This is how I feel when Atrial Fibrillation strikes, and what I'm 
 pubDate: "2021-11-11T16:04:36.000Z"
 updatedDate: "2021-11-23T10:46:53.000Z"
 heroImage: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDEyfHxNdXNpY3xlbnwwfHx8fDE2MzY0ODA0MTM&ixlib=rb-1.2.1&q=80&w=2000"
+tags: ["my story", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 Many folks are affected by Atrial Fibrillation and don’t feel anything. I’m among the lucky ones that got clear symptoms, and symptoms are important hints that lead to a diagnosis and a treatment plan.

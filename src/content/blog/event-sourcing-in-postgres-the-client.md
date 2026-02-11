@@ -4,6 +4,7 @@ description: "How to store different client's reading cursor in PostgreSQL, so t
 pubDate: "2021-03-26T23:00:00.000Z"
 updatedDate: "2021-11-03T16:35:59.000Z"
 heroImage: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDV8fGNsaWVudHxlbnwwfHx8fDE2MzU5MzQ5ODM&ixlib=rb-1.2.1&q=80&w=2000"
+tags: ["postgres", "event sourcing", "Tutorials", "Databases", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 In this article, we’ll work on top of the [events schema](/2021/event-sourcing-in-postgres-events) in order to store each consumer’s reading cursor.

@@ -4,6 +4,7 @@ description: "This is a personal list of the stuff that I like about JavaScript 
 pubDate: "2020-10-27T23:00:00.000Z"
 updatedDate: "2021-11-03T09:23:12.000Z"
 heroImage: "/content/images/2021/11/js.png"
+tags: ["Tips & Tricks", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 “JavaScript: the good parts” is a book by Douglas Crockford that made it big in 2008 as the world began to realize that web development and, particularly, **_front-end_ technologies** were here to stay.

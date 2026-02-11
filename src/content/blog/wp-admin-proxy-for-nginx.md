@@ -4,6 +4,7 @@ description: "How to proxy wp-admin in a headless WordPress setup."
 pubDate: "2017-08-18T22:00:00.000Z"
 updatedDate: "2021-11-01T15:54:40.000Z"
 heroImage: "/content/images/2021/11/nginx.png"
+tags: ["Tips & Tricks", "Docker", "nginx", "wordpress", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 At my company we are experimenting quite a lot with **headless WordPress websites**.

@@ -4,6 +4,7 @@ description: "How to run consume a queue with multiple independent workers in Po
 pubDate: "2018-02-01T23:00:00.000Z"
 updatedDate: "2021-11-01T16:12:41.000Z"
 heroImage: "https://images.unsplash.com/photo-1452960962994-acf4fd70b632?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDE2fHxxdWV1ZXxlbnwwfHx8fDE2MzU3ODIzMTM&ixlib=rb-1.2.1&q=80&w=2000"
+tags: ["postgres", "queue", "racing condition", "workers", "parallelization", "big data", "war stories", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 The first version of [my queue system](https://fetchq.com/) was very simple, in the end, it proved to be too simple for a real-life scenario.

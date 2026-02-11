@@ -4,6 +4,7 @@ description: "How to monitor containers' status and create a deterministic boot 
 pubDate: "2019-02-18T23:00:00.000Z"
 updatedDate: "2021-11-01T18:30:04.000Z"
 heroImage: "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDR8fGhlYWx0aCUyMGNoZWNrfGVufDB8fHx8MTYzNTc5MTIzNg&ixlib=rb-1.2.1&q=80&w=2000"
+tags: ["Tips & Tricks", "Docker", "devops", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 I used to write a `docker-compose.yml` like this:

@@ -4,6 +4,7 @@ description: "Did you know that you can't print any recovery code for your Apple
 pubDate: "2017-04-05T22:00:00.000Z"
 updatedDate: "2021-11-01T15:51:38.000Z"
 heroImage: "https://images.unsplash.com/photo-1603899122634-f086ca5f5ddd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDV8fHNlY3VyaXR5fGVufDB8fHx8MTYzNTc4MTY2NQ&ixlib=rb-1.2.1&q=80&w=2000"
+tags: ["Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 In two days Michele and I are going to spend a week in Las Vegas as the bulletproof plan to prevent our middle-age crisis. We don’t know if it’s going to work but we both agree it’s worth trying :-)

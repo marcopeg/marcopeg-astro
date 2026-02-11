@@ -4,6 +4,7 @@ description: "Do you want to learn Postgres? Today you can spin up your database
 pubDate: "2019-12-01T23:00:00.000Z"
 updatedDate: "2021-11-06T08:56:00.000Z"
 heroImage: "/content/images/2021/11/postgresql-as-a-service-elephantsql.png"
+tags: ["postgres", "tools", "free", "coding", "Databases", "service", "Tutorials", "Tips & Tricks", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 [PostgreSQL](https://www.postgresql.org/) is a great tool, it offers:

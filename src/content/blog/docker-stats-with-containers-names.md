@@ -4,6 +4,7 @@ description: "There is a way to get container's names out of `docker stats`, and
 pubDate: "2017-02-08T23:00:00.000Z"
 updatedDate: "2021-11-06T08:45:23.000Z"
 heroImage: "/content/images/2021/11/docker.jpeg"
+tags: ["Tips & Tricks", "Docker", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 When running plenty of containers you may wonder which one is killing your server memory or CPU.  

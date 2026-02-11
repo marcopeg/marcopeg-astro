@@ -4,6 +4,7 @@ description: "How does your family react to your AFib management lifestyle? Here
 pubDate: "2022-01-11T10:28:00.000Z"
 updatedDate: "2022-01-11T10:28:00.000Z"
 heroImage: "https://images.unsplash.com/photo-1571210917553-8509b1db9322?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDd8fG1vbSUyMGFuZCUyMGRhZHxlbnwwfHx8fDE2NDE3NTg3MzQ&ixlib=rb-1.2.1&q=80&w=2000"
+tags: ["my story", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 God clearly didn't have Atrial Fibrillation. At least back then. Nowadays, things seem to be a bit more shaky also for him.

@@ -78,8 +78,17 @@ import HeaderLink from './HeaderLink.astro';
 		display: flex;
 	}
 	@media (max-width: 720px) {
+		nav {
+			flex-direction: column;
+			gap: 1rem;
+			padding: 1rem 0;
+		}
 		.social-links {
 			display: none;
+		}
+		.internal-links {
+			display: flex;
+			gap: 1rem;
 		}
 	}
 </style>

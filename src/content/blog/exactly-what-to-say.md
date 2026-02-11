@@ -4,6 +4,7 @@ description: "The Magic Words for Influence and Impact - book review"
 pubDate: "2023-07-28T11:55:45.000Z"
 updatedDate: "2023-07-28T11:55:45.000Z"
 heroImage: "/content/images/2023/07/exactly-what-to-say.jpg"
+tags: ["book", "review", "#Import 2025-02-27 15:31"]
 ---
 
 ## The Magic Words for Influence and Impact

@@ -4,6 +4,7 @@ description: "This is how I got my AFib diagnosis in Italy. Part of the series: 
 pubDate: "2021-11-17T09:21:48.000Z"
 updatedDate: "2021-11-17T09:21:48.000Z"
 heroImage: "https://images.unsplash.com/photo-1591723616309-64073fb53e63?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDExN3x8dmVzcGF8ZW58MHx8fHwxNjM3MDQ3MDE4&ixlib=rb-1.2.1&q=80&w=2000"
+tags: ["my story", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 So we finally get down to the winner of the famous "A Country's Race to Diagnose."

@@ -4,6 +4,7 @@ description: "Step by step guide on how to use Auth0 with Hasura in a Single Pag
 pubDate: "2019-12-26T23:00:00.000Z"
 updatedDate: "2021-11-06T08:58:49.000Z"
 heroImage: "/content/images/2021/11/hasura.png"
+tags: ["Tutorials", "hasura", "auth0", "service", "authentication", "security", "jwt", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 ## Overture

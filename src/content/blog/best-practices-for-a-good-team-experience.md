@@ -4,6 +4,7 @@ description: "A few tricks I've learned that make collaboration easier."
 pubDate: "2018-05-18T22:00:00.000Z"
 updatedDate: "2021-11-01T18:20:44.000Z"
 heroImage: "https://images.unsplash.com/photo-1475506631979-72412c606f4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDE0fHx0ZWFtfGVufDB8fHx8MTYzNTc5MDQzNQ&ixlib=rb-1.2.1&q=80&w=2000"
+tags: ["organization", "team", "Tips & Tricks", "best practices", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 Through my years in engineering, I saw a couple of projects succeed and some others fail. I’ve been exposed to many best practices: waterfall(s), agile, chaos, git (used as a bulls\*\*t strategy name). You name it, we tried it out.

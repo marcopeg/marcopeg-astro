@@ -4,6 +4,7 @@ description: "Codesharing is a concept that is whispered in a low tone around th
 pubDate: "2015-02-27T23:00:00.000Z"
 updatedDate: "2021-11-06T08:42:14.000Z"
 heroImage: "https://images.unsplash.com/photo-1553906451-86e5710d388e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDR8fGhvbHklMjBncmFpbHxlbnwwfHx8fDE2MzU3Nzg5OTk&ixlib=rb-1.2.1&q=80&w=2000"
+tags: ["experience", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 Codesharing is a concept that is whispered in a low tone around the office, is being shouted loud by tools producers, and is simply misunderstood by the great part of us, IT folks.

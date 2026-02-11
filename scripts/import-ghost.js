@@ -26,6 +26,23 @@ async function importGhost() {
 
     const data = JSON.parse(fs.readFileSync(GHOST_EXPORT_PATH, 'utf8'));
     const posts = data.db[0].data.posts;
+    const tags = data.db[0].data.tags || [];
+    const postsTags = data.db[0].data.posts_tags || [];
+
+    // Map tags by ID
+    const tagMap = tags.reduce((acc, tag) => {
+        acc[tag.id] = tag.name;
+        return acc;
+    }, {});
+
+    // Map tags to post ID
+    const postTagMapping = postsTags.reduce((acc, pt) => {
+        if (!acc[pt.post_id]) acc[pt.post_id] = [];
+        const tagName = tagMap[pt.tag_id];
+        if (tagName) acc[pt.post_id].push(tagName);
+        return acc;
+    }, {});
+
     const publishedPosts = posts.filter(p => p.status === 'published');
 
     console.log(`Found ${posts.length} posts. Importing ${publishedPosts.length} published posts...`);
@@ -42,6 +59,7 @@ async function importGhost() {
         const pubDate = post.published_at || post.created_at;
         const updatedDate = post.updated_at;
         const description = post.custom_excerpt || post.meta_description || (post.plaintext ? post.plaintext.substring(0, 150) + '...' : '');
+        const postTags = postTagMapping[post.id] || [];
         let heroImage = post.feature_image;
         let content = post.html || '';
 
@@ -64,6 +82,7 @@ async function importGhost() {
             `pubDate: "${pubDate}"`,
             ...(updatedDate ? [`updatedDate: "${updatedDate}"`] : []),
             ...(heroImage ? [`heroImage: "${heroImage}"`] : []),
+            ...(postTags.length > 0 ? [`tags: [${postTags.map(t => `"${t}"`).join(', ')}]`] : []),
             '---',
             '',
             markdown

@@ -4,6 +4,7 @@ description: "A Micro-Domain Architecture is an organization of People and Tech 
 pubDate: "2022-05-28T09:48:15.000Z"
 updatedDate: "2022-05-29T08:25:44.000Z"
 heroImage: "https://images.unsplash.com/photo-1645104785584-a0fda0c3e8de?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDQ2fHxtaWNyby1kb21haW5odHRwcyUzQSUyRiUyRnVuc3BsYXNoLmNvbSUyRnBob3RvcyUyRjRXdWdyMmFsSWxBfGVufDB8fHx8MTY1MzczMTUzMw&ixlib=rb-1.2.1&q=80&w=2000"
+tags: ["architecture", "micro-services", "micro-frontends", "micro-domains", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 In this article, I will lay down some ideas on a possible way to orchestrate the creation of complex Products and make them easy(er) to understand and work with.

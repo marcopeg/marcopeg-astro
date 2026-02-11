@@ -4,6 +4,7 @@ description: "Executing repeatable jobs is at the core of most IT projects. From
 pubDate: "2020-03-31T22:00:00.000Z"
 updatedDate: "2021-11-03T08:55:36.000Z"
 heroImage: "/content/images/2021/11/curtis-macnewton-vVIwtmqsIuk-unsplash.jpg"
+tags: ["FetchQ", "cron", "project", "product", "open source", "service", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 ## Run smart CRON jobs

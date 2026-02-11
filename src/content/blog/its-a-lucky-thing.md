@@ -4,6 +4,7 @@ description: "Sometimes, it's just too easy to give in to sadness and anger. But
 pubDate: "2021-11-13T12:49:46.000Z"
 updatedDate: "2021-11-13T12:49:46.000Z"
 heroImage: "https://images.unsplash.com/photo-1483356256511-b48749959172?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDg1fHxzdGFyfGVufDB8fHx8MTYzNjM1Njg3Mw&ixlib=rb-1.2.1&q=80&w=2000"
+tags: ["my story", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 Atrial Fibrillation (AF) in your early 40' may not seem such a lucky shot at first.

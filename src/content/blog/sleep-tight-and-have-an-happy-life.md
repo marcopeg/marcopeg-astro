@@ -4,6 +4,7 @@ description: "Backups are strange animals. In a perfect world you don’t need b
 pubDate: "2015-01-15T23:00:00.000Z"
 updatedDate: "2021-11-06T08:37:03.000Z"
 heroImage: "https://images.unsplash.com/photo-1459262838948-3e2de6c1ec80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDM0fHxzbGVlcHxlbnwwfHx8fDE2MzU3Nzg2NTI&ixlib=rb-1.2.1&q=80&w=2000"
+tags: ["data", "backup", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 Backups are strange animals. In a perfect world, you don’t need backups. You put the effort into building a solid backup strategy, you buy external drives, cloud storage, and amazing software which you wish you never have to use in life.

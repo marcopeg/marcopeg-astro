@@ -4,6 +4,7 @@ description: "A collection of posts that tell my learning experience in ML/AI wi
 pubDate: "2024-04-14T08:07:34.000Z"
 updatedDate: "2024-04-14T08:07:34.000Z"
 heroImage: "https://images.unsplash.com/photo-1516110833967-0b5716ca1387?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDN8fGFpJTIwbGFifGVufDB8fHx8MTcxMzA4MDM2Nnww&ixlib=rb-4.0.3&q=80&w=2000"
+tags: ["ai", "machine learning", "python", "openai", "chatgpt", "prompt-engineering", "#Import 2025-02-27 15:31"]
 ---
 
 It's a buzzword — I get it — and we don't really do AI. We are AI consumers. Some people do AI and build models, while most of us are left with the daunting task of making sense of it and monetizing it.

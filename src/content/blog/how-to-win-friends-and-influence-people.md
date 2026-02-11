@@ -4,6 +4,7 @@ description: "This book opened my eyes and helped me building up new relationshi
 pubDate: "2019-04-08T22:00:00.000Z"
 updatedDate: "2021-11-02T19:15:16.000Z"
 heroImage: "/content/images/2021/11/iceberg-small.jpeg"
+tags: ["Communication", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 ## Time for a Change

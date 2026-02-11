@@ -4,6 +4,7 @@ description: "How to build a basic data model for Event Sourcing in PostgreSQL, 
 pubDate: "2021-01-11T23:00:00.000Z"
 updatedDate: "2021-11-06T12:03:14.000Z"
 heroImage: "https://images.unsplash.com/photo-1495020689067-958852a7765e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fG5ld3NwYXBlcnxlbnwwfHx8fDE2MzU5MzQ2MjM&ixlib=rb-1.2.1&q=80&w=2000"
+tags: ["postgres", "event sourcing", "Tutorials", "Databases", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 [Event Sourcing](https://www.eventstore.com/blog/what-is-event-sourcing) seems to be a complicated topic for most people, but **in fact is quite simple** and I’m sure you’ve used it almost every day of your life ever since you were a 6-7 years old kid: books.

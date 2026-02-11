@@ -4,6 +4,7 @@ description: "When bad things happen on a Friday night, you ought to face your f
 pubDate: "2015-01-12T23:00:00.000Z"
 updatedDate: "2021-11-06T08:28:55.000Z"
 heroImage: "/content/images/2021/11/boondock-saints.jpeg"
+tags: ["Communication", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 The sky was turning dark when I saw the first _Internal Server Error_ (code 500). It was 5 PM in the winter’s afternoon and we were close to the release deadline. My heart missed at least two beats while my mouse ran to the reload button: “It may be just a network error, I thought”. But it wasn’t.

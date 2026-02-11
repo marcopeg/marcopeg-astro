@@ -4,6 +4,7 @@ description: "... said Napoleon, and it took 38 years for me to understand it"
 pubDate: "2019-04-07T22:00:00.000Z"
 updatedDate: "2021-11-01T19:34:53.000Z"
 heroImage: "/content/images/2021/11/napoleon-bonaparte.jpeg"
+tags: ["Communication", "life", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 This famous quote is often attributed to [**Napoleon Bonaparte**](https://quoteinvestigator.com/2010/07/06/never-interfere/) and **it took the greatest part of my life** to finally get to understand the deep implications of the maxim:

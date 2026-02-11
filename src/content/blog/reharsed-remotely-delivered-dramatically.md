@@ -4,6 +4,7 @@ description: "See how we went from practicing online to rocking the stage in rea
 pubDate: "2023-10-04T14:01:39.000Z"
 updatedDate: "2023-10-04T14:01:39.000Z"
 heroImage: "https://images.unsplash.com/photo-1583482183620-f692113aafc3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDEzfHx0aGVhdGVyfGVufDB8fHx8MTY5NjQyNzkzMHww&ixlib=rb-4.0.3&q=80&w=2000"
+tags: ["team", "#Import 2025-02-27 15:31"]
 ---
 
 ### A Virtual-to-Real-Stage experience

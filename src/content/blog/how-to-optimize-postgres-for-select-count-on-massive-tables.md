@@ -4,6 +4,7 @@ description: "How to (slightly) optimize SELECT COUNT(*) performance on PostgreS
 pubDate: "2017-12-02T23:00:00.000Z"
 updatedDate: "2021-11-01T15:57:12.000Z"
 heroImage: "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDJ8fGVsZXBoYW50fGVufDB8fHx8MTYzNTc4MjIyMA&ixlib=rb-1.2.1&q=80&w=2000"
+tags: ["Tips & Tricks", "postgres", "optimization", "performance", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
 ---
 
 **The short answer is: “indexes”.**  

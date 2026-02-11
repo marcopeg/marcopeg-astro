@@ -4,6 +4,7 @@ description: "First steps with Embeddings and OpenAI: from API setup to a workin
 pubDate: "2024-04-14T08:05:35.000Z"
 updatedDate: "2024-04-14T08:10:47.000Z"
 heroImage: "https://images.unsplash.com/photo-1653013671318-a455b5071789?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDg4fHxtYWdpY2lhbnxlbnwwfHx8fDE3MTMwODA2OTJ8MA&ixlib=rb-4.0.3&q=80&w=2000"
+tags: ["ai", "machine learning", "embeddings", "python", "jupiterlab", "#Import 2025-02-27 15:31"]
 ---
 
 The first AI concept that truly fascinates me is embeddings.
