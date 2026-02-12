@@ -12,3 +12,23 @@ tips-tricks:
   title: Tips & Tricks
   excerpt: Those are small bits of knowledge that I wanted to note down along the way. It could be anything from coding, to free resources, to books. Anything really.
   image: https://images.unsplash.com/photo-1507608443039-bfde4fbcd142?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDEwfHx0aXBzfGVufDB8fHx8MTYzNjE5MDc0OA&ixlib=rb-1.2.1&q=80&w=2000
+
+database:
+  title: Databases
+  excerpt: Databases are the cornerstone of any modern information system. Even so, we don't spend enough time learning their inside outs and making them work properly. This is a collection of bits of experience, war stories, and general pain during my jurney from data-storage to data-bases.
+  image: https://images.unsplash.com/photo-1544383835-bda2bc66a55d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fGRhdGFiYXNlfGVufDB8fHx8MTYzNjE5MTU2Ng&ixlib=rb-1.2.1&q=80&w=2000
+
+docker:
+  title: Docker
+  excerpt: Docker is just an amazing tool that gave me the super power to run almost any software on my machine, with near-zero Linux experience. Along the way, I've learned a few Linux tricks as well.
+  image: https://images.unsplash.com/photo-1605745341112-85968b19335b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fGRvY2tlcnxlbnwwfHx8fDE2MzYxOTE3Njg&ixlib=rb-1.2.1&q=80&w=2000
+
+fetchq:
+  title: FetchQ
+  excerpt: Fetchq is a queue system and big calendar based on PostgreSQL. It helps you simplify your problems by splitting them into smaller independent pieces, letting Fetchq orchestrate the execution, tracking, and logging into the most reliable of the Open-Source database systems ever.
+  image: https://images.unsplash.com/photo-1549416096-1030b127970e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDE4fHxxdWV1ZXxlbnwwfHx8fDE2MzYxOTE4ODg&ixlib=rb-1.2.1&q=80&w=2000
+
+quotes:
+  title: Quotes
+  excerpt: Sometimes, quotes are just what get you through a tough tough day. Here are the ones that I like the most and want to remember.
+  image: https://marcopeg.com/content/images/2021/11/it-is-better-to-be-late.png
