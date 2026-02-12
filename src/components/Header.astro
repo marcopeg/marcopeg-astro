@@ -165,10 +165,15 @@ const { isHome = false } = Astro.props;
 
 	.outer {
 		width: 100%;
-		max-width: 1600px;
+		max-width: 1020px;
 		margin: 0 auto;
-		padding: 0 4vw;
+		padding: 0 1em;
 		box-sizing: border-box;
+	}
+
+	.is-home .outer {
+		max-width: 1600px;
+		padding: 0 4vw;
 	}
 
 	.inner {

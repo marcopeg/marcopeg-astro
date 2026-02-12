@@ -166,13 +166,13 @@ const posts = (await getCollection('blog')).sort(
 					{
 						posts.map((post) => (
 							<li>
-								<a href={`/blog/${post.id}/`} class="hero-link">
+								<a href={`/${post.id}/`} class="hero-link">
 									{post.data.heroImage && (
 										<Image width={720} height={360} src={post.data.heroImage} alt="" />
 									)}
 								</a>
 								<div class="post-content">
-									<a href={`/blog/${post.id}/`}>
+									<a href={`/${post.id}/`}>
 										<span class="tag">
 											{post.data.tags && post.data.tags.length > 0 ? post.data.tags[0] : <>&nbsp;</>}
 										</span>
