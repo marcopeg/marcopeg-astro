@@ -1,0 +1,14 @@
+communication:
+  title: Communication
+  excerpt: In our childhood, we learn that the whom who speaks the louder wins. But then in Life, we hit wall after wall and we don't get through. Until we finally learn that the art of communication is mostly about listening and learning about other's people motivations, dreams, and aspirations. In this collection, I share the stuff that I'm learning, and the mistakes I make.
+  image: https://images.unsplash.com/photo-1453738773917-9c3eff1db985?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDV8fGNvbW11bmljYXRpb258ZW58MHx8fHwxNjM2MTkwMzM5&ixlib=rb-1.2.1&q=80&w=2000
+
+tutorials:
+  title: Tutorials
+  excerpt: You are welcome to share a few HOW TOs on stuff that I love, or stuff that I've learned.
+  image: https://images.unsplash.com/photo-1527689638836-411945a2b57c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDV8fGluc3RydWN0aW9ufGVufDB8fHx8MTYzNjE5MDYyNg&ixlib=rb-1.2.1&q=80&w=2000
+
+tips-tricks:
+  title: Tips & Tricks
+  excerpt: Those are small bits of knowledge that I wanted to note down along the way. It could be anything from coding, to free resources, to books. Anything really.
+  image: https://images.unsplash.com/photo-1507608443039-bfde4fbcd142?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDEwfHx0aXBzfGVufDB8fHx8MTYzNjE5MDc0OA&ixlib=rb-1.2.1&q=80&w=2000
