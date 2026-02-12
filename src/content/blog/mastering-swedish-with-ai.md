@@ -3,7 +3,7 @@ title: "Mastering Swedish with AI"
 description: "My Journey with ChatGPT as a Tailored Swedish Tutor  I lived in Sweden for a decade and never truly mastered the language. I navigated daily life with..."
 pubDate: "2024-05-31T08:37:26.000Z"
 updatedDate: "2026-02-05T06:01:13.000Z"
-heroImage: "/content/images/2026/02/DALL--E-2024-05-30-09.27.45---A-landscape-view-from-above-the-O--resund-Bridge-with-two-main-pillars--a-balloon-colored-like-the-Swedish-flag-sailing-over-it--and-the-Turning-Torso-t.webp"
+heroImage: "/content/images/2024/05/mastering-swedish-with-ai.webp"
 tags: ["ai", "chatgpt", "swedish", "language learning", "learning", "artificial intelligence", "#Import 2025-02-27 15:31"]
 ---
 
