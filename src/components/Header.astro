@@ -139,7 +139,7 @@ const { isHome = false } = Astro.props;
 	/* Homepage specific styles */
 	.site-header-content {
 		padding-top: max(12vmin, 64px);
-		padding-bottom: max(12vmin, 64px);
+		padding-bottom: max(16vmin, 80px);
 		text-align: left;
 		background: #1b9cff !important;
 	}
@@ -163,12 +163,14 @@ const { isHome = false } = Astro.props;
 	}
 
 	.outer {
+		width: 100%;
+		max-width: 1600px;
+		margin: 0 auto;
 		padding: 0 4vw;
+		box-sizing: border-box;
 	}
 
 	.inner {
-		margin: 0 auto;
-		max-width: 1600px;
 		width: 100%;
 	}
 
