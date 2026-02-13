@@ -1,5 +1,4 @@
 ---
-import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
 import Layout from '../layouts/BlogPost.astro';
 import { getCollection } from 'astro:content';
 
@@ -10,7 +9,7 @@ const tags = await getCollection('tags');
 	title="About Me"
 	description="Web Engineer passionate about Javascript, Docker, and PostgreSQL. Paragliding enthusiast and aspiring manager."
 	pubDate={new Date('August 08 2021')}
-	heroImage={AboutHeroImage}
+	heroImage="/marcopeg.jpeg"
 >
 	<p>I was born in Italy, in the hot summer of '81.<br />The first thing I wished to do was to fly, luckily my second choice was coding!</p>
 
@@ -21,6 +20,8 @@ const tags = await getCollection('tags');
 	<p><strong>I'm working hard to become a good manager</strong> that people can look up to and feel supported by. It's a rock'n'roll experience, but it pays off immensely when you recognize success in the eyes of your collaborators.</p>
 
 	<p>I do paragliding, I love mountains, hiking, and biking into nature. Recently I embraced sailing in the Baltic sea (no mountains in south Sweden!)</p>
+
+	<img src="/sailing.jpg" alt="Sailing in the Baltic sea" style="width: 100%; max-width: 800px; margin: 2rem 0; border-radius: 8px;" />
 
 	<hr />
 
