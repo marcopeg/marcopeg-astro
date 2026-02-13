@@ -5,6 +5,7 @@ import Footer from '../../components/Footer.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
 import { SITE_TITLE } from '../../consts';
+import { filterDrafts } from '../../utils/posts';
 
 export async function getStaticPaths() {
 	const tags = await getCollection('tags');
@@ -17,7 +18,7 @@ export async function getStaticPaths() {
 const { tag } = Astro.props;
 
 // Get all posts and filter by tag
-const allPosts = await getCollection('blog');
+const allPosts = filterDrafts(await getCollection('blog'));
 const posts = allPosts
 	.filter((post) => post.data.tags && post.data.tags.some(t => {
 		// Normalize tag comparison: handle both "Tips & Tricks" and "tips-tricks"

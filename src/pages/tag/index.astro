@@ -4,12 +4,13 @@ import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import { filterDrafts } from '../../utils/posts';
 
 // Get featured tags from tags.yaml
 const featuredTags = await getCollection('tags');
 
 // Get all blog posts and extract unique tags
-const allPosts = await getCollection('blog');
+const allPosts = filterDrafts(await getCollection('blog'));
 const allTagsSet = new Set<string>();
 allPosts.forEach(post => {
 	if (post.data.tags) {

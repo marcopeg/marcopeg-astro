@@ -1,6 +1,9 @@
 ---
 import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
 import Layout from '../layouts/BlogPost.astro';
+import { getCollection } from 'astro:content';
+
+const tags = await getCollection('tags');
 ---
 
 <Layout
@@ -32,4 +35,84 @@ import Layout from '../layouts/BlogPost.astro';
 	<p>I like to start new projects. No, <strong>I LOVE</strong> to start new projects. Starting new projects gives me the opportunity to <strong>go deep into one single subject and learn</strong>.</p>
 
 	<p>My <a href="https://github.com/marcopeg">personal GitHub</a> is filled up with short life span repositories. But some of them are more interesting than others and I plan to keep working on a more serious level.</p>
+
+	<hr />
+
+	<h2>Browse by Topic</h2>
+
+	<div class="tags-list">
+		{tags.map((tag) => (
+			<a href={`/tag/${tag.id}`} class="tag-item">
+				<img src={tag.data.image} alt={tag.data.title} class="tag-image" />
+				<div class="tag-content">
+					<h3 class="tag-title">{tag.data.title}</h3>
+					<p class="tag-description">{tag.data.excerpt}</p>
+				</div>
+			</a>
+		))}
+	</div>
+
+	<style>
+		.tags-list {
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+			margin-top: 2rem;
+		}
+
+		.tag-item {
+			display: flex;
+			gap: 2rem;
+			text-decoration: none;
+			color: inherit;
+			padding: 1.5rem;
+			border-radius: 8px;
+			transition: background-color 0.2s ease;
+		}
+
+		.tag-item:hover {
+			background-color: rgb(var(--gray-light));
+		}
+
+		.tag-image {
+			width: 200px;
+			height: 150px;
+			object-fit: cover;
+			border-radius: 5px;
+			flex-shrink: 0;
+		}
+
+		.tag-content {
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		.tag-title {
+			margin: 0 0 0.5rem 0;
+			font-size: 2rem;
+			font-weight: 700;
+			color: rgb(var(--black));
+		}
+
+		.tag-description {
+			margin: 0;
+			font-size: 1.5rem;
+			line-height: 1.5;
+			color: rgb(var(--gray-dark));
+		}
+
+		@media (max-width: 767px) {
+			.tag-item {
+				flex-direction: column;
+				gap: 1rem;
+			}
+
+			.tag-image {
+				width: 100%;
+				height: 200px;
+			}
+		}
+	</style>
 </Layout>
