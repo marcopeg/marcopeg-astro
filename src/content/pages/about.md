@@ -21,14 +21,14 @@ I do paragliding, I love mountains, hiking, and biking into nature. Recently I e
 
 ---
 
-## I write about...
-
-This is a personal blog where I share personal experiences and ideas.
-
----
-
 ## Projects
 
 I like to start new projects. No, **I LOVE** to start new projects. Starting new projects gives me the opportunity to **go deep into one single subject and learn**.
 
 My [personal GitHub](https://github.com/marcopeg) is filled up with short life span repositories. But some of them are more interesting than others and I plan to keep working on a more serious level.
+
+---
+
+## I write about...
+
+This is a personal blog where I share personal experiences and ideas.
