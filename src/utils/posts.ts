@@ -4,7 +4,7 @@ import type { CollectionEntry } from 'astro:content';
  * Filter out draft posts in production
  * In dev mode, all posts are visible
  */
-export function filterDrafts(posts: CollectionEntry<'blog'>[]): CollectionEntry<'blog'>[] {
+export function filterDrafts(posts: CollectionEntry<'posts'>[]): CollectionEntry<'posts'>[] {
 	const isDev = import.meta.env.DEV;
 
 	if (isDev) {

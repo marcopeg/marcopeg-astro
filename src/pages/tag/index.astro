@@ -10,7 +10,7 @@ import { filterDrafts } from '../../utils/posts';
 const featuredTags = await getCollection('tags');
 
 // Get all blog posts and extract unique tags
-const allPosts = filterDrafts(await getCollection('blog'));
+const allPosts = filterDrafts(await getCollection('posts'));
 const allTagsSet = new Set<string>();
 allPosts.forEach(post => {
 	if (post.data.tags) {

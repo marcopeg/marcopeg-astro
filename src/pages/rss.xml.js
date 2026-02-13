@@ -4,7 +4,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import { filterDrafts } from '../utils/posts';
 
 export async function GET(context) {
-	const posts = filterDrafts(await getCollection('blog'));
+	const posts = filterDrafts(await getCollection('posts'));
 	return rss({
 		title: SITE_TITLE,
 		description: SITE_DESCRIPTION,
