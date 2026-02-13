@@ -7,6 +7,7 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import { filterDrafts, getReadingTime } from '../utils/posts';
+import { getImageAsset } from '../utils/images';
 import fs from 'fs';
 import yaml from 'js-yaml';
 import path from 'path';
@@ -548,7 +549,17 @@ if (tags && tags.length > 0) {
 
 					{heroImage && (
 						<figure class="article-image kg-width-wide">
-							<Image width={1200} height={800} src={heroImage} alt={title} />
+							<Image
+							width={1200}
+							height={800}
+							widths={[600, 900, 1200]}
+							sizes="(max-width: 640px) 600px, (max-width: 1024px) 900px, 1200px"
+							src={getImageAsset(heroImage)}
+							alt={title}
+							format="webp"
+							loading="eager"
+							fetchpriority="high"
+						/>
 						</figure>
 					)}
 				</header>
@@ -567,6 +578,7 @@ if (tags && tags.length > 0) {
 												src={post.data.heroImage}
 												alt={post.data.title}
 												class="related-image"
+											loading="lazy"
 											/>
 										)}
 										<span class="related-tag">

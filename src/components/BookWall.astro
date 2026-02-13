@@ -20,9 +20,16 @@ while (index < books.length) {
 <div class="book-wall">
 	{groupedBooks.map((row, rowIndex) => (
 		<div class={`book-row book-row-${row.length}`}>
-			{row.map((book) => (
+			{row.map((book, bookIndex) => (
 				<div class="book-item">
-					<img src={book} alt="" loading="lazy" />
+					<img
+						src={book}
+						alt=""
+						loading="lazy"
+						decoding="async"
+						width="300"
+						height="450"
+					/>
 				</div>
 			))}
 		</div>
