@@ -43,7 +43,8 @@ const pageData = type === 'page' ? {
 	pubDate: entry.data.pubDate,
 	heroImage: entry.data.heroImage,
 	slug: entry.data.slug || entry.id,
-} : entry.data;
+	body: entry.body,
+} : { ...entry.data, body: entry.body };
 ---
 
 <BlogPost {...pageData}>

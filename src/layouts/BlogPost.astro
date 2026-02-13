@@ -6,7 +6,10 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
-import { filterDrafts } from '../utils/posts';
+import { filterDrafts, getReadingTime } from '../utils/posts';
+import fs from 'fs';
+import yaml from 'js-yaml';
+import path from 'path';
 
 type Props = {
 	title: string;
@@ -16,10 +19,28 @@ type Props = {
 	heroImage?: string;
 	tags?: string[];
 	slug?: string;
+	author?: string;
+	body?: string;
 };
 
-const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, tags, author = 'mpeg', body } = Astro.props;
 const firstTag = tags?.[0];
+
+// Load authors data
+const authorsPath = path.join(process.cwd(), 'src/data/authors.yaml');
+const authorsData = yaml.load(fs.readFileSync(authorsPath, 'utf8')) as Record<string, any>;
+const authorInfo = authorsData[author];
+
+// Calculate reading time
+const readingTime = body ? getReadingTime(body) : '1 min read';
+
+function formatDate(date: Date): string {
+	return date.toLocaleDateString('en-GB', {
+		day: 'numeric',
+		month: 'short',
+		year: 'numeric',
+	});
+}
 
 // Get related articles based on shared tags
 let relatedPosts: CollectionEntry<'posts'>[] = [];
@@ -126,6 +147,40 @@ if (tags && tags.length > 0) {
 				color: #15171a;
 				font-size: 2rem;
 				line-height: 1.45;
+			}
+
+			.article-byline {
+				display: flex;
+				align-items: center;
+				gap: 1.2rem;
+				margin-top: 2.4rem;
+			}
+
+			.author-avatar {
+				width: 56px;
+				height: 56px;
+				border-radius: 50%;
+				object-fit: cover;
+			}
+
+			.author-info {
+				display: flex;
+				flex-direction: column;
+				gap: 0.2rem;
+			}
+
+			.author-name {
+				font-size: 1.6rem;
+				font-weight: 700;
+				color: #15171a;
+				letter-spacing: 0;
+			}
+
+			.article-meta {
+				font-size: 1.3rem;
+				font-weight: 400;
+				color: #738a94;
+				letter-spacing: 0;
 			}
 
 			.article-image {
@@ -479,6 +534,16 @@ if (tags && tags.length > 0) {
 						{firstTag && <span class="article-tag">{firstTag}</span>}
 						<h1 class="article-title">{title}</h1>
 						<p class="article-excerpt">{description}</p>
+
+						{authorInfo && pubDate && (
+							<div class="article-byline">
+								<img src={authorInfo.image} alt={authorInfo.name} class="author-avatar" />
+								<div class="author-info">
+									<div class="author-name">{authorInfo.name}</div>
+									<div class="article-meta">{formatDate(pubDate)} · {readingTime}</div>
+								</div>
+							</div>
+						)}
 					</div>
 
 					{heroImage && (
