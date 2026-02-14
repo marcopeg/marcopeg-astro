@@ -51,7 +51,8 @@ if (tags && tags.length > 0) {
 
 	relatedPosts = allPosts
 		.filter(post => {
-			// Exclude current post (compare by title or slug)
+			// Exclude current post
+			if (postId && post.id === postId) return false;
 			if (post.data.title === title) return false;
 
 			// Check if post has at least one shared tag
@@ -442,11 +443,15 @@ if (tags && tags.length > 0) {
 				gap: 3rem;
 			}
 
-			.related-post {
+			.gh-content :global(a.related-post) {
 				display: flex;
 				flex-direction: column;
-				text-decoration: none;
+				text-decoration: none !important;
 				color: inherit;
+			}
+
+			.gh-content :global(a.related-post *) {
+				text-decoration: none !important;
 			}
 
 			.related-post:hover .related-title {
