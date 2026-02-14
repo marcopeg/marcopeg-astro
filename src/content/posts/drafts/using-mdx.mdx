@@ -19,10 +19,53 @@ Here is how you import and use a UI component inside of MDX.
 When you open this page in the browser, you should see the clickable button below.
 
 import HeaderLink from '../../../components/HeaderLink.astro';
+import Callout from '../../../components/Callout.astro';
 
 <HeaderLink href="#" onclick="alert('clicked!')">
 	Embedded component **in MDX**
 </HeaderLink>
+
+## Callout Component
+
+The Callout component allows you to highlight important information in your content.
+
+### Default Callout (Primary Color)
+
+<Callout>
+If you are looking for the final **Copilot-Instructions.md**, or the tutorial codebase, just click here:
+
+https://github.com/marcopeg/50-first-tasks
+</Callout>
+
+### Light Callout (Boolean Prop)
+
+<Callout icon="💡" light>
+Light blue background with dark text - perfect for informational callouts!
+</Callout>
+
+### Secondary Callout (Boolean Prop)
+
+<Callout icon="👨‍💻" secondary>
+Warm beige/cream background - great for tutorials and code examples!
+</Callout>
+
+### Custom Icon
+
+<Callout icon="⚠️">
+This is a warning callout with a custom icon and default primary color!
+</Callout>
+
+### Custom Background Color
+
+<Callout bg="#22c55e" icon="✅">
+Success! This callout has a custom green background with auto-calculated foreground color for optimal contrast.
+</Callout>
+
+### Custom Background and Foreground
+
+<Callout bg="#fbbf24" fg="#000000" icon="💡">
+This callout has both custom background and foreground colors.
+</Callout>
 
 ## More Links
 
