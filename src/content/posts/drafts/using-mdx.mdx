@@ -21,6 +21,8 @@ When you open this page in the browser, you should see the clickable button belo
 import HeaderLink from '../../../components/HeaderLink.astro';
 import Callout from '../../../components/Callout.astro';
 import EmbedTwitter from '../../../components/EmbedTwitter.astro';
+import Quote from '../../../components/Quote.astro';
+import Source from '../../../components/Source.astro';
 
 <HeaderLink href="#" onclick="alert('clicked!')">
 	Embedded component **in MDX**
@@ -67,6 +69,37 @@ Success! This callout has a custom green background with auto-calculated foregro
 <Callout bg="#fbbf24" fg="#000000" icon="💡">
 This callout has both custom background and foreground colors.
 </Callout>
+
+## Quote Component (Pull Quote Style)
+
+Use the Quote component for centered, italic pull quotes - perfect for highlighting key statements.
+
+<Quote author="Andrej Karpathy">
+The hottest new programming language is English
+</Quote>
+
+You can also use it without an author:
+
+<Quote>
+This is a powerful statement that deserves emphasis
+</Quote>
+
+## Source Component (Code Blocks with Filename)
+
+Display code blocks with an optional filename caption below.
+
+<Source lang="JavaScript" filename="example.js">
+function greet(name) {
+  return `Hello, ${name}!`;
+}
+</Source>
+
+You can also use it without a filename:
+
+<Source lang="Python">
+def calculate_sum(a, b):
+    return a + b
+</Source>
 
 ## Twitter Embed Component
 

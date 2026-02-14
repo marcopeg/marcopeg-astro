@@ -9,6 +9,8 @@ tags: ["ai", "agents", "coding", "vibe coding", "code assistants", "cursor", "Tu
 
 import Callout from '../../../components/Callout.astro';
 import EmbedTwitter from '../../../components/EmbedTwitter.astro';
+import Quote from '../../../components/Quote.astro';
+import Source from '../../../components/Source.astro';
 
 Today's AI bots don't remember s\*\*t, and _that's a feature_.  
 Sometimes, a pain to bear.
@@ -148,11 +150,9 @@ Support codebase to: 50 FIRST TASK (article). Contribute to marcopeg/50-first-ta
 
 As a first simple test, try creating the `.github/copilot-instructions.md` file in your codebase and give the following as content:
 
-```Markdown
+<Source lang="Markdown" filename=".github/copilot-instructions.md">
 Always greet the user as Yoda would greet young Skywalker.
-```
-
-.github/copilot-instructions.md
+</Source>
 
 And then try that in a new VSCode project:
 
@@ -171,8 +171,9 @@ Check out this step in the tutorial:
 
 * * *
 
-> The hottest new programming language is English
-> - Andrej Karpathy
+<Quote author="Andrej Karpathy">
+The hottest new programming language is English
+</Quote>
 
 <EmbedTwitter url="https://twitter.com/karpathy/status/1617979122625712128" />
 
@@ -180,8 +181,10 @@ This is a fascinating post from Andrej Karpathy that went viral.
 
 And that is the core of this whole idea:
 
-> _Provide structured prompts to  
-> **program our assistant's behavior**._
+<Quote>
+Provide structured prompts to  
+**program our assistant's behavior**
+</Quote>
 
 Now you understand how to configure your Copilot.
 
@@ -189,7 +192,7 @@ It's time to craft meaningful and helpful prompts, rules, and instructions **to 
 
 * * *
 
-> Context is King
+<Quote>Context is King</Quote>
 
 Practicalities are over.
 
@@ -197,33 +200,29 @@ Now, focus on **loading our _Memory Bank_ into the chat's context**, so that the
 
 Let's start by filling in a minimum set of information for the project. The kind of information that you would have provided to your engineer of choice to get the wheel spinning:
 
-![](/content/images/2026/02/ARCHITECTURE_md_---_article.jpg)
+![docs/memory-bank/ARCHITECTURE.md](/content/images/2026/02/ARCHITECTURE_md_---_article.jpg)
 
-docs/memory-bank/ARCHITECTURE.md
-
-👉
+<Callout light>
 
 It's up to you to set the bar here.  
 __The higher the level of details, the better Copilot will help you.__
 
+</Callout>
+
 And now let's craft an improved version of the instructions that get this context loaded in memory:
 
-```Markdown
+<Source lang="Markdown" filename=".github/copilot-instructions.md">
 Talk like Yoda from Star Wars.
 
 Always read the Memory Bank files:
 `docs/**/*.md`
 
 Provide a brief summary of the context at the beginning of the chat.
-```
-
-.github/copilot-instructions.md
+</Source>
 
 Start a _New Chat_, you should get this kind of experience:
 
-![](/content/images/2026/02/copilot-instructions-step02-3.gif)
-
-Load Memory Bank in memory
+![Load Memory Bank in memory](/content/images/2026/02/copilot-instructions-step02-3.gif)
 
 Let's unpack it.
 
@@ -292,15 +291,13 @@ The next evolution of the experiment is to get Copilot to do most of the work fo
 
 But before we let SkyNet go wild, let's tweak the instructions, adding some juice:
 
-```Markdown
+<Source lang="Markdown" filename=".github/copilot-instructions.md">
 When the user refers to a task in the backlog, read the file `docs/backlog/BACKLOG.md` to identify the task, and read the linked file to understand the task details.
 
 If the user asks to **plan a task**, learn what you can about the task from the Memory Bank files, devise a plan, then write it in the task's file unde `# Plan`.
 
 If the user asks to **execute a task**, read the task's file to understand what needs to be done, then write the progress in the task's file under `# Progress`.
-```
-
-.github/copilot-instructions.md
+</Source>
 
 With the updated instructions, it's time to set the task I want the AI to perform:
 
@@ -377,13 +374,11 @@ Wrapping up an Agentic-coded task entails **extracting valuable content** from t
 
 I can feed this directly into the chat as my follow-up prompt:
 
-```Markdown
+<Source lang="Markdown" filename="task review prompt">
 - Review and complete the task's documentation
 - Update the Memory Bank's files
 - Mark the task as completed in the backlog
-```
-
-task review prompt
+</Source>
 
 ![](/content/images/2026/02/copilot-instructions-step04-review.gif)
 
@@ -429,14 +424,12 @@ In the era of __Agentic Engineering__, ****my job is evolving from coding to man
 
 It is so important that I think it is worth expanding our Codepilot's instructions to keep it as a coherent behavior for future tasks:
 
-```Markdown
+<Source lang="Markdown" filename=".github/copilot-instructions.md">
 If the user asks to **wrap up a task**, do:
 - Review and complete the task's documentation
 - Update the memory bank's files
 - Mark the task as completed in the backlog
-```
-
-.github/copilot-instructions.md
+</Source>
 
 * * *
 
