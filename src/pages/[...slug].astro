@@ -44,7 +44,8 @@ const pageData = type === 'page' ? {
 	heroImage: entry.data.heroImage,
 	slug: entry.data.slug || entry.id,
 	body: entry.body,
-} : { ...entry.data, body: entry.body };
+	postId: entry.id,
+} : { ...entry.data, body: entry.body, postId: entry.id };
 ---
 
 <BlogPost {...pageData}>

@@ -6,7 +6,7 @@ import Footer from '../../components/Footer.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
-import { filterDrafts, getSlugFromId } from '../../utils/posts';
+import { filterDrafts, getSlugFromId, isDraft } from '../../utils/posts';
 
 const posts = filterDrafts(await getCollection('posts')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -157,6 +157,9 @@ const posts = filterDrafts(await getCollection('posts')).sort(
 					font-size: 3.4rem;
 				}
 			}
+		.title.draft {
+			color: #dc2626 !important;
+		}
 		</style>
 	</head>
 	<body>
@@ -177,7 +180,7 @@ const posts = filterDrafts(await getCollection('posts')).sort(
 										<span class="tag">
 											{post.data.tags && post.data.tags.length > 0 ? post.data.tags[0] : <>&nbsp;</>}
 										</span>
-										<h4 class="title">{post.data.title}</h4>
+										<h4 class:list={["title", { "draft": isDraft(post.id) }]}>{post.data.title}</h4>
 										<p class="excerpt">{post.data.description}</p>
 									</a>
 									<p class="date">

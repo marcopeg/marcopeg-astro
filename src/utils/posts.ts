@@ -40,3 +40,10 @@ export function getSlugFromId(id: string): string {
 	const parts = id.split('/');
 	return parts.length > 1 ? parts[parts.length - 1] : id;
 }
+
+/**
+ * Check if a post is a draft
+ */
+export function isDraft(id: string): boolean {
+	return id.startsWith('drafts/');
+}
