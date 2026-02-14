@@ -443,15 +443,15 @@ if (tags && tags.length > 0) {
 				gap: 3rem;
 			}
 
-			.related-post {
+			.gh-content :global(a.related-post) {
 				display: flex;
 				flex-direction: column;
-				text-decoration: none;
+				text-decoration: none !important;
 				color: inherit;
 			}
 
-			.related-post :global(*) {
-				text-decoration: none;
+			.gh-content :global(a.related-post *) {
+				text-decoration: none !important;
 			}
 
 			.related-post:hover .related-title {
