@@ -1,7 +1,7 @@
 ---
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BlogPost from '../layouts/BlogPost.astro';
-import { filterDrafts } from '../utils/posts';
+import { filterDrafts, getSlugFromId } from '../utils/posts';
 
 export async function getStaticPaths() {
 	const posts = filterDrafts(await getCollection('posts'));
@@ -9,7 +9,7 @@ export async function getStaticPaths() {
 
 	return [
 		...posts.map((post) => ({
-			params: { slug: post.id },
+			params: { slug: getSlugFromId(post.id) },
 			props: { entry: post, type: 'post' },
 		})),
 		...pages.map((page) => ({

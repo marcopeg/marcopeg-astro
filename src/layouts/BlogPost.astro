@@ -6,7 +6,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
-import { filterDrafts, getReadingTime } from '../utils/posts';
+import { filterDrafts, getReadingTime, getSlugFromId } from '../utils/posts';
 import { getImageAsset } from '../utils/images';
 import fs from 'fs';
 import yaml from 'js-yaml';
@@ -572,7 +572,7 @@ if (tags && tags.length > 0) {
 							<h2>Related Articles</h2>
 							<div class="related-grid">
 								{relatedPosts.map((post) => (
-									<a href={`/${post.id}/`} class="related-post">
+									<a href={`/${getSlugFromId(post.id)}/`} class="related-post">
 										{post.data.heroImage && (
 											<img
 												src={post.data.heroImage}

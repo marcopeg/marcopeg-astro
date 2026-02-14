@@ -6,7 +6,7 @@ import Footer from '../../components/Footer.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
-import { filterDrafts } from '../../utils/posts';
+import { filterDrafts, getSlugFromId } from '../../utils/posts';
 
 const posts = filterDrafts(await getCollection('posts')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -167,13 +167,13 @@ const posts = filterDrafts(await getCollection('posts')).sort(
 					{
 						posts.map((post) => (
 							<li>
-								<a href={`/${post.id}/`} class="hero-link">
+								<a href={`/${getSlugFromId(post.id)}/`} class="hero-link">
 									{post.data.heroImage && (
 										<Image width={720} height={360} src={post.data.heroImage} alt="" />
 									)}
 								</a>
 								<div class="post-content">
-									<a href={`/${post.id}/`}>
+									<a href={`/${getSlugFromId(post.id)}/`}>
 										<span class="tag">
 											{post.data.tags && post.data.tags.length > 0 ? post.data.tags[0] : <>&nbsp;</>}
 										</span>

@@ -5,7 +5,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
-import { filterDrafts, getReadingTime } from '../utils/posts';
+import { filterDrafts, getReadingTime, getSlugFromId } from '../utils/posts';
 import { getImageAsset } from '../utils/images';
 
 const allPosts = filterDrafts(await getCollection('posts')).sort(
@@ -181,7 +181,7 @@ function formatDate(date: Date): string {
 					{
 						posts.map((post, index) => (
 							<li>
-								<a href={`/${post.id}/`} class="hero-link">
+								<a href={`/${getSlugFromId(post.id)}/`} class="hero-link">
 									{post.data.heroImage && (
 										<Image
 										width={720}
@@ -197,7 +197,7 @@ function formatDate(date: Date): string {
 									)}
 								</a>
 								<div class="post-content">
-									<a href={`/${post.id}/`}>
+									<a href={`/${getSlugFromId(post.id)}/`}>
 										<span class="tag">
 											{post.data.tags && post.data.tags.length > 0 ? post.data.tags[0] : <>&nbsp;</>}
 										</span>
