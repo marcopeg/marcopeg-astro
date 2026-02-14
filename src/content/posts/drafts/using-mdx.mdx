@@ -23,6 +23,7 @@ import Callout from '../../../components/Callout.astro';
 import EmbedTwitter from '../../../components/EmbedTwitter.astro';
 import Quote from '../../../components/Quote.astro';
 import Source from '../../../components/Source.astro';
+import Img from '../../../components/Img.astro';
 
 <HeaderLink href="#" onclick="alert('clicked!')">
 	Embedded component **in MDX**
@@ -83,6 +84,12 @@ You can also use it without an author:
 <Quote>
 This is a powerful statement that deserves emphasis
 </Quote>
+
+## Image Component (Images with Caption)
+
+Display images with captions below, styled in centered light gray text like Ghost.
+
+<Img src="/blog-placeholder-1.jpg" alt="Example image with caption below" />
 
 ## Source Component (Code Blocks with Filename)
 

@@ -11,6 +11,7 @@ import Callout from '../../../components/Callout.astro';
 import EmbedTwitter from '../../../components/EmbedTwitter.astro';
 import Quote from '../../../components/Quote.astro';
 import Source from '../../../components/Source.astro';
+import Img from '../../../components/Img.astro';
 
 Today's AI bots don't remember s\*\*t, and _that's a feature_.  
 Sometimes, a pain to bear.
@@ -156,9 +157,7 @@ Always greet the user as Yoda would greet young Skywalker.
 
 And then try that in a new VSCode project:
 
-![](/content/images/2026/02/copilot-instructions_md_---_article.jpg)
-
-Copilot's first action is to read its instructions!
+<Img src="/content/images/2026/02/copilot-instructions_md_---_article.jpg" alt="Copilot's first action is to read its instructions!" />
 
 If you observe the screenshot, the first action is to read the `copilot-instructions.md` so that **its content drives Copilot**'s response.
 
@@ -200,7 +199,7 @@ Now, focus on **loading our _Memory Bank_ into the chat's context**, so that the
 
 Let's start by filling in a minimum set of information for the project. The kind of information that you would have provided to your engineer of choice to get the wheel spinning:
 
-![docs/memory-bank/ARCHITECTURE.md](/content/images/2026/02/ARCHITECTURE_md_---_article.jpg)
+<Img src="/content/images/2026/02/ARCHITECTURE_md_---_article.jpg" alt="docs/memory-bank/ARCHITECTURE.md" />
 
 <Callout light>
 
@@ -222,7 +221,7 @@ Provide a brief summary of the context at the beginning of the chat.
 
 Start a _New Chat_, you should get this kind of experience:
 
-![Load Memory Bank in memory](/content/images/2026/02/copilot-instructions-step02-3.gif)
+<Img src="/content/images/2026/02/copilot-instructions-step02-3.gif" alt="Load Memory Bank in memory" />
 
 Let's unpack it.
 
@@ -238,13 +237,11 @@ Check out this step in the tutorial:
 
 * * *
 
-> Backlog Oriented Development
+<Quote>Backlog Oriented Development</Quote>
 
 The backlog section deserves a thorough examination.
 
-![](/content/images/2026/02/BACKLOG_md_---_article.jpg)
-
-docs/backlog/BACKLOG.md
+<Img src="/content/images/2026/02/BACKLOG_md_---_article.jpg" alt="docs/backlog/BACKLOG.md" />
 
 Cline or other AI providers do not cover this _yet_, and to the best of my knowledge, I'm running a fairly original experiment.
 
@@ -264,9 +261,7 @@ Each task has its dedicated file where **humans and AI collaborate** to build ex
 *   **Progress:** what has been done so far
 *   **Issues:** what went wrong along the way
 
-![](/content/images/2026/02/init-node-project_md_---_article.jpg)
-
-backlog & task definition
+<Img src="/content/images/2026/02/init-node-project_md_---_article.jpg" alt="backlog & task definition" />
 
 This simple file-based backlog works exceptionally well for tracking the job that needs to be done in the codebase.
 
@@ -281,7 +276,7 @@ Check out this step in the tutorial:
 
 * * *
 
-> Use the Backlog, Luke
+<Quote>Use the Backlog, Luke</Quote>
 
 The next evolution of the experiment is to get Copilot to do most of the work for us:
 
@@ -301,39 +296,33 @@ If the user asks to **execute a task**, read the task's file to understand what 
 
 With the updated instructions, it's time to set the task I want the AI to perform:
 
-![](/content/images/2026/02/BACKLOG_md_---_article-1.jpg)
-
-set the current task
+<Img src="/content/images/2026/02/BACKLOG_md_---_article-1.jpg" alt="set the current task" />
 
 * * *
 
-> \> plan task
+<Quote>\> plan task</Quote>
 
 And then ask Copilot to do the heavy lifting for me: `plan task` . It's smart enough to identify the _current task_ from the backlog.
 
-![](/content/images/2026/02/copilot-instructions-step04-plan.gif)
+<Img src="/content/images/2026/02/copilot-instructions-step04-plan.gif" alt="plan task" />
 
-plan task
-
-> Review carefully
+<Quote>Review carefully</Quote>
 
 Once the _Mechanical Turk_ is done, I **carefully review the proposed plan**. Most of the time, the result is surprisingly accurate. Sometimes, I ask Copilot to make changes; other times, I make the changes myself.
 
-👉
-
+<Callout light>
 Planning the task is a ****hybrid iteration**** that involves using both the Chat interface and the editor.  
   
 And it's best done in pair programming.
+</Callout>
 
 * * *
 
-> \> execute task
+<Quote>\> execute task</Quote>
 
 Once I'm satisfied, it's time to move to the implementation phase: `execute task` . No need to specify the task, it will use the _Current Task_.
 
-![](/content/images/2026/02/copilot-instructions-step04-execute.gif)
-
-execute task
+<Img src="/content/images/2026/02/copilot-instructions-step04-execute.gif" alt="execute task" />
 
 In _Real Life_, the task execution phase can take from some minutes to _"feels like forever"_. And it's not a given that it will work.
 
@@ -341,9 +330,7 @@ Some models can perform a lot of autonomous work _(Sonnet4)_, some others stop e
 
 For this particular task, I got prompted multiple times to allow operations such as `npm install` or `npm run lint` . I thoroughly clicked "Accept".
 
-![](/content/images/2026/02/Screenshot_2025-07-11__12_40.jpg)
-
-✅ task successfully executed!
+<Img src="/content/images/2026/02/Screenshot_2025-07-11__12_40.jpg" alt="✅ task successfully executed!" />
 
 > Review (double) carefully!!!
 
@@ -380,9 +367,7 @@ I can feed this directly into the chat as my follow-up prompt:
 - Mark the task as completed in the backlog
 </Source>
 
-![](/content/images/2026/02/copilot-instructions-step04-review.gif)
-
-review and document the task
+<Img src="/content/images/2026/02/copilot-instructions-step04-review.gif" alt="review and document the task" />
 
 This kind of prompt is precisely where AI shines: **extraction & summarization**. Take a look at the screenshot and review the code. If only I had _Key Learnings_ summarized for every experience in my life so far!
 
@@ -394,9 +379,7 @@ Once you start collecting these sections out of all your tasks, being those stor
 **Almost** automatically!  
 _(You still want to review, review, review!)_
 
-![](/content/images/2026/02/task-wrap-up.jpg)
-
-task wrap up output
+<Img src="/content/images/2026/02/task-wrap-up.jpg" alt="task wrap up output" />
 
 <Callout icon="👨‍💻" secondary>
 Check out this step in the tutorial:
