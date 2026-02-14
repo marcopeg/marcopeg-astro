@@ -308,22 +308,25 @@ if (tags && tags.length > 0) {
 				margin-top: 0.5em;
 			}
 
-			/* Blockquotes */
+			/* Blockquotes - centered quote style (like Quote component) */
 			.gh-content > :global(blockquote:not([class])) {
-				position: relative;
-				font-style: italic;
+				border: none;
 				padding: 0;
-				border-left: none;
+				margin: max(4.8vmin, 32px) 0;
+				text-align: center;
+				font-family: Georgia, Times, serif;
+				font-size: 2.4rem;
+				font-weight: 400;
+				font-style: italic;
+				line-height: 1.5;
+				color: #738a94;
 			}
 
-			.gh-content > :global(blockquote:not([class]))::before {
-				content: "";
-				position: absolute;
-				left: -1.5em;
-				top: 0;
-				bottom: 0;
-				width: 0.3rem;
-				background: var(--accent, #2337ff);
+			.gh-content > :global(blockquote:not([class]) p) {
+				margin: 0;
+				font-size: inherit;
+				line-height: inherit;
+				color: inherit;
 			}
 
 			/* Inline code */
@@ -512,8 +515,8 @@ if (tags && tags.length > 0) {
 					font-size: 1.8rem;
 				}
 
-				.gh-content :global(blockquote:not([class]))::before {
-					left: min(-4vmin, -20px);
+				.gh-content > :global(blockquote:not([class])) {
+					font-size: 2rem;
 				}
 
 				.gh-content :global(h1) {

@@ -9,19 +9,17 @@ tags: ["ai", "agents", "coding", "vibe coding", "code assistants", "cursor", "Tu
 
 import Callout from '../../../components/Callout.astro';
 import EmbedTwitter from '../../../components/EmbedTwitter.astro';
-import Quote from '../../../components/Quote.astro';
 import Source from '../../../components/Source.astro';
 import Img from '../../../components/Img.astro';
+import GitHubRepo from '../../../components/GitHubRepo.astro';
 
 Today's AI bots don't remember s\*\*t, and _that's a feature_.  
 Sometimes, a pain to bear.
 
 The pain is quite obvious: raise your hand if you have ever felt the need to yell _"Whaat? YOU did that yesterday!"_ to your favorite code assistant.
 
-<Quote>
-It's not a bug,  
-It's a feature
-</Quote>
+> It's not a bug,
+> It's a feature
 
 The _"it's not a bug, it's a feature"_ part of my comment might feel less obvious to most.
 
@@ -135,17 +133,8 @@ From now on, you will **put all this theory into practice** in a simple step-by-
 
 👉 At the end of each step, you find the link to the relative branch.
 
-[
+<GitHubRepo url="https://github.com/marcopeg/50-first-tasks" />
 
-GitHub - marcopeg/50-first-tasks: Support codebase to: 50 FIRST TASK (article)
-
-Support codebase to: 50 FIRST TASK (article). Contribute to marcopeg/50-first-tasks development by creating an account on GitHub.
-
-![](/content/images/icon/pinned-octocat-093da3e6fa40-2.svg)GitHubmarcopeg
-
-![](/content/images/thumbnail/50-first-tasks-1)
-
-](https://github.com/marcopeg/50-first-tasks)
 
 * * *
 
@@ -172,9 +161,9 @@ Check out this step in the tutorial:
 
 * * *
 
-<Quote author="Andrej Karpathy">
-The hottest new programming language is English
-</Quote>
+> The hottest new programming language is English
+>
+> \- Andrej Karpathy
 
 <EmbedTwitter url="https://twitter.com/karpathy/status/1617979122625712128" />
 
@@ -182,10 +171,8 @@ This is a fascinating post from Andrej Karpathy that went viral.
 
 And that is the core of this whole idea:
 
-<Quote>
-Provide structured prompts to  
-**program our assistant's behavior**
-</Quote>
+> Provide structured prompts to
+> **program our assistant's behavior**
 
 Now you understand how to configure your Copilot.
 
@@ -193,7 +180,7 @@ It's time to craft meaningful and helpful prompts, rules, and instructions **to 
 
 * * *
 
-<Quote>Context is King</Quote>
+> Context is King
 
 Practicalities are over.
 
@@ -239,7 +226,7 @@ Check out this step in the tutorial:
 
 * * *
 
-<Quote>Backlog Oriented Development</Quote>
+> Backlog Oriented Development
 
 The backlog section deserves a thorough examination.
 
@@ -278,7 +265,7 @@ Check out this step in the tutorial:
 
 * * *
 
-<Quote>Use the Backlog, Luke</Quote>
+> Use the Backlog, Luke
 
 The next evolution of the experiment is to get Copilot to do most of the work for us:
 
@@ -302,13 +289,13 @@ With the updated instructions, it's time to set the task I want the AI to perfor
 
 * * *
 
-<Quote>\> plan task</Quote>
+> \> plan task
 
 And then ask Copilot to do the heavy lifting for me: `plan task` . It's smart enough to identify the _current task_ from the backlog.
 
 <Img src="/content/images/2026/02/copilot-instructions-step04-plan.gif" alt="plan task" />
 
-<Quote>Review carefully</Quote>
+> Review carefully
 
 Once the _Mechanical Turk_ is done, I **carefully review the proposed plan**. Most of the time, the result is surprisingly accurate. Sometimes, I ask Copilot to make changes; other times, I make the changes myself.
 
@@ -320,7 +307,7 @@ And it's best done in pair programming.
 
 * * *
 
-<Quote>\> execute task</Quote>
+> \> execute task
 
 Once I'm satisfied, it's time to move to the implementation phase: `execute task` . No need to specify the task, it will use the _Current Task_.
 
@@ -351,7 +338,7 @@ This was a trivial task. In __Real-Life__, the review part is where enginners ar
 
 * * *
 
-<Quote>\> Wrap it up</Quote>
+> \> Wrap it up
 
 It doesn't matter how trivial a task may be; if you are a serious engineer, you take every opportunity to **apply deliberate learning**. And running tasks never fails to be such an experience.
 
@@ -373,10 +360,8 @@ I can feed this directly into the chat as my follow-up prompt:
 
 This kind of prompt is precisely where AI shines: **extraction & summarization**. Take a look at the screenshot and review the code. If only I had _Key Learnings_ summarized for every experience in my life so far!
 
-<Quote>
-Evolve your  
-Memory Bank
-</Quote>
+> Evolve your
+> Memory Bank
 
 Once you start collecting these sections out of all your tasks, being those stored within the codebase as Markdown files, or in Jira through an MCP, you can **apply extraction & summarization from tasks to _Memory Bank_'s** `FEATURES.md` and `ARCHITECTURE.md` and carefully evolve the high-level project documentation.
 

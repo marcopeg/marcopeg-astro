@@ -21,9 +21,10 @@ When you open this page in the browser, you should see the clickable button belo
 import HeaderLink from '../../../components/HeaderLink.astro';
 import Callout from '../../../components/Callout.astro';
 import EmbedTwitter from '../../../components/EmbedTwitter.astro';
-import Quote from '../../../components/Quote.astro';
+import Note from '../../../components/Note.astro';
 import Source from '../../../components/Source.astro';
 import Img from '../../../components/Img.astro';
+import GitHubRepo from '../../../components/GitHubRepo.astro';
 
 <HeaderLink href="#" onclick="alert('clicked!')">
 	Embedded component **in MDX**
@@ -71,19 +72,25 @@ Success! This callout has a custom green background with auto-calculated foregro
 This callout has both custom background and foreground colors.
 </Callout>
 
-## Quote Component (Pull Quote Style)
+## Blockquotes (Centered Italic Style)
 
-Use the Quote component for centered, italic pull quotes - perfect for highlighting key statements.
+Regular markdown blockquotes now render as centered, italic quotes in gray - perfect for highlighting key statements.
 
-<Quote author="Andrej Karpathy">
-The hottest new programming language is English
-</Quote>
+> The hottest new programming language is English
+>
+> \- Andrej Karpathy
 
-You can also use it without an author:
+Simple quotes:
 
-<Quote>
-This is a powerful statement that deserves emphasis
-</Quote>
+> Context is King
+
+## Note Component (Blue Left Border)
+
+Use the Note component for side notes or important information with a blue left border.
+
+<Note>
+This is an important note that deserves special attention with the blue accent border.
+</Note>
 
 ## Image Component (Images with Caption)
 
@@ -107,6 +114,12 @@ You can also use it without a filename:
 def calculate_sum(a, b):
     return a + b
 </Source>
+
+## GitHub Repository Card
+
+Display a GitHub repository as a card with fetched repository information.
+
+<GitHubRepo url="https://github.com/marcopeg/50-first-tasks" />
 
 ## Twitter Embed Component
 
