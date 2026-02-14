@@ -1,0 +1,51 @@
+---
+title: "Gitbook Plugins"
+description: "Last weekend I've been working on some plugins for GitBook. Here is the list!"
+pubDate: "2019-09-10T22:00:00.000Z"
+updatedDate: "2021-11-03T07:10:15.000Z"
+heroImage: "https://images.unsplash.com/photo-1601046668433-65d0c898c8a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDIyfHxwbHVnaW58ZW58MHx8fHwxNjM1OTIzMzM5&ixlib=rb-1.2.1&q=80&w=2000"
+tags: ["tools", "Import 2022-12-03 12:45", "#Import 2025-02-27 15:31"]
+---
+
+import GitHubRepo from '../../../components/GitHubRepo.astro';
+
+
+I recently starter working on an education project called [LearnJS](https://learnjs.today) and I decided to draft it with [GitBook](https://gitbook.io/) as it is quite simple to set up and run.
+
+There were a few features missing from the core and from the community, so I decided to build some super simple plugins that help me handle my content better.
+
+Enjoy!
+
+* * *
+
+## gitbook-plugin-redirect-https
+
+Just add this plugin to your `book.json` and enjoy an automatic Javascript redirect from _HTTP_ to _HTTP**S**_ when your book is published online.
+
+The plugin recognizes your local environment and skips the redirect.
+
+*   <GitHubRepo url="https://github.com/marcopeg/gitbook-plugin-redirect-https" />
+*   [Install from NPM](https://www.npmjs.com/package/gitbook-plugin-redirect-https)
+
+## gitbook-plugin-disqus-legacy
+
+Just add this plugin to embed a [Disqus board](https://disqus.com/) on every page of your 3.x GitBook.
+
+> You can configure a few settings and blacklist pages that should not use it.
+
+*   <GitHubRepo url="https://github.com/marcopeg/gitbook-plugin-disqus-legacy" />
+*   [Install from NPM](https://www.npmjs.com/package/gitbook-plugin-disqus-legacy)
+
+## gitbook-plugin-youtube-placeholder
+
+This plugin lets you embed a Youtube video that is fully responsive to the page size. Works great for desktop and mobile.
+
+*   <GitHubRepo url="https://github.com/marcopeg/gitbook-plugin-youtube-placeholder" />
+*   [Install from NPM](https://www.npmjs.com/package/gitbook-plugin-youtube-placeholder)
+
+## gitbook-plugin-codepen-placeholder
+
+If you need to embed a [CodePen](https://codepen.io/) into your pages, this plugin does the heavy lifting for you.
+
+*   <GitHubRepo url="https://github.com/marcopeg/gitbook-plugin-codepen-placeholder" />
+*   [Install from NPM](https://www.npmjs.com/package/gitbook-plugin-codepen-placeholder)
