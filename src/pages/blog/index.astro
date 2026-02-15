@@ -148,13 +148,20 @@ const posts = filterDrafts(await getCollection('posts')).sort(
 			@media (max-width: 767px) {
 				ul {
 					grid-template-columns: 1fr;
-					gap: 40px;
+					gap: 80px;
 				}
 				ul li, ul li:first-child, ul li:nth-child(2), ul li:nth-child(3) {
 					grid-column: span 1;
 				}
 				ul li:first-child .title {
 					font-size: 3.4rem;
+				}
+				ul li img {
+					margin-bottom: 1rem;
+				}
+				.tag:empty,
+				.tag:has(> :only-child:empty) {
+					display: none;
 				}
 			}
 		.title.draft {
