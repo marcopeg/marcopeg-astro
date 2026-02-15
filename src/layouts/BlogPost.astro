@@ -27,6 +27,7 @@ type Props = {
 
 const { title, description, pubDate, updatedDate, heroImage, tags, author = 'mpeg', body, postId } = Astro.props;
 const firstTag = tags?.[0];
+const socialImage = getImageAsset(heroImage);
 
 // Load authors data
 const authorsPath = path.join(process.cwd(), 'src/data/authors.yaml');
@@ -70,7 +71,7 @@ if (tags && tags.length > 0) {
 
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead title={title} description={description} image={socialImage} />
 		<style>
 			/* Reset any global constraints that might interfere with the grid */
 			main {
