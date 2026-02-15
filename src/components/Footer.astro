@@ -5,10 +5,12 @@ const today = new Date();
 <footer>
 	<div class="footer-container">
 		<div class="footer-left">
-			<span>Marco Pegoraro &copy; {today.getFullYear()}</span>
+			<a href="/">Copyright Marco Peg 2026</a>
 		</div>
 		<div class="footer-center">
-			<a href="/privacy">Privacy</a>
+			<a href="/about">About</a>
+			<span class="separator">•</span>
+			<a href="/rss.xml">RSS</a>
 			<span class="separator">•</span>
 			<a href="/cookies">Cookies</a>
 		</div>
@@ -39,6 +41,16 @@ const today = new Date();
 	.footer-center,
 	.footer-right {
 		font-size: 1.15rem;
+	}
+
+	.footer-left a {
+		color: #b3b3b3;
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+	.footer-left a:hover {
+		color: #ffffff;
 	}
 
 	.footer-center {
