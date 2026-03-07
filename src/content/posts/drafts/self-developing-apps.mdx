@@ -1,0 +1,374 @@
+---
+title: "The Era for Self Developing Apps"
+description: "What if an app could start empty and learn its own behavior over time? A Telegram bot, a folder of markdown files, and Claude Code walk into a bar — and build a time tracker without a single database."
+pubDate: "2026-02-25T07:24:00.000Z"
+updatedDate: "2026-02-25T07:24:00.000Z"
+heroImage: "/content/images/2026/02/the-era-for-self-developing-apps.png"
+tags: ["ai", "agents", "Tutorials"]
+---
+
+import Img from '../../../components/Img.astro';
+
+Last week I built an app that didn't exist when I started. Not because I coded it — but because I _talked_ it into existence through a Telegram chat.
+
+No database. No API. No deploy pipeline. Just a bot, a folder full of markdown files, and a conversation that slowly taught the thing how to behave.
+
+> And I thought: _"Wait. This is a new kind of software."_
+
+For years, we treated apps as something you design once, code in a fixed architecture, then maintain forever. Architects draw boxes, developers fill them with code, and ops people pray nothing breaks on a Friday evening.
+
+But with agentic systems, **that model is softening**. More and more, an app can start empty, and users can teach it its intended behavior over time — simply by talking to it.
+
+Not because it's magical. Because we now have practical building blocks:
+
+- a bot as the interface,
+- a folder as the database,
+- markdown files as durable memory,
+- and lightweight views to render that memory.
+
+> In this model, an app is less a monolith
+> and more a **living workspace**.
+
+Sound crazy? Stick with me.
+
+---
+
+## What We're Building
+
+In this tutorial, we build a **generic, multipurpose Telegram bot** connected to a local folder with controlled permissions and an initially empty `claude.md` instruction file. Then we guide the bot to evolve by storing reusable behaviors in:
+
+- `claude.md` — the instruction file that Claude Code reads on every interaction,
+- `CloudSkills` — reusable behavior recipes,
+- `CloudCommands` — action interfaces exposed through Telegram.
+
+The long-term vision is dead simple:
+
+1. Use Telegram as the control surface.
+2. Keep data in markdown files.
+3. Open and inspect everything in an Obsidian vault.
+4. Sync the vault with iCloud (Mac ecosystem).
+5. Let the bot gradually become **your personal app platform**.
+
+> A bot, a vault, and a disciplined file structure.
+> That's the whole stack.
+
+The concrete demo app in this series is a **time tracker**. You instruct the bot how to model and store time logs, the bot updates your vault files, and later it even scaffolds a custom Obsidian plugin to render a focused UI.
+
+<Img src="/content/images/2026/02/time-tracker.png" alt="Telegram-driven time tracker with bot + vault workflow" />
+
+By the end, you will have:
+
+- A Telegram bot connected to a local vault folder.
+- A file-system-first data model in markdown.
+- A repeatable way to add behavior by writing `claude.md`, CloudSkills, and CloudCommands.
+- A foundation for a custom Obsidian plugin front end.
+
+---
+
+## The Tools
+
+Nothing exotic here:
+
+- **Telegram Bot API** — chat-based control. You talk, the bot acts.
+- **Claude Code** — the agentic runtime. It reads instructions, reasons, and operates on files.
+- **`claude.md`** — the markdown instruction file that _programs_ the bot's behavior.
+- **Local file system** — your persistence layer. No Postgres this time (I know, I know).
+- **Markdown** — data _and_ behavior format. One format to rule them all.
+- **Obsidian vault** — the human-readable interface to your data.
+- **iCloud sync** — because I live in the Apple ecosystem and I'm not ashamed of it.
+
+---
+
+## The Roadmap
+
+Here's the plan. Seven steps, each building on the last:
+
+1. Create the vault structure and access boundaries.
+2. Bootstrap the Telegram bot and connect it to Claude Code.
+3. Define `claude.md` / CloudSkills / CloudCommands contracts.
+4. Implement core bot flows for reading and writing markdown state.
+5. Build the first real use case: time tracking.
+6. Generate a minimal Obsidian plugin UI for daily views.
+7. Add safety rails, iteration workflow, and extension points.
+
+Let's dig in.
+
+---
+
+## Step 1 — Prepare the Vault as Database
+
+I know what you're thinking: _"A folder? As a database?"_
+
+Yes. And it's glorious.
+
+Create an Obsidian vault folder (for example: `~/iCloud Drive/Obsidian/AgenticVault`) and start with a minimal structure:
+
+```text
+AgenticVault/
+	claude.md
+	CloudSkills/
+	CloudCommands/
+	Apps/
+		TimeTracker/
+			Days/
+			Logs/
+```
+
+A few rules I follow:
+
+- **Keep the structure explicit and boring.** No clever nesting, no dynamic folder names. If a new developer (or a new AI session) can't figure it out in 5 seconds, it's too complex.
+- **Use deterministic file naming** — `YYYY-MM-DD.md`, `skill-name.md`, `command-name.md`. Predictability is a feature.
+- **Give the bot access only to this vault path.** Boundaries matter, especially when the bot can write files.
+
+> This gives us a local database that is
+> **inspectable, portable, and sync-friendly**.
+
+Dead simple.
+
+---
+
+## Step 2 — Bootstrap the Telegram Control Plane
+
+Set up a Telegram bot via [BotFather](https://t.me/BotFather), grab the token, and connect incoming messages to your Claude Code runtime.
+
+At this stage, keep flows minimal:
+
+- `/ping` → health check,
+- `/status` → reports vault path + loaded modules,
+- text message → routed to command interpreter.
+
+> The goal of this step is not intelligence.
+> The goal is **reliable control**.
+
+Don't overthink it. You want the pipe working end-to-end before you pour anything smart through it. I've fallen into that trap too many times — building the brain before the nervous system. Doesn't work.
+
+---
+
+## Step 3 — Define the Contracts
+
+Before adding complex behavior, define contracts. This is the part most people skip. And then they wonder why their bot hallucinates grocery lists when asked for a time report.
+
+### `claude.md`
+
+This is the markdown instruction file that Claude Code reads on every interaction. It defines how the bot should reason, what structures to use, and how to keep behavior consistent:
+
+- command interpretation rules,
+- data shape conventions,
+- safety constraints,
+- reusable state templates.
+
+Think of it as **the bot's personality and operating manual**, all in one file.
+
+### CloudSkills
+
+Reusable behavior recipes. Each skill defines:
+
+- purpose,
+- required inputs,
+- output format,
+- side effects (if any).
+
+If you've read my piece on [50 First Tasks](/50-first-tasks), this is the same Memory Bank concept applied to an app instead of a codebase.
+
+### CloudCommands
+
+The executable interface exposed through Telegram. Each command defines:
+
+- trigger (`/log-time`, `/plan-day`, `/report-week`),
+- schema/arguments,
+- execution steps,
+- expected file mutations.
+
+> Skills are _how the bot thinks_.
+> Commands are _how you talk to it_.
+
+---
+
+## Step 4 — Implement File-System Operations
+
+Now we wire the core engine. The bot needs to:
+
+- resolve paths safely (prevent path traversal — yes, even your own bot can be naughty),
+- read and write markdown files,
+- append logs,
+- perform idempotent updates,
+- keep an operation audit trail.
+
+👉 **Every command should produce deterministic markdown changes** so that you — the human — can review and correct them in Obsidian.
+
+This is critical. If you can't open a file and understand what the bot did, you've lost control. And losing control of an agentic system is how horror movies start.
+
+---
+
+## Step 5 — Build the Time Tracker
+
+This is where it gets real. Our first three commands:
+
+- `/start-day` — creates or resets the day plan file,
+- `/log-time` — appends a time entry,
+- `/end-day` — produces a summary block.
+
+Here's what a daily file looks like:
+
+```markdown
+# 2026-02-25
+
+## Plan
+- [ ] Deep work: Architecture
+- [ ] Meetings
+
+## Logs
+- 09:00-10:30 Deep work
+- 11:00-11:30 Standup
+
+## Summary
+- Focus: 7/10
+- Notes: ...
+```
+
+Once this loop works, **you already have a functioning personal app** with no traditional database. You can open it in Obsidian, edit it by hand, search through it with grep, sync it to your phone, back it up by copying a folder.
+
+> No migrations. No schemas. No ORM.
+> Just files.
+
+I've been running this for two weeks now and I keep discovering how much I _don't need_ the infrastructure I used to build. That's either liberating or terrifying, depending on your perspective.
+
+---
+
+## Step 6 — Add an Obsidian Plugin View
+
+At this point, data exists and commands work. Now add presentation.
+
+Build a tiny Obsidian plugin that:
+
+- adds a custom tab in the sidebar,
+- scans `Apps/TimeTracker/Days/`,
+- renders daily entries in a simple list grouped by day,
+- links each row back to the source note.
+
+Keep this first version **read-only**. Editing continues through Telegram commands. The separation matters: **the bot writes, Obsidian reads**, and you can always intervene by editing the files directly.
+
+<Img src="/content/images/2026/02/bot-build-ui.png" alt="The bot reads your chat messages and builds the custom Obsidian plugin UI" />
+
+And here's the beautiful part: you didn't write a single line of plugin code yourself. You described what you wanted in the Telegram chat, and the bot scaffolded the whole thing by reading its own data files. It knows the folder structure, it knows the file format, and it generates code that matches.
+
+---
+
+## Step 7 — Let the App Evolve Through the Bot
+
+Now the key shift.
+
+Instead of hardcoding every new feature in some codebase, you instruct the bot to **extend itself** by writing and updating:
+
+- new skill files in `CloudSkills/`,
+- new command specs in `CloudCommands/`,
+- supporting instructions and state templates in `claude.md`.
+
+> This is where "self-developing app" becomes practical:
+> **controlled evolution through explicit artifacts**.
+
+The bot doesn't magically "learn." It writes down what it learned in files that you can read, edit, and version. It's less _Skynet_ and more _a very diligent intern who takes notes_.
+
+---
+
+## Guardrails
+
+Let's be real: letting a bot write its own behavior sounds like a recipe for chaos. It can be, if you don't set boundaries.
+
+Here's what keeps this sustainable:
+
+- **Prefer plain markdown** over opaque formats. If you can't read it, you can't trust it.
+- **Keep commands narrow and composable.** One command, one job.
+- **Log every automated file change.** The audit trail is your safety net.
+- **Require confirmation for destructive actions.** Delete? Are you sure? _Are you really sure?_
+- **Keep one clear source of truth per concern.** No duplication, no ambiguity.
+
+---
+
+## The Elephant in the Room: Tokens Cost Money
+
+So far this feels like magic, right? You talk to a bot, the bot builds your app, you sip coffee and watch the future unfold.
+
+Not so fast.
+
+<Img src="/content/images/2026/02/bot-checks-tokens.png" alt="The bot checking token consumption — 400K tokens adds up fast" />
+
+Every time the bot processes a message, it reads files, reasons about them, and writes back. Every single one of those operations **consumes tokens**. And tokens cost real money.
+
+Here's where the magic meets the engineering.
+
+> If you don't architect your data layer,
+> you'll either **burn cash** or **wait forever**.
+
+Let me show you exactly what I mean with our time tracker example.
+
+### The Naive Approach: One Big File
+
+Imagine you store all your time entries in a single `time-log.md` file. After six months, that file is thousands of lines long. Every time you ask the bot _"What did I do yesterday?"_, it has to:
+
+1. Read the entire file into context,
+2. Find yesterday's entries among months of data,
+3. Formulate a response.
+
+That's **tens of thousands of tokens burned** on a question that should cost a handful. And it gets worse: the longer the file, the more likely the model loses accuracy. You're paying more _and_ getting worse results.
+
+_Brilliant, right?_
+
+### The Structured Approach: Year / Month / Day
+
+Now consider this folder structure instead:
+
+```text
+Apps/TimeTracker/
+    2026/
+        01/
+            2026-01-15.md
+            2026-01-16.md
+        02/
+            2026-02-24.md
+            2026-02-25.md
+```
+
+When you ask _"What did I do yesterday?"_, the bot:
+
+1. Computes yesterday's date,
+2. Opens **one small file** — `2026/02/2026-02-24.md`,
+3. Reads maybe 20 lines,
+4. Done.
+
+> Same question. A **fraction of the tokens**.
+> Faster response. Better accuracy.
+
+The difference is not marginal. We're talking about going from reading a 50KB file to reading a 500-byte file. That's **two orders of magnitude**. Over hundreds of interactions per month, that's the difference between a few bucks and a bill that makes you question your life choices.
+
+### This Is Still Software Engineering
+
+And _this_ is the point I really want to drive home.
+
+Even in this brave new world where you talk an app into existence, **someone still needs to think about the data architecture**. How files are organized, how they're named, how they're indexed — these decisions determine whether the bot is fast and cheap, or slow and expensive.
+
+> You don't need to write code.
+> But you damn well need to **think like an engineer**.
+
+The folder structure _is_ the indexing strategy. Deterministic file names _are_ the query optimizer. A well-organized vault means the bot can cherry-pick exactly the file it needs without scanning everything.
+
+This is true even for personal usage. _Especially_ for personal usage, because nobody's subsidizing your token bill.
+
+👉 **The skill that transfers from traditional engineering to agentic apps is not coding — it's architecture.** How you model and organize your data determines whether this approach is viable or a money pit.
+
+So yes, it feels like magic. But behind every good magic trick, there's someone who rehearsed the hell out of it.
+
+---
+
+## What's Next
+
+This tutorial is not about replacing software engineering with prompts.
+
+It's about **lowering the cost of building personal software** that can adapt quickly, remain transparent, and stay under your control. The kind of tools that used to require a backend, a frontend, a database, and a weekend of yak-shaving.
+
+> A bot, a vault, and a conversation.
+> That's the new minimum viable app.
+
+In the next part, we'll implement the actual Telegram + Claude Code bootstrap, wire `claude.md` into the runtime, and run the first commands end to end.
+
+Will you build along? I'd love to hear what kind of app you'd teach your bot to become.

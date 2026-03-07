@@ -88,6 +88,7 @@ import pinned_octocat from '../assets/images/pinned-octocat-093da3e6fa40-2.svg';
 import resting_heart_beat from '../assets/images/resting-heart-beat.png';
 import sinus_rhythm_2 from '../assets/images/sinus-rhythm-2.png';
 import the_godfather from '../assets/images/the-godfather.png';
+import selfDevelopingApps from '../assets/images/the-era-for-self-developing-apps.png';
 
 export const imageMap: Record<string, any> = {
 	// Hero images
@@ -104,6 +105,7 @@ export const imageMap: Record<string, any> = {
 	'/content/images/2026/02/init-node-project_md_---_article.jpg': initNodeProject,
 	'/content/images/2026/02/Screenshot_2025-07-11__12_40.jpg': screenshot,
 	'/content/images/2026/02/task-wrap-up.jpg': taskWrapUp,
+	'/content/images/2026/02/the-era-for-self-developing-apps.png': selfDevelopingApps,
 
 	// Content images
 	'/content/images/2024/12/0300f86f-baa3-413a-8423-2bbfba6331c3_3dc1b90e949f8a266636e28daad59fc4_jpeg__768-768_.png': img_0300f86f,
