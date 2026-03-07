@@ -1,16 +1,21 @@
 ---
-import { Image } from 'astro:assets';
-import type { CollectionEntry } from 'astro:content';
-import { getCollection } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
-import Header from '../components/Header.astro';
-import { filterDrafts, getReadingTime, getSlugFromId, isDraft } from '../utils/posts';
-import { getImageAsset } from '../utils/images';
-import fs from 'fs';
-import yaml from 'js-yaml';
-import path from 'path';
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import Header from "../components/Header.astro";
+import {
+	filterDrafts,
+	getReadingTime,
+	getSlugFromId,
+	isDraft,
+} from "../utils/posts";
+import { getImageAsset } from "../utils/images";
+import fs from "fs";
+import yaml from "js-yaml";
+import path from "path";
 
 type Props = {
 	title: string;
@@ -23,46 +28,63 @@ type Props = {
 	author?: string;
 	body?: string;
 	postId?: string;
+	noindex?: boolean;
 };
 
-const { title, description, pubDate, updatedDate, heroImage, tags, author = 'mpeg', body, postId } = Astro.props;
+const {
+	title,
+	description,
+	pubDate,
+	updatedDate,
+	heroImage,
+	tags,
+	author = "mpeg",
+	body,
+	postId,
+	noindex = false,
+} = Astro.props;
 const firstTag = tags?.[0];
 const socialImage = getImageAsset(heroImage);
 
 // Load authors data
-const authorsPath = path.join(process.cwd(), 'src/data/authors.yaml');
-const authorsData = yaml.load(fs.readFileSync(authorsPath, 'utf8')) as Record<string, any>;
+const authorsPath = path.join(process.cwd(), "src/data/authors.yaml");
+const authorsData = yaml.load(fs.readFileSync(authorsPath, "utf8")) as Record<
+	string,
+	any
+>;
 const authorInfo = authorsData[author];
 
 // Calculate reading time
-const readingTime = body ? getReadingTime(body) : '1 min read';
+const readingTime = body ? getReadingTime(body) : "1 min read";
 
 function formatDate(date: Date): string {
-	return date.toLocaleDateString('en-GB', {
-		day: 'numeric',
-		month: 'short',
-		year: 'numeric',
+	return date.toLocaleDateString("en-GB", {
+		day: "numeric",
+		month: "short",
+		year: "numeric",
 	});
 }
 
 // Get related articles based on shared tags
-let relatedPosts: CollectionEntry<'posts'>[] = [];
+let relatedPosts: CollectionEntry<"posts">[] = [];
 if (tags && tags.length > 0) {
-	const allPosts = filterDrafts(await getCollection('posts'));
+	const allPosts = filterDrafts(await getCollection("posts"));
 
 	relatedPosts = allPosts
-		.filter(post => {
+		.filter((post) => {
 			// Exclude current post
 			if (postId && post.id === postId) return false;
 			if (post.data.title === title) return false;
 
 			// Check if post has at least one shared tag
-			return post.data.tags?.some(tag => tags.includes(tag));
+			return post.data.tags?.some((tag) => tags.includes(tag));
 		})
 		.sort((a, b) => {
 			// Sort by number of shared tags (most relevant first)
-			const sharedA = a.data.tags?.filter(tag => tags.includes(tag)).length || 0;
-			const sharedB = b.data.tags?.filter(tag => tags.includes(tag)).length || 0;
+			const sharedA =
+				a.data.tags?.filter((tag) => tags.includes(tag)).length || 0;
+			const sharedB =
+				b.data.tags?.filter((tag) => tags.includes(tag)).length || 0;
 			return sharedB - sharedA;
 		})
 		.slice(0, 6); // Limit to 6 related posts
@@ -71,7 +93,12 @@ if (tags && tags.length > 0) {
 
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} image={socialImage} />
+		<BaseHead
+			title={title}
+			description={description}
+			image={socialImage}
+			noindex={noindex}
+		/>
 		<style>
 			/* Reset any global constraints that might interfere with the grid */
 			main {
@@ -240,7 +267,9 @@ if (tags && tags.length > 0) {
 			.gh-content > :global([id]) {
 				margin: 0;
 				color: #15171a;
-				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+					"Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+					"Droid Sans", "Helvetica Neue", sans-serif;
 				font-weight: 700;
 				text-rendering: optimizeLegibility;
 				letter-spacing: -0.01em;
@@ -352,7 +381,8 @@ if (tags && tags.length > 0) {
 				line-height: 1.5em;
 				background: #15171a;
 				border-radius: 5px;
-				box-shadow: 0 2px 6px -2px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.4);
+				box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.1),
+					0 0 1px rgba(0, 0, 0, 0.4);
 			}
 
 			.gh-content :global(pre code) {
@@ -413,13 +443,13 @@ if (tags && tags.length > 0) {
 			.gh-content :global(figcaption) {
 				padding: 1.5rem 1.5rem 0;
 				text-align: center;
-				color: rgba(0,0,0,0.5);
+				color: rgba(0, 0, 0, 0.5);
 				font-size: 1.3rem;
 				line-height: 1.4em;
 			}
 
 			.gh-content :global(figcaption strong) {
-				color: rgba(0,0,0,0.8);
+				color: rgba(0, 0, 0, 0.8);
 			}
 
 			.gh-content :global(figcaption a) {
@@ -533,77 +563,133 @@ if (tags && tags.length > 0) {
 					font-size: 1.7rem;
 				}
 			}
-		.article-title.draft {
-			color: #dc2626 !important;
-		}
+			.article-title.draft {
+				color: #dc2626 !important;
+			}
+		</style>
+		<style is:global>
+			.draft-banner {
+				position: sticky;
+				top: 0;
+				z-index: 100;
+				background: #fef3c7;
+				border-bottom: 2px solid #f59e0b;
+				color: #92400e;
+				text-align: center;
+				padding: 10px 16px;
+				font-size: 1.4rem;
+				letter-spacing: 0.01em;
+			}
 		</style>
 	</head>
 
 	<body>
 		<Header />
+		{
+			noindex && (
+				<div class="draft-banner">
+					⚠️ <strong>DRAFT</strong> — This article is not published.
+					Do not share this URL.
+				</div>
+			)
+		}
 		<main>
 			<article class="gh-article">
 				<header class="gh-canvas">
 					<div class="article-header">
-						{firstTag && <span class="article-tag">{firstTag}</span>}
-						<h1 class:list={["article-title", { "draft": postId && isDraft(postId) }]}>{title}</h1>
+						{
+							firstTag && (
+								<span class="article-tag">{firstTag}</span>
+							)
+						}
+						<h1
+							class:list={[
+								"article-title",
+								{ draft: postId && isDraft(postId) },
+							]}
+						>
+							{title}
+						</h1>
 						<p class="article-excerpt">{description}</p>
 
-						{authorInfo && pubDate && (
-							<div class="article-byline">
-								<img src={authorInfo.image} alt={authorInfo.name} class="author-avatar" />
-								<div class="author-info">
-									<div class="author-name">{authorInfo.name}</div>
-									<div class="article-meta">{formatDate(pubDate)} · {readingTime}</div>
+						{
+							authorInfo && pubDate && (
+								<div class="article-byline">
+									<img
+										src={authorInfo.image}
+										alt={authorInfo.name}
+										class="author-avatar"
+									/>
+									<div class="author-info">
+										<div class="author-name">
+											{authorInfo.name}
+										</div>
+										<div class="article-meta">
+											{formatDate(pubDate)} ·{" "}
+											{readingTime}
+										</div>
+									</div>
 								</div>
-							</div>
-						)}
+							)
+						}
 					</div>
 
-					{heroImage && (
-						<figure class="article-image kg-width-wide">
-							<Image
-							width={1200}
-							height={800}
-							widths={[600, 900, 1200]}
-							sizes="(max-width: 640px) 600px, (max-width: 1024px) 900px, 1200px"
-							src={getImageAsset(heroImage)}
-							alt={title}
-							format="webp"
-							loading="eager"
-							fetchpriority="high"
-						/>
-						</figure>
-					)}
+					{
+						heroImage && (
+							<figure class="article-image kg-width-wide">
+								<Image
+									width={1200}
+									height={800}
+									widths={[600, 900, 1200]}
+									sizes="(max-width: 640px) 600px, (max-width: 1024px) 900px, 1200px"
+									src={getImageAsset(heroImage)}
+									alt={title}
+									format="webp"
+									loading="eager"
+									fetchpriority="high"
+								/>
+							</figure>
+						)
+					}
 				</header>
 
 				<section class="gh-content gh-canvas">
 					<slot />
 
-					{relatedPosts.length > 0 && (
-						<div class="related-articles">
-							<h2>Related Articles</h2>
-							<div class="related-grid">
-								{relatedPosts.map((post) => (
-									<a href={`/${getSlugFromId(post.id)}/`} class="related-post">
-										{post.data.heroImage && (
-											<img
-												src={post.data.heroImage}
-												alt={post.data.title}
-												class="related-image"
-											loading="lazy"
-											/>
-										)}
-										<span class="related-tag">
-											{post.data.tags?.[0] || '\u00A0'}
-										</span>
-										<h3 class="related-title">{post.data.title}</h3>
-										<p class="related-excerpt">{post.data.description}</p>
-									</a>
-								))}
+					{
+						relatedPosts.length > 0 && (
+							<div class="related-articles">
+								<h2>Related Articles</h2>
+								<div class="related-grid">
+									{relatedPosts.map((post) => (
+										<a
+											href={`/${getSlugFromId(post.id)}/`}
+											class="related-post"
+										>
+											{post.data.heroImage && (
+												<img
+													src={post.data.heroImage}
+													alt={post.data.title}
+													class="related-image"
+													loading="lazy"
+												/>
+											)}
+											<span class="related-tag">
+												{post.data.tags?.[0] ||
+													"\u00A0"}
+											</span>
+											<h3 class="related-title">
+												{post.data.title}
+											</h3>
+											<p class="related-excerpt">
+												{post.data.description}
+											</p>
+										</a>
+									))}
+								</div>
 							</div>
-						</div>
-					)}
+						)
+					}
 				</section>
 			</article>
 		</main>
