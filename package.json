@@ -9,7 +9,9 @@
     "astro": "astro",
     "tunnel": "./scripts/tunnel.sh",
     "tunnel:stop": "./scripts/tunnel.sh stop",
-    "tunnel:logs": "./scripts/tunnel.sh logs"
+    "tunnel:logs": "./scripts/tunnel.sh logs",
+    "sync-skills": "node .agents/scripts/sync-skills.mjs",
+    "hello": "node -e \"console.log('Hello! Current date: ' + new Date().toLocaleString())\""
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",
