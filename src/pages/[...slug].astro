@@ -51,16 +51,28 @@ function formatTitle(slug: string): string {
 		.join(' ');
 }
 
-// For pages without frontmatter, derive defaults from filename
-const pageData = type === 'page' ? {
-	title: (entry as CollectionEntry<'pages'>).data.title || formatTitle((entry as CollectionEntry<'pages'>).data.slug || entry.id),
-	description: (entry as CollectionEntry<'pages'>).data.description || '',
-	pubDate: (entry as CollectionEntry<'pages'>).data.pubDate,
-	heroImage: (entry as CollectionEntry<'pages'>).data.heroImage,
-	slug: (entry as CollectionEntry<'pages'>).data.slug || entry.id,
-	body: entry.body,
-	postId: entry.id,
-} : { ...entry.data, body: entry.body, postId: entry.id };
+let pageData;
+
+if (type === 'page') {
+	const pageEntry = entry as CollectionEntry<'pages'>;
+	pageData = {
+		title: (pageEntry.data.title || formatTitle(pageEntry.data.slug || pageEntry.id)) as string,
+		description: (pageEntry.data.description || '') as string,
+		pubDate: pageEntry.data.pubDate,
+		heroImage: pageEntry.data.heroImage,
+		slug: (pageEntry.data.slug || pageEntry.id) as string,
+		body: pageEntry.body,
+		postId: pageEntry.id,
+	};
+} else {
+	const postEntry = entry as CollectionEntry<'posts'>;
+	pageData = {
+		...postEntry.data,
+		slug: getSlugFromId(postEntry.id),
+		body: postEntry.body,
+		postId: postEntry.id
+	};
+}
 ---
 
 <BlogPost {...pageData} noindex={noindex}>
