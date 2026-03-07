@@ -14,4 +14,7 @@ export default defineConfig({
 			filter: (page) => !page.includes('/__draft__/'),
 		}),
 	],
+	server: {
+		allowedHosts: ['.loca.lt'],
+	},
 });
