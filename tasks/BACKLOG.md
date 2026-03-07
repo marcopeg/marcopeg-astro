@@ -13,4 +13,6 @@ The commands in the menu should be sorted:
 
 ## Drafts
 
+- [052 · Design Review: Image Resolution Pattern](./drafts/052.image-resolution-pattern-review.md)
+
 ## Completed
