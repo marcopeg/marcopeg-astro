@@ -10,10 +10,11 @@ Personal blog migrated from Ghost to Astro. Site: https://marcopeg.com
 - **Site Constants**: `src/consts.ts` (SITE_TITLE, SITE_DESCRIPTION)
 
 ## Commands
-- `make dev` — Start dev server at http://localhost:4321
+- `make dev` — Start dev server at http://localhost:4000 (configurable via `PORT`)
 - `make build` — Production build
 - `make preview` — Preview production build
 - `make install` — Install dependencies
+- `make deploy` — Deploy via GitHub Actions tag push
 
 ## Project Structure
 ```

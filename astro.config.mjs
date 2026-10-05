@@ -15,6 +15,7 @@ export default defineConfig({
 		}),
 	],
 	server: {
-		allowedHosts: ['.loca.lt'],
+		port: Number(process.env.PORT) || 4000,
+		allowedHosts: ['.42go.dev'],
 	},
 });

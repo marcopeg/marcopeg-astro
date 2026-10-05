@@ -8,10 +8,21 @@ DEPLOYMENT_VERIFY_INTERVAL ?= 10
 DEPLOYMENT_VERIFY_ATTEMPTS ?= 30
 SKIP_DEPLOYMENT_VERIFY ?= 0
 
-.PHONY: build deploy.github verify.deployment verify.deployment.maybe
+.PHONY: dev build preview install deploy deploy.github verify.deployment verify.deployment.maybe
+
+dev:
+	npm run dev
 
 build:
 	npm run build
+
+preview:
+	npm run preview
+
+install:
+	npm install
+
+deploy: deploy.github
 
 deploy.github:
 	@tag="$(VERSION)"; \
