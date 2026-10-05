@@ -5,7 +5,7 @@ WORKDIR /app
 ARG PUBLIC_GA_MEASUREMENT_ID
 ENV PUBLIC_GA_MEASUREMENT_ID=${PUBLIC_GA_MEASUREMENT_ID}
 
-COPY package.json package-lock.json ./
+COPY package*.json .npmrc* ./
 RUN npm ci
 
 COPY . ./
