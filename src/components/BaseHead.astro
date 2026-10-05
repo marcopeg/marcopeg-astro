@@ -17,6 +17,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const { title, description = '', image = FallbackImage, noindex = false } = Astro.props;
 const socialImage = typeof image === 'string' ? new URL(image, Astro.url) : new URL(image.src, Astro.url);
+const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
 ---
 
 <!-- Global Metadata -->
@@ -74,15 +75,15 @@ const socialImage = typeof image === 'string' ? new URL(image, Astro.url) : new 
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={socialImage} />
 
-<!-- Google Analytics - Only in Production -->
-{import.meta.env.PROD && (
+<!-- Google Analytics - Only in Production, when configured at build time -->
+{import.meta.env.PROD && gaMeasurementId && (
 	<>
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-43775048-4"></script>
-		<script is:inline>
+		<script async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}></script>
+		<script is:inline define:vars={{ gaMeasurementId }}>
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
 			gtag('js', new Date());
-			gtag('config', 'UA-43775048-4');
+			gtag('config', gaMeasurementId);
 		</script>
 	</>
 )}
