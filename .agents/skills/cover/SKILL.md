@@ -56,19 +56,17 @@ Interactive, iterative cover image designer for Marco's Astro blog. Generates be
    - **Tone**: Practitioner, serious, humorous, provocative, technical.
 
 ### Step 2: Propose Visual Directions & Clarify
-Before blind generation, pitch 2-3 distinct creative directions to the user:
-- **Direction A (Narrative / Human-Centric)**: E.g., developer and AI collaborating at a workstation.
-- **Direction B (Abstract / Conceptual)**: E.g., digital security shield, glowing architecture, minimalist infrastructure.
-- **Direction C (Retro / Cyberpunk / Graphic)**: E.g., dark terminal, neon status monitors, vintage hacker vibe.
-
-Ask the user if they have a preferred style, palette, or specific element they want included or excluded (or allow them to say "run with all 3").
+Before blind generation, align with the **Marco Peg Visual Archetypes** defined in `.agents/skills/blog-image-style/SKILL.md`:
+- **Archetype 1 (Pop Culture / Cinema Remix)**: E.g., iconic movie duo homage (*Pulp Fiction*, *Men in Black*, *Matrix*, *50 First Dates*) subverted with AI/tech humor (robot co-pilot, cables, server racks).
+- **Archetype 2 (Humorous Developer Caricature)**: E.g., expressive, exaggerated comic/editorial illustration of a skeptical developer and robot pair-engineering with coffee, messy wires, and real emotion.
+- **Archetype 3 (Tangible Ironic Metaphor)**: E.g., physical objects, humorous signs, real-world analogies grounded in the messy reality of production.
+*(Strictly avoid generic corporate 3D plastic mannequins, generic glowing blue globes, or stock cybersecurity clichés).*
 
 ### Step 3: Generate 3 Candidate Versions
 1. Determine the storage directory:
    `materials/covers/<article-slug>/`
    *(Ensure directory exists; this folder is excluded from Docker builds via `.dockerignore`).*
-2. Construct three distinct prompts using the proven formula from the `image` skill:
-   `[Subject & Metaphor] + [Environment & Setting] + [Style & Mood] + [Lighting & Colors] + [Composition: generous negative space on one side, 16:9 aspect ratio, 4K quality]`
+2. Construct three distinct prompts rooted in the archetypes above. Always include warm human elements (steaming coffee, wooden desk, expressive emotion) alongside high-tech server racks.
 3. Call `generate_image` for each candidate:
    - `AspectRatio`: `"16:9"`
    - `ImageName`: `candidate_01`, `candidate_02`, `candidate_03`
