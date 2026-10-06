@@ -1,11 +1,23 @@
 {
   "version": 1,
   "skills": {
+    "baoyu-cover-image": {
+      "source": "jimliu/baoyu-skills",
+      "sourceType": "github",
+      "skillPath": "skills/baoyu-cover-image/SKILL.md",
+      "computedHash": "578199513c1b92a3c27daa9df4b6f0030a3c1f8955c153ce93354ea8c99d2f6b"
+    },
     "copywriting": {
       "source": "coreyhaines31/marketingskills",
       "sourceType": "github",
       "skillPath": "skills/copywriting/SKILL.md",
       "computedHash": "34095dc1ba236967c7515c62568591008f8ec795e1a5fd4b018f2b127a36b32c"
+    },
+    "image": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "skillPath": "skills/image/SKILL.md",
+      "computedHash": "c0f8c9af68113a4ae53a0e816d6f4573a3bb9f3d26e7400ff5fb3c9348d2e510"
     },
     "social": {
       "source": "coreyhaines31/marketingskills",

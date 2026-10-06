@@ -123,7 +123,15 @@ When adding a new article with a local hero image:
 2. Add import + `imageMap` entry in `src/utils/images.ts` with key like `/content/images/YYYY/MM/file`
 3. Set `heroImage` in post frontmatter to that same key
 
-This single `heroImage` value controls both the article cover and the OG/Twitter preview card. Remote URLs (e.g. Unsplash) can also be used directly as `heroImage`.
+This single `heroImage` value controls both the article cover and the OG/Twitter preview card. Remote URLs can be used, but custom local images generated via AI are preferred.
+
+### 🎨 Custom Cover Generation (`/cover`)
+Use the `/cover <article>` skill (`.agents/skills/cover/SKILL.md`) to design custom hero images:
+1. Run `/cover <article-slug>` (e.g., `/cover stop-prompting`).
+2. The skill analyzes the post and proposes 2–3 visual directions.
+3. Generates 3 candidate 16:9 images and stores them in `materials/covers/<slug>/` (history is preserved locally but excluded from Docker builds via `.dockerignore`).
+4. Iterates interactively with the user based on feedback.
+5. Once approved, automatically copies the winner to `src/assets/images/<slug>-hero.jpg`, registers it in `src/utils/images.ts`, and updates `heroImage` in the post frontmatter.
 
 ---
 
