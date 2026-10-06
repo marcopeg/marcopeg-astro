@@ -141,8 +141,8 @@ Use the `/social <article>` skill (`.agents/skills/social/SKILL.md`) to draft di
 1. Run `/social <article-slug>` (e.g., `/social stop-prompting` or `/social last published article`).
 2. Locates the article, extracts practitioner lessons and narrative tension in Marco's voice.
 3. Enforces strict anti-AI-slop rules (no contrast reveals, no broetry, no emoji bullets, no generic engagement bait).
-4. Generates a compact LinkedIn post with opening hook ("open view"), body takeaways, exit CTA, 3–5 targeted tags, and ready-to-copy first comment with live article link.
-5. Generates an impactful X (Twitter) post and optional thread with direct link and tags.
+4. Generates a compact LinkedIn post with opening hook ("open view"), body takeaways, exit CTA, 3–5 targeted tags, and ready-to-copy first comment using the first-party short URL (`https://marcopeg.com/s/<shortCode>`).
+5. Generates an impactful X (Twitter) post (strictly ≤ 275 characters) and optional thread using the first-party short URL (`https://marcopeg.com/s/<shortCode>`) and tags.
 6. Archives drafts in `materials/social/<slug>/social.md` (excluded from Docker builds via `.dockerignore`) and iterates with the user.
 
 ---
