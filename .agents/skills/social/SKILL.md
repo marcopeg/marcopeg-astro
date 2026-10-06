@@ -115,20 +115,32 @@ LinkedIn algorithms penalize outbound links inside the main post body. The post 
 
 ### Step 4: Draft the X (Twitter) Package
 
-Create a crisp, impactful version optimized for X's fast-moving tech audience:
+Create a crisp, impactful version strictly engineered for X's fast-moving tech audience and character limits:
 
-#### 1. Single Post Format (Primary)
+#### 1. Automatic Short URL Generation
+Long raw URLs waste precious character budget and look untidy on mobile. Automatically generate a clean short URL using the TinyURL API:
+```bash
+SHORT_URL=$(curl -s "https://tinyurl.com/api-create.php?url=https://marcopeg.com/<slug>/")
+```
+Fallback if the API is unreachable: use the canonical URL, but compress the copy further.
+
+#### 2. Strict 280-Character Budget Validation
+Standard X/Twitter accounts enforce a strict **280-character limit**. Any overflow is highlighted in red on mobile and blocks posting.
+- **Budget**: The entire post (copy + short URL + hashtags + line breaks) must strictly measure **≤ 275 characters** (target: 240–265 characters).
+- Always print the exact character count alongside the draft (e.g. `[258 / 280 chars]`).
+
+#### 3. Single Post Format (Primary)
 - **Hook**: Sharp, opinionated statement or lesson in 1 sentence.
-- **Core Summary**: 2 sentences distilling the core insight or architectural rule.
-- **Link & CTA**: Direct link to `https://marcopeg.com/<slug>/`.
+- **Core Summary**: 1–2 punchy sentences distilling the friction and architectural rule.
+- **Link**: The generated short URL.
 - **Tags**: 1–2 focused hashtags (e.g. `#DevOps #AI`).
 
-#### 2. Thread Option (For Deep Dives / Tutorials)
-If the article contains multiple distinct tactical steps:
-- **Tweet 1**: Hook + context + "Here is what happened and what we changed:"
-- **Tweet 2**: The friction or misconception.
+#### 4. Thread Option (For Deep Dives / Tutorials)
+If the article contains multiple distinct tactical steps, format a 3–4 tweet thread where **every individual tweet stays strictly under 275 characters**:
+- **Tweet 1**: Hook + context + "Here is what happened and what we changed: 🧵"
+- **Tweet 2**: The friction or misconception encountered.
 - **Tweet 3**: The technical solution or architectural pattern.
-- **Tweet 4**: The golden takeaway + link to the full write-up on `marcopeg.com`.
+- **Tweet 4**: The golden takeaway + short link to full write-up.
 
 ---
 
