@@ -1,81 +1,52 @@
 #!/usr/bin/env node
 
 /**
- * Syncs skills from .agents/skills/ (canonical source) to:
- * - .cursor/commands/{name}.md     (slash commands in Cursor IDE)
- * - .claude/skills/{name}/SKILL.md (slash commands in Claude Code)
+ * Ensures Claude compatibility symlinks point to canonical agent sources:
+ * - CLAUDE.md       -> AGENTS.md
+ * - .claude/skills  -> ../.agents/skills
  *
- * Generated files are thin pointers back to .agents/skills/ so the
- * canonical source remains the single source of truth. Re-run only
- * when adding or removing skills.
+ * All canonical instructions and skills live in AGENTS.md and .agents/skills/.
  */
 
-import { readdir, readFile, writeFile, mkdir } from "node:fs/promises";
+import { symlink, lstat, rm, mkdir } from "node:fs/promises";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
-const SOURCE = join(ROOT, ".agents", "skills");
-const CURSOR_COMMANDS = join(ROOT, ".cursor", "commands");
-const CLAUDE_OUT = join(ROOT, ".claude", "skills");
+const CLAUDE_MD = join(ROOT, "CLAUDE.md");
+const CLAUDE_DIR = join(ROOT, ".claude");
+const CLAUDE_SKILLS = join(ROOT, ".claude", "skills");
+const CURSOR_DIR = join(ROOT, ".cursor");
 
-function parseFrontmatter(content) {
-  const match = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
-  if (!match) return { meta: {}, body: content.trim() };
-
-  const meta = {};
-  for (const line of match[1].split("\n")) {
-    const [key, ...rest] = line.split(":");
-    if (key && rest.length) meta[key.trim()] = rest.join(":").trim();
+async function ensureSymlink(target, linkPath) {
+  try {
+    const stat = await lstat(linkPath);
+    if (stat.isSymbolicLink()) {
+      return;
+    }
+    await rm(linkPath, { recursive: true, force: true });
+  } catch (err) {
+    if (err.code !== "ENOENT") throw err;
   }
-  return { meta, body: match[2].trim() };
-}
-
-function toCursorCommand(name) {
-  return `Read the file \`.agents/skills/${name}/SKILL.md\` and follow its instructions.\n`;
-}
-
-function toClaudeSkill(name, meta) {
-  return `---
-name: ${meta.name || name}
-description: ${meta.description || ""}
----
-
-Read the file \`.agents/skills/${name}/SKILL.md\` and follow its instructions.
-`;
+  await symlink(target, linkPath);
+  console.log(`  ✓ Linked ${linkPath} -> ${target}`);
 }
 
 async function sync() {
-  const skills = await readdir(SOURCE, { withFileTypes: true });
-  const dirs = skills.filter((d) => d.isDirectory());
+  // 1. CLAUDE.md -> AGENTS.md
+  await ensureSymlink("AGENTS.md", CLAUDE_MD);
 
-  let count = 0;
-  for (const dir of dirs) {
-    const skillFile = join(SOURCE, dir.name, "SKILL.md");
-    let content;
-    try {
-      content = await readFile(skillFile, "utf-8");
-    } catch {
-      continue;
-    }
+  // 2. .claude/skills -> ../.agents/skills
+  await mkdir(CLAUDE_DIR, { recursive: true });
+  await ensureSymlink("../.agents/skills", CLAUDE_SKILLS);
 
-    const { meta } = parseFrontmatter(content);
+  // 3. Clean up legacy .cursor directory if present
+  try {
+    await rm(CURSOR_DIR, { recursive: true, force: true });
+    console.log(`  ✓ Removed legacy .cursor directory`);
+  } catch {}
 
-    const commandPath = join(CURSOR_COMMANDS, `${dir.name}.md`);
-    await mkdir(dirname(commandPath), { recursive: true });
-    await writeFile(commandPath, toCursorCommand(dir.name));
-
-    const claudePath = join(CLAUDE_OUT, dir.name, "SKILL.md");
-    await mkdir(dirname(claudePath), { recursive: true });
-    await writeFile(claudePath, toClaudeSkill(dir.name, meta));
-
-    count++;
-    console.log(`  ✓ ${dir.name}`);
-  }
-
-  console.log(
-    `\nSynced ${count} skill(s) → .cursor/commands/ + .claude/skills/`,
-  );
+  console.log(`\nSkills and agent instructions cleanly synced via symlinks.`);
 }
 
 sync().catch((err) => {
