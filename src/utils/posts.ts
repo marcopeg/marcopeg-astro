@@ -47,3 +47,24 @@ export function getSlugFromId(id: string): string {
 export function isDraft(id: string): boolean {
 	return id.startsWith('drafts/');
 }
+
+/**
+ * Generate a deterministic 3-character shortcode from a slug
+ */
+export function hashSlugTo3Chars(slug: string, salt: number = 0): string {
+	const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+	let hash = 5381;
+	const input = salt > 0 ? `${slug}_${salt}` : slug;
+	for (let i = 0; i < input.length; i++) {
+		hash = ((hash << 5) + hash) + input.charCodeAt(i);
+		hash |= 0;
+	}
+	hash = Math.abs(hash);
+	const c1 = chars[hash % chars.length];
+	hash = Math.floor(hash / chars.length);
+	const c2 = chars[hash % chars.length];
+	hash = Math.floor(hash / chars.length);
+	const c3 = chars[hash % chars.length];
+	return `${c1}${c2}${c3}`;
+}
+

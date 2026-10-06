@@ -10,8 +10,8 @@ export default defineConfig({
 	integrations: [
 		mdx(),
 		sitemap({
-			// Exclude draft URLs from the sitemap — they must not be indexed
-			filter: (page) => !page.includes('/__draft__/'),
+			// Exclude draft URLs and short redirect URLs from the sitemap — they must not be indexed
+			filter: (page) => !page.includes('/__draft__/') && !page.includes('/s/'),
 		}),
 	],
 	server: {

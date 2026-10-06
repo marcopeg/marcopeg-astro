@@ -15,6 +15,7 @@ const posts = defineCollection({
 			heroImage: z.string().optional(),
 			tags: z.array(z.string()).optional(),
 			draft: z.boolean().optional().default(false),
+			shortCode: z.string().optional(),
 		}),
 });
 

@@ -95,7 +95,10 @@ updatedDate: date      # optional
 heroImage: string      # optional, path like /content/images/YYYY/MM/file or image URL
 tags: string[]         # optional
 draft: boolean         # optional, default false
+shortCode: string      # optional, 3-letter custom alias for marcopeg.com/s/<shortCode> (e.g. "vps")
 ```
+
+Every published post automatically gets an SEO-compliant short URL at `https://marcopeg.com/s/<code` via `src/pages/s/[code].astro`. If `shortCode` is specified in frontmatter (e.g. `shortCode: "vps"`), it registers that custom keyword; otherwise, a deterministic 3-character hash code is generated. These redirect with `canonical` meta tags and `noindex, follow` directives.
 
 Drafts in `posts/drafts/` are automatically filtered out in production via `filterDrafts()`.
 

@@ -1,0 +1,85 @@
+---
+import { getCollection } from 'astro:content';
+import { filterDrafts, getSlugFromId, hashSlugTo3Chars } from '../../utils/posts';
+
+export async function getStaticPaths() {
+	const allPosts = await getCollection('posts');
+	const publishedPosts = filterDrafts(allPosts);
+
+	const paths = [];
+	const seenCodes = new Set<string>();
+
+	// 1. First pass: Register explicit custom shortCodes from frontmatter (priority)
+	for (const post of publishedPosts) {
+		if (post.data.shortCode) {
+			const customCode = post.data.shortCode.toLowerCase().trim();
+			if (!seenCodes.has(customCode)) {
+				seenCodes.add(customCode);
+				const slug = getSlugFromId(post.id);
+				paths.push({
+					params: { code: customCode },
+					props: {
+						targetUrl: `/${slug}/`,
+						title: post.data.title,
+					},
+				});
+			}
+		}
+	}
+
+	// 2. Second pass: Generate deterministic 3-character fallback codes for all posts
+	for (const post of publishedPosts) {
+		const slug = getSlugFromId(post.id);
+		let salt = 0;
+		let autoCode = hashSlugTo3Chars(slug, salt);
+		while (seenCodes.has(autoCode)) {
+			salt++;
+			autoCode = hashSlugTo3Chars(slug, salt);
+		}
+		seenCodes.add(autoCode);
+
+		paths.push({
+			params: { code: autoCode },
+			props: {
+				targetUrl: `/${slug}/`,
+				title: post.data.title,
+			},
+		});
+	}
+
+	return paths;
+}
+
+type Props = {
+	targetUrl: string;
+	title: string;
+};
+
+const { targetUrl, title } = Astro.props;
+const siteUrl = Astro.site ? Astro.site.toString().replace(/\/$/, '') : 'https://marcopeg.com';
+const canonicalUrl = `${siteUrl}${targetUrl}`;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Redirecting to {title}...</title>
+	<link rel="canonical" href={canonicalUrl} />
+	<meta http-equiv="refresh" content={`0;url=${targetUrl}`} />
+	<meta name="robots" content="noindex, follow" />
+	<script is:inline define:vars={{ targetUrl }}>
+		window.location.replace(targetUrl);
+	</script>
+</head>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; background: #fafafa; color: #333;">
+	<div style="text-align: center; padding: 2rem;">
+		<p style="font-size: 1.125rem; margin-bottom: 1rem;">
+			Redirecting to <a href={targetUrl} style="color: #2563eb; font-weight: 600; text-decoration: underline;">{title}</a>...
+		</p>
+		<p style="font-size: 0.875rem; color: #6b7280;">
+			If you are not redirected automatically, <a href={targetUrl} style="color: #2563eb;">click here</a>.
+		</p>
+	</div>
+</body>
+</html>
