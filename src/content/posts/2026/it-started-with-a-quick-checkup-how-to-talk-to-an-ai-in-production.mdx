@@ -1,6 +1,6 @@
 ---
-title: "It Started with a Quick Checkup: How to Actually Talk to an AI in Production"
-description: "I wanted a 5-minute health check on my VPS. Thirty minutes later, we had upgraded the kernel, trapped a Docker firewall bypass, jailed botnets, and built a break-glass defense. Here is the blueprint for how to actually dialogue with an AI agent without blowing up your server."
+title: "Stop Prompting, Start Pairing: Securing a Live VPS with AI"
+description: "Most people treat AI agents like magic wands and pray they don't break anything. We treated it like a junior engineer with superhuman memory. Here’s what happened when we hardened my live server together."
 pubDate: "2026-10-06T07:30:00.000Z"
 heroImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDR8fHNlcnZlciUyMHNlY3VyaXR5fGVufDB8fHx8MTc0MDY1MDAwMHww&ixlib=rb-4.0.3&q=80&w=2000"
 tags: ["ai", "agents", "devops", "security", "antigravity", "pair-programming", "Tutorials"]
@@ -26,7 +26,7 @@ And my server was **faster, quieter, and more secure than it has been in five ye
 > **They are doing it completely wrong.**
 
 The secret to working with an agent like Antigravity—or Claude, or Cursor—isn't prompting.  
-**It’s running a dialogue.**
+**It’s pairing.**
 
 It’s the collaborative tension between machine speed and human battle scars. The AI knows every flag of every obscure Linux utility by heart, but **you own the risk**. You own the architecture.
 
@@ -57,7 +57,7 @@ Well, d'oh! 😅
 
 (To be fair, I had installed CapRover via `npm install -g caprover` months ago, but the SSH alias was `contabo`. My human memory had conflated the two).
 
-👉 **The Dialogue Lesson:**  
+👉 **The Pairing Lesson:**  
 Never assume your own memory is gospel. Let the agent inspect the actual configuration files first. When the AI grounds itself in facts before typing a single command, you start on solid ground.
 
 * * *
@@ -224,7 +224,7 @@ I checked the server auth log five minutes later.
 
 * * *
 
-## The 5 Rules for Running an AI Infrastructure Dialogue
+## The 5 Rules for Pairing with AI on Infrastructure
 
 If you want to use agents like Antigravity, Claude, or Cursor to manage real-world systems without setting your house on fire, keep these rules on your wall:
 
@@ -251,7 +251,7 @@ Never take the agent’s word that something worked. After every change, run a v
 ## The Bottom Line
 
 AI won't replace systems engineers.  
-**Engineers who know how to dialogue with AI will replace engineers who don't.**
+**Engineers who know how to pair with AI will replace engineers who don't.**
 
 In 30 minutes, we diagnosed a broken repo, applied a modern kernel, stopped real-time automated attacks, plugged a Docker firewall leak, added memory protection, and set up a multi-layered break-glass recovery model.
 
