@@ -1,0 +1,264 @@
+---
+title: "It Started with a Quick Checkup: How to Actually Talk to an AI in Production"
+description: "I wanted a 5-minute health check on my VPS. Thirty minutes later, we had upgraded the kernel, trapped a Docker firewall bypass, jailed botnets, and built a break-glass defense. Here is the blueprint for how to actually dialogue with an AI agent without blowing up your server."
+pubDate: "2026-10-06T07:30:00.000Z"
+heroImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDR8fHNlcnZlciUyMHNlY3VyaXR5fGVufDB8fHx8MTc0MDY1MDAwMHww&ixlib=rb-4.0.3&q=80&w=2000"
+tags: ["ai", "agents", "devops", "security", "antigravity", "pair-programming", "Tutorials"]
+---
+
+import Callout from '../../../components/Callout.astro';
+import Img from '../../../components/Img.astro';
+
+It was supposed to be a **lazy five-minute checkup**.
+
+No Jira ticket. No grand infrastructure redesign. Just a casual thought on a Tuesday morning while sipping coffee:
+
+> _"Hey Antigravity, check the CLI alias 'caprover' from my zshrc. Can you use it to ssh into my VPS, check the OS update status, and help me update it?"_
+
+Thirty minutes later, my VPS was running a brand-new Linux kernel, Docker logs were tamed, a stealth firewall bypass was patched, botnets were getting slapped with exponential bans, and my trusty shell aliases were in the digital trash bin.
+
+And my server was **faster, quieter, and more secure than it has been in five years**.
+
+* * *
+
+> Most people think using an AI coding agent is about typing magic prompts  
+> and praying it doesn't nuke your database.  
+> **They are doing it completely wrong.**
+
+The secret to working with an agent like Antigravity—or Claude, or Cursor—isn't prompting.  
+**It’s running a dialogue.**
+
+It’s the collaborative tension between machine speed and human battle scars. The AI knows every flag of every obscure Linux utility by heart, but **you own the risk**. You own the architecture.
+
+Here is the step-by-step breakdown of how that session actually unfolded, what we discovered under the hood, and the mental model you need to pair-program production infrastructure with an AI without losing your mind—or your server.
+
+* * *
+
+## Step 1: Start Small and Let the AI Ground Itself
+
+Here is mistake number one people make with agents:  
+They open a chat and dump an essay: _"Audit my entire cloud architecture, fix all vulnerabilities, optimize my database, and make it enterprise-grade."_
+
+Don't do that. That’s how you get hallucinated nonsense and broken production boxes.
+
+**Start with a tiny thread and pull gently.**
+
+I didn't ask for a security overhaul. I asked: _"Can you check my alias?"_
+
+And right out of the gate, reality checked in:
+
+```text
+AI: "I checked your .zshrc. There is NO alias named 'caprover'. 
+    Instead, you have 'contabo' and 'contabo-root'. 
+    Want me to run the update check using contabo-root?"
+```
+
+Well, d'oh! 😅
+
+(To be fair, I had installed CapRover via `npm install -g caprover` months ago, but the SSH alias was `contabo`. My human memory had conflated the two).
+
+👉 **The Dialogue Lesson:**  
+Never assume your own memory is gospel. Let the agent inspect the actual configuration files first. When the AI grounds itself in facts before typing a single command, you start on solid ground.
+
+* * *
+
+## Step 2: The Rabbit Hole Opens (Triage the Reality)
+
+Once we agreed on the right alias, I gave the green light: _"Do the check."_
+
+The agent connected, ran `apt-get update`, and immediately hit a wall. Exit code 100:
+
+```text
+Err: http://packages.azlux.fr/debian noble Release 404 Not Found
+E: The repository does not have a Release file.
+```
+
+Years ago, I had added a third-party repo (`azlux`) for some utility. When Ubuntu upgraded to 24.04 (*Noble*), that repo stopped supporting the release. It sat there, silently blocking `apt update` from ever finishing cleanly.
+
+The agent inspected the package database, verified that zero packages from Azlux were installed, backed up the file, and refreshed again.
+
+And that’s when the floodgates opened:
+* **54 outdated packages** waiting in line.
+* **Server uptime: 119 days.**
+* **Reboot required:** A pending kernel upgrade had been waiting for months.
+* **Running kernel:** `6.8.0-124`. Available kernel: `6.8.0-146`.
+
+The agent didn't just smash the upgrade button. It presented three clear paths:
+1. Full upgrade now.
+2. Upgrade OS libraries only (holding Docker back to avoid downtime).
+3. Give me the commands so I can run them manually.
+
+Because CapRover was running 9 live containers on Docker Swarm—including this very blog and several client tools—I chose **Option 1**, letting the agent execute, monitor the reboot, and verify that all 9 containers came back healthy.
+
+They did. Clean win.
+
+> But that was just hygiene. The real story begins when you start asking the uncomfortable questions.
+
+* * *
+
+## Step 3: Expanding Scope Responsibly ("Check the Firewall")
+
+With the packages fresh and the kernel rebooted, I pulled the thread a little further:
+
+> _"Can you do a firewall and iptables check and assess possible vulnerabilities?"_
+
+When you ask an agent to audit, **ask for facts, not opinions.**  
+Don't say: _"Is my server secure?"_  
+Say: _"Show me listening ports, active firewall rules, and recent auth logs."_
+
+What came back made my stomach drop a little:
+
+### 1. Active Botnet Swarms
+In the SSH logs (`journalctl -u ssh`), brute-force bots from across the globe were hammering port 22 **every two seconds**:
+
+```text
+sshd: Failed password for root from 91.193.232.253 port 55463
+sshd: Invalid user saber from 109.160.32.132 port 38294
+sshd: Invalid user deploy from 144.225.6.182 port 57880
+```
+
+Why? Because `PasswordAuthentication yes` was turned on. `PermitRootLogin yes` was on.  
+And **Fail2ban was not even installed**. Bots had unlimited, free guesses at my root password 24/7.
+
+### 2. The Classic Docker Trap
+My firewall (`UFW`) had a strict `default: deny (incoming)` policy. Only ports 22, 80, and 443 were supposed to be open.
+
+Except... **Port 3000 (CapRover backend) was responding to the entire public internet.**
+
+Why? Because Docker manipulates `iptables` NAT tables directly (`PREROUTING`), routing container traffic **before UFW's filter rules are ever evaluated**. Unless you manually configure the `DOCKER-USER` chain, Docker quietly bypasses your firewall.
+
+True story. If you run Docker and UFW on Ubuntu and haven't touched `DOCKER-USER`, your container ports are likely wide open right now.
+
+* * *
+
+## Step 4: The Golden Rule: The AI Proposes, The Human Challenges
+
+Here is where the AI got eager. It gave me the textbook DevOps response:
+
+_“We should disable password authentication globally right now, block port 3000 in DOCKER-USER, and lock down port 22.”_
+
+If you are a junior engineer or in a hurry, you hit Enter and say: _"Sure, do it!"_
+
+**Resist!**
+
+I paused. My 20+ years of operational PTSD tapped me on the shoulder. I asked:
+
+> _"If we do these steps, I risk being locked out if I lose my Mac access. Right? What about installing the cooldown?"_
+
+Notice the dynamic here:
+* **The AI solves the local problem** (shutting down the threat vector).
+* **The human protects the systemic workflow** (what happens if my laptop dies while traveling?).
+
+The AI immediately pivoted:  
+_"You're right. If we cut passwords completely over SSH, you lose emergency fallback without keys."_
+
+Instead of a blunt hammer, we designed a balanced shield:
+1. **Install Fail2ban (the cooldown)**: Instead of locking out passwords completely, we throttle them.
+2. **Exponential backoff**: I asked, _"Can we set the cooldown more aggressively? Is it worth it?"_
+   The AI tuned it: 3 failed attempts within 10 minutes = 1 hour ban. Second offense = 24 hours. Repeat offenders = banned for **4 weeks**.  
+   Forgiving if I fat-finger my password once; devastating to an automated dictionary attack.
+3. **The blast-radius check**: Before touching a single config file, I asked: _"Before you start, does this need a reboot?"_  
+   Always ask this. Know if your services are going to flicker *before* the script runs.
+
+* * *
+
+## Step 5: The Lightbulb Moment & The "Break-Glass" Account
+
+As we were wrapping up the SSH hardening, another puzzle piece clicked in my head.
+
+I remembered that my personal user `luke` had `NOPASSWD: ALL` in `/etc/sudoers` for convenience.
+
+I typed back into the chat:
+
+> _"So letting luke access with password is basically equivalent to letting root login with password."_
+
+The AI’s response: _"Functionally, you are 100% right."_
+
+If someone guesses the `luke` password, they run `sudo -i` without a prompt and they own the server. The "root password block" was an illusion.
+
+So I pitched an architectural solution:
+
+> _"What if we cut luke to ONLY SSH key, and create a brand new user 'darth' that can login via password, but for that user sudo will require the root password? Wouldn't that be an even better safety net?"_
+
+**This is what real AI pair-engineering looks like.**  
+I didn't write the `sudoers.d` syntax or the `sshd_config.d` match block. The AI did that in 4 seconds flat.  
+**But the security architecture was human.**
+
+And when it came time to set the password for that new user?
+
+I told the agent:
+> _"I've generated the password. I don't want to give it to you here. I want to input that password manually via SSH."_
+
+Never—and I mean **NEVER**—paste production passwords, master secrets, or private keys into an LLM prompt.  
+Let the agent build the scaffolding:
+```bash
+ssh contabo-root "passwd darth"
+```
+The agent prepared the command, I typed the secret in my local terminal window, and my credentials stayed completely air-gapped from the chat history.
+
+* * *
+
+## Step 6: Finding the Hidden Bombs
+
+Before calling it a day, I threw out one last open question:
+
+> _"Any other security check that is worth discussing?"_
+
+When you give an agent room to inspect rather than execute, you get gold. It checked memory, disks, and daemon configs and found two ticking time bombs:
+
+### 1. Zero Swap Space
+My 4 GB RAM server had **0 bytes of swap space**.  
+With 9 Docker containers running Node.js, Next.js, and Astro, a sudden traffic spike or crawler burst would cause the Linux OOM (Out Of Memory) killer to randomly assassinate Nginx or Docker Swarm tasks to keep the kernel alive.
+
+We created a 4 GB swapfile live with `vm.swappiness = 10`—zero downtime, instant memory insurance.
+
+### 2. Uncapped Docker Logs
+Docker's default `json-file` logger has **no size limit**. None.  
+Containers running for months silently write gigabytes of logs until the disk reaches 100% and crashes the database. We dropped a 50 MB / 3-file cap in `/etc/docker/daemon.json`.
+
+Finally, we moved SSH to a high, non-standard port (`48222`), closed port 22 completely, and replaced my fragile `.zshrc` shell aliases with a clean, native `~/.ssh/config`.
+
+I checked the server auth log five minutes later.
+
+**Zero bot scans. Absolute, blissful silence.**
+
+* * *
+
+## The 5 Rules for Running an AI Infrastructure Dialogue
+
+If you want to use agents like Antigravity, Claude, or Cursor to manage real-world systems without setting your house on fire, keep these rules on your wall:
+
+### 1. Start with a Low-Stakes Probe
+Don't ask the agent to fix your architecture on turn one. Ask it to read a file, inspect a service, or check a status. Ground the agent in facts and let it prove it understands your environment before granting write permissions.
+
+### 2. Always Question the Blast Radius
+Before approving any command that mutates system state, ask three magic questions:
+* _"Does this need a reboot?"_
+* _"Could this lock me out?"_
+* _"What happens to running containers/services while this runs?"_
+
+### 3. You Own the Threat Model; The AI Owns the Syntax
+The AI will gladly configure a firewall so secure you can't even log into your own machine. It optimizes for the literal prompt. Your job as the human-in-the-loop is to spot the systemic edge cases: emergency recovery, usability, and defense-in-depth.
+
+### 4. Air-Gap Your Secrets
+Never paste passwords, API tokens, or private keys into chat. Let the agent configure the users and permissions, and type the secret yourself in an interactive terminal.
+
+### 5. Verify Every Mutation Live
+Never take the agent’s word that something worked. After every change, run a verification probe: test the endpoint from an external network, inspect `systemctl status`, check `docker ps`, and verify the logs.
+
+* * *
+
+## The Bottom Line
+
+AI won't replace systems engineers.  
+**Engineers who know how to dialogue with AI will replace engineers who don't.**
+
+In 30 minutes, we diagnosed a broken repo, applied a modern kernel, stopped real-time automated attacks, plugged a Docker firewall leak, added memory protection, and set up a multi-layered break-glass recovery model.
+
+I didn't have to look up obscure `iptables` flags or remember how Ubuntu 24.04 handles socket-activated systemd SSH services. The AI handled the muscle memory.
+
+I brought the judgment, the skepticism, and the coffee.
+
+> And that partnership is where the real superpower lives.
+
+What will you ask your agent to audit next?
