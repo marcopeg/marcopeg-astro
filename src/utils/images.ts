@@ -89,6 +89,7 @@ import resting_heart_beat from '../assets/images/resting-heart-beat.png';
 import sinus_rhythm_2 from '../assets/images/sinus-rhythm-2.png';
 import the_godfather from '../assets/images/the-godfather.png';
 import selfDevelopingApps from '../assets/images/the-era-for-self-developing-apps.png';
+import stopPromptingStartPairing from '../assets/images/stop-prompting-start-pairing.jpg';
 
 export const imageMap: Record<string, any> = {
 	// Hero images
@@ -106,6 +107,7 @@ export const imageMap: Record<string, any> = {
 	'/content/images/2026/02/Screenshot_2025-07-11__12_40.jpg': screenshot,
 	'/content/images/2026/02/task-wrap-up.jpg': taskWrapUp,
 	'/content/images/2026/02/the-era-for-self-developing-apps.png': selfDevelopingApps,
+	'/content/images/2026/10/stop-prompting-start-pairing.jpg': stopPromptingStartPairing,
 
 	// Content images
 	'/content/images/2024/12/0300f86f-baa3-413a-8423-2bbfba6331c3_3dc1b90e949f8a266636e28daad59fc4_jpeg__768-768_.png': img_0300f86f,
