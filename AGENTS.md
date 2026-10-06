@@ -128,10 +128,19 @@ This single `heroImage` value controls both the article cover and the OG/Twitter
 ### 🎨 Custom Cover Generation (`/cover`)
 Use the `/cover <article>` skill (`.agents/skills/cover/SKILL.md`) to design custom hero images:
 1. Run `/cover <article-slug>` (e.g., `/cover stop-prompting`).
-2. The skill analyzes the post and proposes 2–3 visual directions.
-3. Generates 3 candidate 16:9 images and stores them in `materials/covers/<slug>/` (history is preserved locally but excluded from Docker builds via `.dockerignore`).
+2. The skill analyzes the post and proposes 2–3 visual directions based on Marco's brand archetypes.
+3. Generates 3 candidate 16:9 images, creates lightweight 400px thumbnails for chat & mobile web app viewing, and stores them in `materials/covers/<slug>/` (excluded from Docker builds via `.dockerignore`).
 4. Iterates interactively with the user based on feedback.
 5. Once approved, automatically copies the winner to `src/assets/images/<slug>-hero.jpg`, registers it in `src/utils/images.ts`, and updates `heroImage` in the post frontmatter.
+
+### 📢 Social Media Distribution (`/social`)
+Use the `/social <article>` skill (`.agents/skills/social/SKILL.md`) to draft distribution copy for LinkedIn and X (Twitter):
+1. Run `/social <article-slug>` (e.g., `/social stop-prompting` or `/social last published article`).
+2. Locates the article, extracts practitioner lessons and narrative tension in Marco's voice.
+3. Enforces strict anti-AI-slop rules (no contrast reveals, no broetry, no emoji bullets, no generic engagement bait).
+4. Generates a compact LinkedIn post with opening hook ("open view"), body takeaways, exit CTA, 3–5 targeted tags, and ready-to-copy first comment with live article link.
+5. Generates an impactful X (Twitter) post and optional thread with direct link and tags.
+6. Archives drafts in `materials/social/<slug>/social.md` (excluded from Docker builds via `.dockerignore`) and iterates with the user.
 
 ---
 

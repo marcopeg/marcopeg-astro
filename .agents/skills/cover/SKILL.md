@@ -71,22 +71,31 @@ Before blind generation, align with the **Marco Peg Visual Archetypes** defined 
    - **Candidate 3 (Tangible Ironic Metaphor)**: Real-world physical object (*In Case of Outage Break Glass*, vintage signs, physical keys/locks).
 3. Call `generate_image` for each candidate with `AspectRatio: "16:9"`.
 4. Save images to `materials/covers/<article-slug>/` as `candidate-01.jpg`, `candidate-02.jpg`, `candidate-03.jpg`.
-5. Log exact prompts and concepts in `materials/covers/<article-slug>/prompts.md`.
+5. **Generate Lightweight Thumbnails for Mobile & Remote App**:
+   Use macOS `sips` (or `sharp`) to generate 400px-wide compressed thumbnails (~15KB each):
+   ```bash
+   sips -s format jpeg -s formatOptions 60 -Z 400 candidate-01.jpg --out candidate-01-thumb.jpg
+   sips -s format jpeg -s formatOptions 60 -Z 400 candidate-02.jpg --out candidate-02-thumb.jpg
+   sips -s format jpeg -s formatOptions 60 -Z 400 candidate-03.jpg --out candidate-03-thumb.jpg
+   ```
+6. Log exact prompts and concepts in `materials/covers/<article-slug>/prompts.md`.
 
 ### Step 4: Multi-Channel Presentation & Interactive Selection
-Because chat webviews enforce strict Content Security Policies that block raw local `file:///` URLs inside `<img>` tags, **always propose candidates using this triple-channel presentation**:
+Because raw `file:///` URLs are blocked inside `<img>` tags and cannot reach mobile devices running the Remote Control web app, **always propose candidates using this triple-channel presentation**:
 
-1. **Inline Interactive Chat Widget (`<agent-embed>`)**:
-   - Generate an HTML artifact using base64-embedded images and Tailwind tabs/carousel (under 500px tall).
-   - Embed in the chat response: `<agent-embed src="file:///<artifact-dir>/cover_viewer.html"></agent-embed>` so the user can click tabs directly in the chat.
-2. **Local Dev Server Browser Links**:
+1. **Inline Interactive Chat Widget (`<agent-embed>`) with Base64 Thumbnails**:
+   - Embed the lightweight 400px thumbnails as base64 data URIs (`data:image/jpeg;base64,...`) inside `cover_viewer.html` (<60KB total payload).
+   - This ensures the widget renders smoothly on **both the Desktop IDE and the Remote Control Web App on mobile phones** over the wire, without `file:///` restrictions or heavy bandwidth lag.
+   - Embed in the chat response: `<agent-embed src="file:///<artifact-dir>/cover_viewer.html"></agent-embed>`.
+2. **Browser Links (Desktop & Mobile LAN Wi-Fi)**:
    - Copy images to `public/covers/<slug>/`.
-   - Provide direct browser links: `http://localhost:4000/covers/<slug>/candidate-XX.jpg`.
+   - Desktop: `http://localhost:4000/covers/<slug>/candidate-XX.jpg`.
+   - Mobile on Wi-Fi: `http://<mac-lan-ip>:4000/covers/<slug>/candidate-XX.jpg` (find LAN IP via `ipconfig getifaddr en0`).
 3. **Clickable IDE File Links**:
-   - Provide direct markdown file links: `[candidate-01.jpg](file:///.../materials/covers/<slug>/candidate-01.jpg)` which open in editor tabs.
+   - Provide direct markdown file links: `[candidate-01.jpg](file:///.../materials/covers/<slug>/candidate-01.jpg)` which open directly in editor tabs.
 4. **Interactive Selection via `ask_question`**:
    - Use the `ask_question` tool with options for Candidate 1, Candidate 2, Candidate 3, or "Iterate with feedback".
-   - If the user provides feedback, generate refined version(s), save to `materials/covers/<slug>/`, update the viewer, and re-prompt until approved ("it's ok").
+   - If the user provides feedback, generate refined version(s), save to `materials/covers/<slug>/`, update the thumbnails and viewer, and re-prompt until approved ("it's ok").
 
 ### Step 5: Apply the Winning Image to the Article
 Once approved:
