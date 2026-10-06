@@ -67,29 +67,31 @@ Before blind generation, align with the **Marco Peg Visual Archetypes** defined 
    `materials/covers/<article-slug>/`
    *(Ensure directory exists; this folder is excluded from Docker builds via `.dockerignore`).*
 2. Construct three distinct prompts rooted in the archetypes above. Always include warm human elements (steaming coffee, wooden desk, expressive emotion) alongside high-tech server racks.
-3. Call `generate_image` for each candidate:
-   - `AspectRatio`: `"16:9"`
-   - `ImageName`: `candidate_01`, `candidate_02`, `candidate_03`
-4. Copy each generated image artifact into `materials/covers/<article-slug>/`:
-   - `candidate-01.jpg`
-   - `candidate-02.jpg`
-   - `candidate-03.jpg`
-5. Write/append `materials/covers/<article-slug>/prompts.md` recording:
-   - Timestamp and iteration round.
-   - Exact prompts used for each candidate.
+### Step 3: Generate the 3 Archetype Candidates
+1. Determine storage:
+   `materials/covers/<article-slug>/` (excluded from Docker builds via `.dockerignore`).
+2. Construct 3 distinct prompts mapping directly to **Marco Peg's Visual Archetypes** ([`blog-image-style`](../blog-image-style/SKILL.md)):
+   - **Candidate 1 (Pop-Culture Cinema Remix)**: Iconic movie poster or scene parody (*Pulp Fiction*, *50 First Dates*, *The Godfather*, *Men in Black*, *Matrix*) subverted with tech/AI humor (robot co-pilot, keyboards, cables).
+   - **Candidate 2 (Humorous Developer Caricature)**: Expressive comic/editorial illustration of the developer & robot assistant with real emotion (ironic shrug, frantic typing, coffee mugs, glowing padlock).
+   - **Candidate 3 (Tangible Ironic Metaphor)**: Real-world physical object (*In Case of Outage Break Glass*, vintage signs, physical keys/locks).
+3. Call `generate_image` for each candidate with `AspectRatio: "16:9"`.
+4. Save images to `materials/covers/<article-slug>/` as `candidate-01.jpg`, `candidate-02.jpg`, `candidate-03.jpg`.
+5. Log exact prompts and concepts in `materials/covers/<article-slug>/prompts.md`.
 
-### Step 4: Review & Interactive Iteration
-1. Present the 3 candidates to the user with a short description of the visual mood and prompt rationale for each.
-2. Prompt the user for feedback:
-   - Do they love one as-is?
-   - Or do they want adjustments (e.g. *"I like candidate 2, but make it less cartoonish and add warmer lighting"* or *"more focus on the terminal screen"*?)
-3. **If feedback is given**:
-   - Formulate refined prompts incorporating the specific feedback.
-   - Optionally pass the candidate image path as a reference in `ImagePaths` if tweaking an existing visual.
-   - Call `generate_image` to produce new candidate(s) (saved as `candidate-04.jpg`, `candidate-05.jpg`, etc.).
-   - Log the feedback and new prompts in `prompts.md`.
-   - Present the new candidate(s) for review.
-4. **Repeat** until the user explicitly confirms (e.g. *"Option 2 is perfect"*, *"let's go with candidate 4"*, or *"it's ok"*).
+### Step 4: Multi-Channel Presentation & Interactive Selection
+Because chat webviews enforce strict Content Security Policies that block raw local `file:///` URLs inside `<img>` tags, **always propose candidates using this triple-channel presentation**:
+
+1. **Inline Interactive Chat Widget (`<agent-embed>`)**:
+   - Generate an HTML artifact using base64-embedded images and Tailwind tabs/carousel (under 500px tall).
+   - Embed in the chat response: `<agent-embed src="file:///<artifact-dir>/cover_viewer.html"></agent-embed>` so the user can click tabs directly in the chat.
+2. **Local Dev Server Browser Links**:
+   - Copy images to `public/covers/<slug>/`.
+   - Provide direct browser links: `http://localhost:4000/covers/<slug>/candidate-XX.jpg`.
+3. **Clickable IDE File Links**:
+   - Provide direct markdown file links: `[candidate-01.jpg](file:///.../materials/covers/<slug>/candidate-01.jpg)` which open in editor tabs.
+4. **Interactive Selection via `ask_question`**:
+   - Use the `ask_question` tool with options for Candidate 1, Candidate 2, Candidate 3, or "Iterate with feedback".
+   - If the user provides feedback, generate refined version(s), save to `materials/covers/<slug>/`, update the viewer, and re-prompt until approved ("it's ok").
 
 ### Step 5: Apply the Winning Image to the Article
 Once approved:
