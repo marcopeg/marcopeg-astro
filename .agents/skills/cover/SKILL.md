@@ -62,14 +62,9 @@ Before blind generation, align with the **Marco Peg Visual Archetypes** defined 
 - **Archetype 3 (Tangible Ironic Metaphor)**: E.g., physical objects, humorous signs, real-world analogies grounded in the messy reality of production.
 *(Strictly avoid generic corporate 3D plastic mannequins, generic glowing blue globes, or stock cybersecurity clichés).*
 
-### Step 3: Generate 3 Candidate Versions
-1. Determine the storage directory:
-   `materials/covers/<article-slug>/`
-   *(Ensure directory exists; this folder is excluded from Docker builds via `.dockerignore`).*
-2. Construct three distinct prompts rooted in the archetypes above. Always include warm human elements (steaming coffee, wooden desk, expressive emotion) alongside high-tech server racks.
 ### Step 3: Generate the 3 Archetype Candidates
 1. Determine storage:
-   `materials/covers/<article-slug>/` (excluded from Docker builds via `.dockerignore`).
+   `materials/covers/<article-slug>/` (excluded from Docker builds via `.dockerignore`). Ensure directory exists.
 2. Construct 3 distinct prompts mapping directly to **Marco Peg's Visual Archetypes** ([`blog-image-style`](../blog-image-style/SKILL.md)):
    - **Candidate 1 (Pop-Culture Cinema Remix)**: Iconic movie poster or scene parody (*Pulp Fiction*, *50 First Dates*, *The Godfather*, *Men in Black*, *Matrix*) subverted with tech/AI humor (robot co-pilot, keyboards, cables).
    - **Candidate 2 (Humorous Developer Caricature)**: Expressive comic/editorial illustration of the developer & robot assistant with real emotion (ironic shrug, frantic typing, coffee mugs, glowing padlock).
