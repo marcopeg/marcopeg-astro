@@ -1,0 +1,10 @@
+---
+import { descriptionParts } from '../utils/description';
+
+interface Props {
+	text?: string;
+}
+
+const parts = descriptionParts(Astro.props.text);
+---
+{parts.map(({ kind, text }) => kind === 'strong' ? <strong>{text}</strong> : kind === 'em' ? <em>{text}</em> : text)}

@@ -11,6 +11,10 @@ Marco's blog is conversational, vulnerable, opinionated, and rooted in the engin
 
 ---
 
+When an illustration features Marco or an unnamed male author stand-in, use [Draw Marco](../draw-marco/SKILL.md) and its photo/character references for a consistent likeness. Choose its everyday, engineer, father, or adventurer persona to fit the article; named other people keep their own identities.
+
+---
+
 ## 🎨 The 3 Core Visual Archetypes
 
 Marco's blog uses three distinct visual archetypes. Every generated hero image must clearly belong to one of these three:

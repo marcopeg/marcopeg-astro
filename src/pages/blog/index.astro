@@ -1,4 +1,5 @@
 ---
+import Description from '../../components/Description.astro';
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import BaseHead from '../../components/BaseHead.astro';
@@ -188,7 +189,7 @@ const posts = filterDrafts(await getCollection('posts')).sort(
 											{post.data.tags && post.data.tags.length > 0 ? post.data.tags[0] : <>&nbsp;</>}
 										</span>
 										<h4 class:list={["title", { "draft": isDraft(post.id) }]}>{post.data.title}</h4>
-										<p class="excerpt">{post.data.description}</p>
+										<p class="excerpt"><Description text={post.data.description} /></p>
 									</a>
 									<p class="date">
 										<FormattedDate date={post.data.pubDate} />

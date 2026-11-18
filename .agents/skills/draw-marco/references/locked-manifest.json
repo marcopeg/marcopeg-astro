@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "frozen_on": "2026-11-18",
+  "tool": "built-in image_gen",
+  "current_references": [
+    "characters/01-everyday-v3.png",
+    "characters/02-engineer-v2.png",
+    "characters/03-father-v3.png",
+    "characters/04-adventurer-v3.png"
+  ],
+  "note": "Prompts and input order are frozen verbatim. Generated results remain stochastic; retain these exact image references for visual continuity.",
+  "generations": [
+    {
+      "output": "characters/01-everyday.png",
+      "prompt_file": "prompts/01-original-everyday.md",
+      "prompt_section": "1. Everyday Marco",
+      "input_references_in_order": [
+        "photos/front-glasses.png",
+        "photos/outdoor-glasses.png",
+        "photos/smile-aviators.png",
+        "photos/short-hair-suit.png"
+      ]
+    },
+    {
+      "output": "characters/02-engineer.png",
+      "prompt_file": "prompts/02-initial-personas.md",
+      "prompt_section": "02-engineer",
+      "input_references_in_order": [
+        "characters/01-everyday.png",
+        "photos/front-glasses.png",
+        "photos/outdoor-glasses.png"
+      ]
+    },
+    {
+      "output": "characters/03-father.png",
+      "prompt_file": "prompts/02-initial-personas.md",
+      "prompt_section": "03-father",
+      "input_references_in_order": [
+        "characters/01-everyday.png",
+        "photos/front-glasses.png",
+        "photos/outdoor-glasses.png"
+      ]
+    },
+    {
+      "output": "characters/04-adventurer.png",
+      "prompt_file": "prompts/02-initial-personas.md",
+      "prompt_section": "04-adventurer",
+      "input_references_in_order": [
+        "characters/01-everyday.png",
+        "photos/front-glasses.png",
+        "photos/outdoor-glasses.png"
+      ]
+    },
+    {
+      "output": "characters/01-everyday-v2.png",
+      "prompt_file": "prompts/03-corrected-everyday-engineer.md",
+      "prompt_section": "01-everyday-v2",
+      "input_references_in_order": [
+        "characters/01-everyday.png",
+        "photos/front-glasses.png",
+        "photos/outdoor-glasses.png"
+      ]
+    },
+    {
+      "output": "characters/02-engineer-v2.png",
+      "prompt_file": "prompts/03-corrected-everyday-engineer.md",
+      "prompt_section": "02-engineer-v2",
+      "input_references_in_order": [
+        "characters/02-engineer.png",
+        "photos/front-glasses.png",
+        "photos/outdoor-glasses.png"
+      ]
+    },
+    {
+      "output": "characters/03-father-v2.png",
+      "prompt_file": "prompts/04-corrected-father.md",
+      "prompt_section": null,
+      "input_references_in_order": [
+        "characters/03-father.png",
+        "characters/01-everyday-v2.png",
+        "photos/front-glasses.png",
+        "photos/outdoor-glasses.png"
+      ]
+    },
+    {
+      "output": "characters/04-adventurer-v2.png",
+      "prompt_file": "prompts/05-corrected-adventurer.md",
+      "prompt_section": null,
+      "input_references_in_order": [
+        "characters/04-adventurer.png",
+        "characters/01-everyday-v2.png",
+        "photos/front-glasses.png",
+        "photos/outdoor-glasses.png"
+      ]
+    },
+    {
+      "output": "characters/01-everyday-v3.png",
+      "prompt_file": "prompts/06-everyday-coffee.md",
+      "prompt_section": null,
+      "input_references_in_order": [
+        "characters/01-everyday-v2.png"
+      ]
+    },
+    {
+      "output": "characters/03-father-v3.png",
+      "prompt_file": "prompts/07-father-coffee.md",
+      "prompt_section": null,
+      "input_references_in_order": [
+        "characters/03-father-v2.png"
+      ]
+    },
+    {
+      "output": "characters/04-adventurer-v3.png",
+      "prompt_file": "prompts/08-adventurer-coffee.md",
+      "prompt_section": null,
+      "input_references_in_order": [
+        "characters/04-adventurer-v2.png"
+      ]
+    }
+  ],
+  "sha256": {
+    "characters/01-everyday-v2.png": "4a081f34e20014fe3f351ef3f9a76cd7bcb6b7ecbe7ff4f58eb6a26d9431ce36",
+    "characters/01-everyday-v3.png": "3b5005430bd9b92a5adaf6fd33c7ebbbcff2425b21956a44eb7695694b989f07",
+    "characters/01-everyday.png": "37c467232fea375b70d47c51ac3f229856be29ee0c5b5e60bafb8047523ceb43",
+    "characters/02-engineer-v2.png": "5dc116a63d407724b2cacd926c4eceb316ab13d62c2b62b377edba8410d99b3b",
+    "characters/02-engineer.png": "d3b7837f743fd24a85cdf6bab6e897e778e2ab540037cb050509c9f217bfbc0a",
+    "characters/03-father-v2.png": "0a4433e987c14f31f67576b16ec3df7e8eed39b3fbd407d02b4d419f527e0898",
+    "characters/03-father-v3.png": "845657582b4f24367d254a4273260da4f15914040c7fea86615f72bbcc1281f6",
+    "characters/03-father.png": "9b508dda860a5f3accd7d62e9952ed8025f13c4b6e0cda911e6afe0fd45632b2",
+    "characters/04-adventurer-v2.png": "f059f141d09d42912cd77b9ddecbc3966884b30c471e37f41f5388e231127e92",
+    "characters/04-adventurer-v3.png": "27296deda8064314b0a714eefcb6ce756eb10da5fe5e2d819d3a04d1d56944b0",
+    "characters/04-adventurer.png": "491f45f228a7a207664ad8512625c8fb23fef7459716d452f972d8a902197196",
+    "photos/front-glasses.png": "2844a0c3a9dca4e40985def8448e20158202034449b723351a3bc97e70795864",
+    "photos/outdoor-glasses.png": "46f0bd7621b73a9baea0d23118ee716cd57af190be4ca307097a19e614d83ff3",
+    "photos/short-hair-suit.png": "70713817735c25ac15eb433c8417b3283691a9b3c97c21706c0f9092772fcef7",
+    "photos/smile-aviators.png": "0dbe6cf60e8d99cccca1406da4b351b56781f79e100e50275f77de830a547add",
+    "prompts/01-original-everyday.md": "d19dc7b9e59ec4bb8f578b4269954370901f828f81f38dec2427e06865b44556",
+    "prompts/02-initial-personas.md": "02919a1f3ea2f3e96d0055f19cf0f27258a84d0ca9ff96e3ecdb46348e38dd06",
+    "prompts/03-corrected-everyday-engineer.md": "4aa386ea968c5be69a2683d4bac610e17aec27c207826f5b696ddd948f535d10",
+    "prompts/04-corrected-father.md": "e81a01426c0528a5bd4cc75a4b2f76e76e13da03fb1a5f8f614e976ab1807452",
+    "prompts/05-corrected-adventurer.md": "e9edd053c289eb17947e97e80d936ddd574dc4e93d50ea3420c507511d6e3c72",
+    "prompts/06-everyday-coffee.md": "255390ff7f0d874b2b30cab32f4c8a88acdef5cb6748340e744e17d04644df13",
+    "prompts/07-father-coffee.md": "9c61308c931dfe899d7418c8ce808322f9e626dae6a7993e5d5a1cb5bbb9a39e",
+    "prompts/08-adventurer-coffee.md": "05e9611eefecb644a00c453ab9bebfb0627d4bf159b121204364ae57cccf2b06"
+  }
+}

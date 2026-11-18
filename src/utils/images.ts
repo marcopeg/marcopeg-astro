@@ -90,8 +90,14 @@ import sinus_rhythm_2 from '../assets/images/sinus-rhythm-2.png';
 import the_godfather from '../assets/images/the-godfather.png';
 import selfDevelopingApps from '../assets/images/the-era-for-self-developing-apps.png';
 import stopPromptingStartPairing from '../assets/images/stop-prompting-start-pairing.jpg';
+import freeToCreateHero from '../assets/images/free-to-create-hero.jpg';
+import stopPromptingMarco from '../assets/images/stop-prompting-start-pairing-marco.jpg';
+import freeToCreateMarco from '../assets/images/free-to-create-hero-marco.jpg';
 
 export const imageMap: Record<string, any> = {
+	'/content/images/2026/11/free-to-create-hero-marco.jpg': freeToCreateMarco,
+	'/content/images/2026/10/stop-prompting-start-pairing-marco.jpg': stopPromptingMarco,
+	'/content/images/2026/11/free-to-create-hero.jpg': freeToCreateHero,
 	// Hero images
 	'/content/images/2026/02/books-1.png': books1,
 	'/content/images/2026/02/50-first-ai-tasks.jpg': firstAiTasks,

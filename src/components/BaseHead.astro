@@ -2,6 +2,7 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
+import { plainDescription } from '../utils/description';
 import type { ImageMetadata } from 'astro';
 import FallbackImage from '../assets/blog-placeholder-1.jpg';
 import { SITE_TITLE } from '../consts';
@@ -16,6 +17,7 @@ interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const { title, description = '', image = FallbackImage, noindex = false } = Astro.props;
+const metadataDescription = plainDescription(description);
 const socialImage = typeof image === 'string' ? new URL(image, Astro.url) : new URL(image.src, Astro.url);
 const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
 ---
@@ -59,20 +61,20 @@ const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
 <!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="title" content={title} />
-<meta name="description" content={description} />
+<meta name="description" content={metadataDescription} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
+<meta property="og:description" content={metadataDescription} />
 <meta property="og:image" content={socialImage} />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:url" content={Astro.url} />
 <meta name="twitter:title" content={title} />
-<meta name="twitter:description" content={description} />
+<meta name="twitter:description" content={metadataDescription} />
 <meta name="twitter:image" content={socialImage} />
 
 <!-- Google Analytics - Only in Production, when configured at build time -->
