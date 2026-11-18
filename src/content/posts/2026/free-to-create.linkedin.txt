@@ -1,0 +1,15 @@
+I can think of a feature for BrAIan and be using it a few minutes later. That gives me a sugar rush.
+
+While writing about why I enjoy building it, I thought of adding names above the cursors in shared notes. One prompt, then I could probably test it before finishing the next two hundred words. Collaborative writing itself was something I wouldn't even have considered implementing before AI.
+
+The freedom comes from how cheap editing has become. I notice something annoying on the bus, change it, and keep using the app. Hundreds of small decisions can accumulate over months. I don't have to imagine every detail in advance.
+
+It feels like digital photography applied to software. You can afford another attempt. You look at the result, adjust, and try again. My twenty years of experience still go into deciding what deserves that attention.
+
+Claudio and I keep exchanging what we've built, what we've learned, and what we might try next. Some features start in those conversations. Others come from work, family, or trying to use the app while walking. Our lives keep supplying the reasons to change the software.
+
+And there is always another feature. Now that I can act on an idea immediately, I also feel the pull to act on every idea immediately. I enjoy the building. I still wonder how much I need the next rush.
+
+I wrote about that freedom, the uncomfortable part of it, and where my thoughts wandered when I started asking what might make an AI want any of this for itself. Full article in the first comment.
+
+#AI #SoftwareDevelopment #Creativity

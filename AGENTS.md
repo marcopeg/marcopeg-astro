@@ -137,13 +137,13 @@ Use the `/cover <article>` skill (`.agents/skills/cover/SKILL.md`) to design cus
 5. Once approved, automatically copies the winner to `src/assets/images/<slug>-hero.jpg`, registers it in `src/utils/images.ts`, and updates `heroImage` in the post frontmatter.
 
 ### 📢 Social Media Distribution (`/social`)
-Use the `/social <article>` skill (`.agents/skills/social/SKILL.md`) to draft distribution copy for LinkedIn and X (Twitter):
+Use the `/social <article>` skill (`.agents/skills/social/SKILL.md`) to draft distribution copy for LinkedIn, and optionally X (Twitter) when requested. The installed `.agents/skills/social-content/` provides additional repurposing guidance:
 1. Run `/social <article-slug>` (e.g., `/social stop-prompting` or `/social last published article`).
 2. Locates the article, extracts practitioner lessons and narrative tension in Marco's voice.
 3. Enforces strict anti-AI-slop rules (no contrast reveals, no broetry, no emoji bullets, no generic engagement bait).
 4. Generates a compact LinkedIn post with opening hook ("open view"), body takeaways, exit CTA, 3–5 targeted tags, and ready-to-copy first comment using the first-party short URL (`https://marcopeg.com/s/<shortCode>`).
-5. Generates an impactful X (Twitter) post (strictly ≤ 275 characters) and optional thread using the first-party short URL (`https://marcopeg.com/s/<shortCode>`) and tags.
-6. Archives drafts in `materials/social/<slug>/social.md` (excluded from Docker builds via `.dockerignore`) and iterates with the user.
+5. When requested, generates an impactful X (Twitter) post (strictly ≤ 275 characters) and optional thread using the first-party short URL (`https://marcopeg.com/s/<shortCode>`) and tags.
+6. Saves current LinkedIn copy beside the article as `<slug>.linkedin.txt` and the first comment as `<slug>.linkedin-comment.txt`. These are plain copy-ready text. Keep working notes/history in `materials/social/<slug>/`, and create X content only when requested. The content loader matches only `.md`/`.mdx`, so the text siblings do not become blog pages.
 
 ---
 

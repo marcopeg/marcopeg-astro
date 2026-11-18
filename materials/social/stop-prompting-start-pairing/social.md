@@ -1,5 +1,7 @@
 # Social Distribution Draft: Stop Prompting, Start Pairing
 
+Historical working package. The current LinkedIn copy lives beside the article in `src/content/posts/2026/it-started-with-a-quick-checkup-how-to-talk-to-an-ai-in-production.linkedin.txt`, with its first comment in `.linkedin-comment.txt`. Recheck facts against the current article before reusing any draft below, including the X options.
+
 - **Article**: Stop Prompting, Start Pairing: Securing a Live VPS with AI
 - **Slug**: `stop-prompting-start-pairing`
 - **Canonical URL**: `https://marcopeg.com/it-started-with-a-quick-checkup-how-to-talk-to-an-ai-in-production/`

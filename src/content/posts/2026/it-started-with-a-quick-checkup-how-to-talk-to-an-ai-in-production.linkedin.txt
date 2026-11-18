@@ -1,0 +1,13 @@
+A five-minute VPS checkup with an AI agent turned into a production hardening session.
+
+The server had been up for 119 days. There were 54 outdated packages, a blocked update source, and a kernel upgrade waiting for a reboot. My first prompt was simply to check the machine and help me update it.
+
+Then we looked at the firewall. Docker was exposing a port I thought UFW had blocked. SSH was getting hammered by repeated login attempts, and fail2ban wasn't installed. This VPS was running nine live containers, including my blog and client tools.
+
+My experience became useful whenever the agent proposed a change. Disabling password authentication everywhere would also remove an emergency access path I wanted to keep. Keeping my existing password-accessible user wasn't a good answer either: it had passwordless sudo. We worked through those consequences before applying the configuration.
+
+That is what I enjoy about pairing with an agent. I can ask it to inspect the actual machine, challenge the proposal, and check what happened after a change. It handles the commands quickly. I still have to notice when a technically correct answer would leave me with a setup I don't want.
+
+I documented the session, the commands, and the decisions behind them. Full walkthrough in the first comment.
+
+#AI #DevOps #SoftwareEngineering

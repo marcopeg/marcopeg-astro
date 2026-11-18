@@ -1,0 +1,2 @@
+Stop Prompting, Start Pairing: the full VPS hardening session and pairing notes.
+https://marcopeg.com/s/vps

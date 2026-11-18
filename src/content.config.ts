@@ -2,7 +2,7 @@ import { defineCollection, z } from 'astro:content';
 import { glob, file } from 'astro/loaders';
 
 const posts = defineCollection({
-	// Load Markdown and MDX files in the `src/content/posts/` directory.
+	// Load only article Markdown/MDX. Sibling *.linkedin*.txt drafts are editorial files.
 	loader: glob({ base: './src/content/posts', pattern: '**/*.{md,mdx}' }),
 	// Type-check frontmatter using a schema
 	schema: ({ image }) =>
